@@ -29,8 +29,6 @@ function create(q,v_modid)
 	--load the mod framework as a global for use within this file
 	Mod = require("ModFrameworkModule")
 
-	Mod.Common.DumpObjToMessage(mod_info)
-
 	--path to the mod folder
 	local modFilepath = Mod.Common.GetModPath()
 

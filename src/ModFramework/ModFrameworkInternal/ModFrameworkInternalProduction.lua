@@ -313,7 +313,7 @@ end
 ---@return game_obj_component objComponent the new obj_component instance
 function Private.AddComponentInstance()
 	local obj_component = Common.GetObjComponent()
-	local newComponent = instance_create_depth(0, 0, -500, obj_component)
+	local newComponent = instance_create_depth(0, 0, -1, obj_component)
 	--auto assign based on obj_database info
 	newComponent.logo = -4
 	return newComponent

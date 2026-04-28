@@ -1,7 +1,9 @@
 
 ---One time script when the game is started
 ---@param q game_obj_component_shop
-function create(q)--one time script when save is loaded	
+function create(q)
+    --load the mod framework as a global for use within this file
+	Mod = require("ModFrameworkModule")
 end
 
 ---update information when item is picked

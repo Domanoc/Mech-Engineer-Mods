@@ -6,6 +6,7 @@
 ---@class game_obj_component
 ---@field comp_data_type number the index number of the component
 ---@field comp_type ComponentType the type of component
+---@field depth number the current depth lower number are drawn in front of high number depths
 ---@field item_pos number
 ---@field logo number the index of the sprite, use -4 to auto set it
 ---@field logo_index number
