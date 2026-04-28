@@ -4,6 +4,10 @@
 function create(q)
     --load the mod framework as a global for use within this file
 	Mod = require("ModFrameworkModule")
+--
+--    local component = Mod.Common.GetObjComponent()
+--    local instance = instance_create_depth(q.weapon_start_x + 96 * 4, q.weapon_start_y + 96 * 4, -1, component)
+--    
 end
 
 ---update information when item is picked
@@ -17,8 +21,54 @@ end
 function done(q, i)
 end
 
+local i = 0
 ---draw when item is placed on the table to watch its stats
 ---@param q game_obj_component_shop
----@param cut_item_type any
-function draw_item_text(q, cut_item_type)
+---@param cur_item_type number
+function draw_item_text(q, cur_item_type)
+--
+--    local labelColor = make_colour_rgb(204, 165, 118)
+--    local valueColor = make_colour_rgb(114, 165, 204)
+--    local labelX = 834
+--    local valueX = 1088
+--    local startY = 686
+--    local rowHeight = 32
+--    local row = 0
+--
+--    local v_text = "WEIGHT";
+--	local v_amount = "102";
+--
+--    local lines = {
+--        { Label = "WEIGHT", Value = "102" },
+--        { Label = "PASSIVE ARMOR", Value = "4" },
+--    }
+--
+--	if (cur_item_type == 200) then
+--
+--        for _, line in ipairs(lines) do
+--            --Draw label
+--            draw_set_halign(0)
+--            draw_set_color(labelColor)
+--            draw_text_transformed(labelX, startY + (rowHeight * row), line.Label, 2, 2, 0)
+--            --Draw value
+--            draw_set_color(valueColor)
+--            draw_set_halign(2)
+--            draw_text_transformed(valueX, startY + (rowHeight * row), line.Value, 2, 2, 0)
+--
+--            row = row + 1
+--        end
+--
+--        --Draw label
+--        draw_set_halign(0)
+--        draw_set_color(labelColor)
+--        draw_text_transformed(labelX, startY + (rowHeight * row), tostring(i), 2, 2, 0)
+--
+--
+--		draw_set_color(valueColor)
+--		draw_set_halign(2)
+--		draw_text_transformed(valueX, 886, tostring(i), 2, 2, 0)
+--
+--        i = i + 1
+--        i = i % 20
+--	end;
 end
