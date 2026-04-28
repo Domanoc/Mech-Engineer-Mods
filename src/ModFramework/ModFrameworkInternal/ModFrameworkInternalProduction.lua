@@ -167,6 +167,11 @@ function Production.StoreShopComponents()
 	Private.StoreShopComponents(obj_component_shop.comp_solenoid)
 	Private.StoreShopComponents(obj_component_shop.comp_wep)
 
+	--Temporary work around for the "Robot Pilots Mod"
+	if(obj_component_shop.comp_robot_pilot ~= nil) then
+		table.insert(Storage.AllShopComponents, obj_component_shop.comp_robot_pilot)
+	end
+
 	--Store weapons per type
 	for _, component in pairs(obj_component_shop.comp_wep) do
 		local weaponData = obj_database.weapon_stat[component.comp_data_type + 1]

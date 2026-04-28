@@ -403,6 +403,12 @@ function Private.ArrangeSupportComponents()
         obj_component_shop.comp_rocket,
         obj_component_shop.comp_engineer,
     }
+
+    --Temporary work around for the "Robot Pilots Mod"
+    if(obj_component_shop.comp_robot_pilot ~= nil) then
+		table.insert(components, obj_component_shop.comp_robot_pilot)
+	end
+
     Private.ArrangeLoopHorizontal(components, index, settings)
 end
 
