@@ -36,13 +36,19 @@ function draw_text_transformed(x, y, string, xscale, yscale, angle) end
 function draw_text_ext(x, y, string, sep, w) end
 
 ---This function is used to align text along the vertical axis and changing the vertical alignment will change the position and direction 
----in which all further text is drawn, with the default value being fa_top. The following constants are accepted: "fa_top"|"fa_middle"|"fa_bottom"
----@param valign "fa_top"|"fa_middle"|"fa_bottom" Vertical alignment constant
+---in which all further text is drawn, with the default value being fa_top. The following constants are accepted: "fa_top", "fa_middle", "fa_bottom"
+---fa_top    = 0
+---fa_middle = 1
+---fa_bottom = 2
+---@param valign 0|1|2 Vertical alignment constant (fa_top = 0, fa_middle = 1, fa_bottom = 2)
 function draw_set_valign(valign) end
 
 ---This function is used to align text along the horizontal axis and changing the horizontal alignment will change the position and direction 
----in which all further text is drawn with the default value being fa_left. The following constants are accepted: "fa_left"|"fa_center"|"fa_right"
----@param halign "fa_left"|"fa_center"|"fa_right" Horizontal alignment constant
+---in which all further text is drawn with the default value being fa_left. The following constants are accepted: "fa_left", "fa_center", "fa_right"
+---fa_left   = 0
+---fa_center = 1
+---fa_right  = 2
+---@param halign 0|1|2 Horizontal alignment constant (fa_left = 0, fa_center = 1, fa_right = 2)
 function draw_set_halign(halign) end
 
 ---This function will set the font to be used for all further text drawing. 

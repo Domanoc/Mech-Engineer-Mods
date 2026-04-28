@@ -27,7 +27,7 @@
 ---@field comp_safety game_obj_component[] --array containing the shop components for safety
 ---@field comp_solenoid game_obj_component[] --array containing the shop components for solenoids
 ---@field comp_wep game_obj_component[] --array containing the shop components for weapons
----@field cur_item game_obj_component_shop_current_item|0
+---@field cur_item game_obj_component|0
 ---@field cur_item_type number
 ---@field days_left number
 ---@field disassemble_pressed number

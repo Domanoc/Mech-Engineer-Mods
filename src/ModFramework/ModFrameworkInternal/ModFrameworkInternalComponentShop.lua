@@ -155,8 +155,8 @@ function ComponentShop.ShopDraw()
 
         --Draw for the weapon indicators
         local weaponIndicatorSprite = asset_get_index("spr_wep_indicator")
-        for _, weaponIndidator in ipairs(Storage.WeaponIndicators) do
-            draw_sprite_ext(weaponIndicatorSprite, weaponIndidator.SubImageIndex, weaponIndidator.X, weaponIndidator.Y, 2, 2, 0, 16777215, 1)
+        for _, weaponIndicator in ipairs(Storage.WeaponIndicators) do
+            draw_sprite_ext(weaponIndicatorSprite, weaponIndicator.SubImageIndex, weaponIndicator.X, weaponIndicator.Y, 2, 2, 0, 16777215, 1)
         end
 
         --Fix the mouse cursor moving behind the elements

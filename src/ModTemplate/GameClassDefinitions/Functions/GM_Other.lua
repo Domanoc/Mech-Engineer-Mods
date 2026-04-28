@@ -19,3 +19,12 @@ function asset_get_index(name) end
 ---This function creates a pop-up message box which displays the given string and a button marked "Ok" to close it.
 ---@param value string The string to show in the pop-up message.
 function show_message(value) end
+
+------GameMaker provides this function (as well as others) to permit the user to make their own colors. 
+---This particular function takes three component parts, the red, the green and the blue components of the color that you wish to make.
+---These values are taken as being between 0 and 255 so you can make 16,777,216 (256*256*256) colors with this!
+---@param red number The red component of the color
+---@param green number The green component of the color
+---@param blue number The blue component of the color
+---@return number
+function make_colour_rgb(red, green, blue) end
