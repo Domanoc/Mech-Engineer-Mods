@@ -1,4 +1,4 @@
----@class WeaponData Dataset for adding a new weapon.
+---@class WeaponCreationData Dataset for adding a new weapon.
 ---@field ReferenceName string The reference name of the weapon, used to find its references..
 ---@field ComponentSize ComponentSize The size of the component when constructing it.
 ---@field IsResearched boolean True if the component is researched from the start of the game, false otherwise.
@@ -24,6 +24,10 @@
 ---@field SpriteHuge string The huge sprite for the weapon.
 ---@field BlueLength number The range of a energy weapon, default is 750. Not used for non energy weapons.
 ---@field Description LocalizedString The description text for a weapon. Used when the weapon is added to the main slot in engineering.
+
+---@class ModdedComponentWeaponData Dataset containing weapon info.
+---@field Description string The description text for the weapon component.
+---@field BlueLength number The range of a blue weapon for a weapon component, zero otherwise.
 
 ---@class WeaponIndicatorLocation Dataset containing the information to display a weapon indicator sprite.
 ---@field X number the x position.

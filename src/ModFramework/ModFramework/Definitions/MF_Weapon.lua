@@ -25,6 +25,10 @@
 ---@field BlueLength number The range of a energy weapon, default is 750. Not used for non energy weapons.
 ---@field Description LocalizedString The description text for a weapon. Used when the weapon is added to the main slot in engineering.
 
+---@class ModdedComponentWeaponData Dataset containing weapon info.
+---@field Description string The description text for the weapon component.
+---@field BlueLength number The range of a blue weapon for a weapon component, zero otherwise.
+
 ---@class WeaponIndicatorLocation Dataset containing the information to display a weapon indicator sprite.
 ---@field X number the x position.
 ---@field Y number the y position.

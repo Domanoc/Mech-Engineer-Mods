@@ -24,7 +24,7 @@ local Types = require("ModFrameworkTypes")
 ------------------------------------------------------------------------------
 
 ---Adds a research item to the tech tree
----@param researchData ResearchData the dataset for the new research item
+---@param researchData ResearchCreationData the dataset for the new research item
 ---@return number? resNumber the number for the research as found in the debug view (F6) of the research screen (upper left white number)
 function Research.AddResearch(researchData)
 	local checkPosition = Private.GetResearchByPosition(researchData.Position)

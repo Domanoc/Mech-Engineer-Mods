@@ -13,19 +13,6 @@
 ---@field WeaponData ModdedComponentWeaponData? The additional weapon data for weapon components, nil otherwise.
 ---@field CustomData ModdedComponentCustomData? The additional custom component data, nil otherwise.
 
----@class ModdedComponentWeaponData Dataset containing weapon info.
----@field Description string The description text for the weapon component.
----@field BlueLength number The range of a blue weapon for a weapon component, zero otherwise.
-
----@class ModdedComponentCustomData Dataset containing the custom component info.
----@field PriceMetallite number the amount of metallite needed to produce this custom component
----@field PriceBjorn number the amount of bjorn needed to produce this custom component
----@field PriceMunilon number the amount of munilon needed to produce this custom component
----@field PriceSkalaknit number the amount of skalaknit needed to produce this custom component
----@field PriceStaff number the amount of staff needed to produce this custom component
----@field ProductionDays number the amount of days it takes to produce this custom component
----@field ShopDescription ShopDescriptionLine[]
-
----@class ModdedComponentSearchCriteria
+---@class ModdedComponentSearchCriteria Dataset containing info for reference searches. 
 ---@field ReferenceName string The reference name of the component.
 ---@field ComponentType GameComponentType The type of component.

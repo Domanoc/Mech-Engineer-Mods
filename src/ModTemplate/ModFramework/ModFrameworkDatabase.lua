@@ -164,7 +164,7 @@ function Private.AddCell(mech, cell_num, cell)
 end
 
 ---Add a new weapon to the games obj_database
----@param weaponData WeaponData
+---@param weaponData WeaponCreationData
 function Database.AddWeapon(weaponData)
 	local component = Common.GetModdedComponent(weaponData.ReferenceName, Types.ComponentTypes.Weapon)
 	if (component ~= nil) then
