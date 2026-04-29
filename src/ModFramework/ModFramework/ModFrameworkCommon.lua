@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------------
 
 ---Access to the Common functions.
----@class ModFrameworkCommon
+---@type ModFrameworkCommon
 local Common = {}
 
 ---Access to the private functions in this file.
@@ -27,6 +27,7 @@ function Common.GenerateLocalizationFiles()
 end
 
 ---Gets the filepath to the mod folder.
+---@return string? filepath The filepath to the mod folder or nil if the mod was not found.
 function Common.GetModPath()
 	local level = 2
 	local source

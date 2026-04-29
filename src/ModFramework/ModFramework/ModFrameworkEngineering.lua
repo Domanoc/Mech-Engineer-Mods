@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------------
 
 ---Access to the functions for the Engineering tab.
----@class ModFrameworkEngineering
+---@type ModFrameworkEngineering
 local Engineering = {}
 
 ---Access to the private functions in this file.

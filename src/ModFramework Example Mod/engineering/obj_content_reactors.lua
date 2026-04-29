@@ -4,7 +4,7 @@
 ---@param v_modid string
 function create(q,v_modid)--one time script when save is loaded
 	--load the mod framework as a global for use within this file
-	Mod = require("ModFrameworkModule")
+	Mod = require("ModFramework")
 
 	--This function is run every time the game is started
 	--We need to check if the this start is a new game or from a loaded save

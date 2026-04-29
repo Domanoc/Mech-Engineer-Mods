@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------------
 
 ---Access to the functions for the Database.
----@class ModFrameworkDatabase
+---@type ModFrameworkDatabase
 local Database = {}
 
 ---Access to the private functions in this file.

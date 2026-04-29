@@ -4,7 +4,7 @@
 ---@param v_modid string
 function create(q, v_modid)
 	--load the mod framework as a global for use within this file
-	Mod = require("ModFrameworkModule")
+	Mod = require("ModFramework")
 
 	--path to the mod folder
 	local modFilepath = Mod.Common.GetModPath()

@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------------
 
 ---Access to the functions for the Hanger tab.
----@class ModFrameworkHanger
+---@type ModFrameworkHanger
 local Hanger = {}
 
 ---Access to the private functions in this file.

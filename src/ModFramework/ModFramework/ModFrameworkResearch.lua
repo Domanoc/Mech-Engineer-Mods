@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------------
 
 ---Access to the functions for the Research tab.
----@class ModFrameworkResearch
+---@type ModFrameworkResearch
 local Research = {}
 
 ---Access to the private functions in this file.

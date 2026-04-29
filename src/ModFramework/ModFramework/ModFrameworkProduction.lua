@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------------
 
 ---Access to the functions for the Production tab.
----@class ModFrameworkProduction
+---@type ModFrameworkProduction
 local Production = {}
 
 ---Access to the private functions in this file.

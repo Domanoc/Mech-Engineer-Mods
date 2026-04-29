@@ -27,7 +27,7 @@ function create(q,v_modid)
 	--Check if the ModFramework can be found
 	CheckForModFramework()
 	--load the mod framework as a global for use within this file
-	Mod = require("ModFrameworkModule")
+	Mod = require("ModFramework")
 end
 
 ---saving system deletes the file and creates new one before saving new info

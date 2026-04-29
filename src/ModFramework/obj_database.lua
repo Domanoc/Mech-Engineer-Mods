@@ -16,9 +16,6 @@ function create(q,v_modid)
 	Internal = require("ModFrameworkInternal")
 	Internal.RegisterFramework()
 	Internal.ComponentShop.LoadShopSprites()
-
-	local a = require("TestFile2")
-	a.GetPath("")
 end
 
 ---saving system deletes the file and creates new one before saving new info

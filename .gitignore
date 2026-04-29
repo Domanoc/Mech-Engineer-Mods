@@ -4,7 +4,9 @@
 !.vscode/settings.json
 
 # Exclude the powershell scripts
-.powershell
+.powershell/*
+!.powershell/
+!.powershell/GenerateDocs.ps1
 
 # Exclude the export logs
 *.log

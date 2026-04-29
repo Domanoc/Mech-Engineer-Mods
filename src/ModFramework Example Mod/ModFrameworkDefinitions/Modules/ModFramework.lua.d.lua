@@ -1,37 +1,42 @@
-------------------------------------------------------------------------------
---- GLOBAL MODFRAMEWORK FUNCTIONS --------------------------------------------
-------------------------------------------------------------------------------
+---@meta
 
 ---@class ModFramework the main ModFramework module
 local ModFramework = {}
 
 ------------------------------------------------------------------------------
 
-local Common = require("ModFrameworkCommon")
+---@type ModFrameworkCommon
+local Common = {}
 ---Access to the Common functions.
 ModFramework.Common = Common
 
-local Database = require("ModFrameworkDatabase")
+---@type ModFrameworkDatabase
+local Database = {}
 ---Access to the functions for the Database.
 ModFramework.Database = Database
 
-local Engineering = require("ModFrameworkEngineering")
+---@type ModFrameworkEngineering
+local Engineering = {}
 ---Access to the functions for the Engineering tab.
 ModFramework.Engineering = Engineering
 
-local Hanger = require("ModFrameworkHanger")
+---@type ModFrameworkHanger
+local Hanger = {}
 ---Access to the functions for the Hanger tab.
 ModFramework.Hanger = Hanger
 
-local Production = require("ModFrameworkProduction")
+---@type ModFrameworkProduction
+local Production = {}
 ---Access to the functions for the Production tab.
 ModFramework.Production = Production
 
-local Research = require("ModFrameworkResearch")
+---@type ModFrameworkResearch
+local Research = {}
 ---Access to the functions for the Research tab.
 ModFramework.Research = Research
 
-local Types = require("ModFrameworkTypes")
+---@type ModFrameworkTypes
+local Types = {}
 ---Access to Types used by the framework.
 ModFramework.Types = Types
 
