@@ -22,9 +22,9 @@ local Common = require("ModFrameworkCommon")
 ------------------------------------------------------------------------------
 
 ---Add a new pilot to the hanger
----@param pilotData PilotData dataset for adding a new pilot
+---@param pilotData PilotCreationData dataset for adding a new pilot
 function Hanger.AddPilot(pilotData)
-    ---@type LocalizedPilotData
+    ---@type LocalizedPilotCreationData
     local localizedPilotData = {
         Template = pilotData.Template,
         WorkExperience = Common.GetLocalizedString("PilotWorkExperience", pilotData.WorkExperience.ReferenceName, pilotData.WorkExperience.LocalizedString),

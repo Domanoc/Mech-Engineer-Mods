@@ -38,7 +38,7 @@ function Hanger.ProcessPilotDataQueue()
 end
 
 ---Add a new pilot to the hanger
----@param pilotData LocalizedPilotData dataset for adding a new pilot
+---@param pilotData LocalizedPilotCreationData dataset for adding a new pilot
 function Private.AddPilotFromQueue(pilotData)
 	local obj_content_pilots = Common.GetObjContentPilots()
 

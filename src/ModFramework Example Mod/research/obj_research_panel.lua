@@ -25,7 +25,7 @@ function create(q, v_modid)
 	
 	--We can create a new research and as a return value we get the new res number to create links with.
 	local exampleResearchResNumber = Mod.Research.AddResearch({
-		Name = "example_research_1",							--the name of the research, used to find its reference
+		ReferenceName = "example_research_1",					--the name of the research, used to find its reference
 		Position = 40,											--position number on the research tree. You can see positions in the game with f6 (debug mode)
 		PrerequisiteResearchResNumber = 						--the res number of the prerequisite research that unlocks this research, each research can only be the prerequisite for 3 other researches. leave nil for no prerequisite.
 			baseResearchResNumbers.FIRST_GENERATION_ENGINE,
@@ -46,7 +46,7 @@ function create(q, v_modid)
 
 	--We can use the previous research return to set it as a prerequisite for a new research.
 	Mod.Research.AddResearch({
-		Name = "example_research_2",							--the name of the research, used to find its reference
+		ReferenceName = "example_research_2",					--the name of the research, used to find its reference
 		Position = 31,											--position number on the research tree. You can see positions in the game with f6 (debug mode)
 		PrerequisiteResearchResNumber = 						--the res number of the prerequisite research that unlocks this research, each research can only be the prerequisite for 3 other researches. leave nil for no prerequisite.
 			exampleResearchResNumber,

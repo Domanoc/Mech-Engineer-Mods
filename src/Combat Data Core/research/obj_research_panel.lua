@@ -15,7 +15,7 @@ function create(q, v_modid)
 	local componentTypes = Mod.Types.ComponentTypes
 
 	local dataCore = Mod.Research.AddResearch({
-		Name = "CDC_DataCore",
+		ReferenceName = "CDC_DataCore",
 		Position = 130,
 		Condition = researchConditions.Researching,
 		RequiredDays = 4,
@@ -29,7 +29,7 @@ function create(q, v_modid)
 	})
 
 	local deepDataCore = Mod.Research.AddResearch({
-		Name = "CDC_DeepDataCore",
+		ReferenceName = "CDC_DeepDataCore",
 		Position = 131,
 		PrerequisiteResearchResNumber = dataCore,
 		RequiredDays = 18,
@@ -43,7 +43,7 @@ function create(q, v_modid)
 	})
 
 	local finalDataCore = Mod.Research.AddResearch({
-		Name = "CDC_FinalDataCore",
+		ReferenceName = "CDC_FinalDataCore",
 		Position = 142,
 		PrerequisiteResearchResNumber = deepDataCore,
 		RequiredDays = 22,
@@ -60,7 +60,7 @@ function create(q, v_modid)
 		{ ReferenceName = "CDC_NovaMech", ComponentType = componentTypes.Mech }
 	})
 	local novaResearch = Mod.Research.AddResearch({
-		Name = "CDC_NovaResearch",
+		ReferenceName = "CDC_NovaResearch",
 		Position = 140,
 		PrerequisiteResearchResNumber = dataCore,
 		RequiredDays = 4,
@@ -77,7 +77,7 @@ function create(q, v_modid)
 		{ ReferenceName = "CDC_SentinelMech", ComponentType = componentTypes.Mech }
 	})
 	Mod.Research.AddResearch({
-		Name = "CDC_SentinelResearch",
+		ReferenceName = "CDC_SentinelResearch",
 		Position = 132,
 		PrerequisiteResearchResNumber = deepDataCore,
 		RequiredDays = 6,
@@ -94,7 +94,7 @@ function create(q, v_modid)
 		{ ReferenceName = "CDC_BehemothMech", ComponentType = componentTypes.Mech }
 	})
 	Mod.Research.AddResearch({
-		Name = "CDC_BehemothResearch",
+		ReferenceName = "CDC_BehemothResearch",
 		Position = 143,
 		PrerequisiteResearchResNumber = finalDataCore,
 		RequiredDays = 6,
@@ -111,7 +111,7 @@ function create(q, v_modid)
 		{ ReferenceName = "CDC_EchoMech", ComponentType = componentTypes.Mech }
 	})
 	Mod.Research.AddResearch({
-		Name = "CDC_EchoResearch",
+		ReferenceName = "CDC_EchoResearch",
 		Position = 141,
 		PrerequisiteResearchResNumber = novaResearch,
 		RequiredDays = 6,
@@ -128,7 +128,7 @@ function create(q, v_modid)
 		{ ReferenceName = "CDC_HighTechSolenoid", ComponentType = componentTypes.Solenoid }
 	})
 	Mod.Research.AddResearch({
-		Name = "CDC_HighTechSolenoidResearch",
+		ReferenceName = "CDC_HighTechSolenoidResearch",
 		Position = 133,
 		PrerequisiteResearchResNumber = finalDataCore,
 		RequiredDays = 2,
@@ -145,7 +145,7 @@ function create(q, v_modid)
 		{ ReferenceName = "CDC_Howitzer", ComponentType = componentTypes.Weapon }
 	})
 	Mod.Research.AddResearch({
-		Name = "CDC_HowitzerResearch",
+		ReferenceName = "CDC_HowitzerResearch",
 		Position = 120,
 		PrerequisiteResearchResNumber = dataCore,
 		RequiredDays = 2,
@@ -162,7 +162,7 @@ function create(q, v_modid)
 		{ ReferenceName = "CDC_LaserPulseCannon", ComponentType = componentTypes.Weapon }
 	})
 	Mod.Research.AddResearch({
-		Name = "CDC_LaserPulseCannonResearch",
+		ReferenceName = "CDC_LaserPulseCannonResearch",
 		Position = 144,
 		PrerequisiteResearchResNumber = finalDataCore,
 		RequiredDays = 8,
