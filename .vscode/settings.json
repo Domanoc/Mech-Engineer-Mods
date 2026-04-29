@@ -9,14 +9,18 @@
     },
 
     "files.exclude": {
+        "**/ModFramework Example Mod/ModFrameworkDefinitions": true,
         "**/ModFramework Example Mod/GameClassDefinitions": true,
         "**/ModFramework Example Mod/ModFramework": true,
+        "**/ModTemplate/ModFrameworkDefinitions": true,
         "**/ModTemplate/GameClassDefinitions": true,
         "**/ModTemplate/ModFramework": true,
     },
     "search.exclude": {
+        "**/ModFramework Example Mod/ModFrameworkDefinitions": true,
         "**/ModFramework Example Mod/GameClassDefinitions": true,
         "**/ModFramework Example Mod/ModFramework": true,
+        "**/ModTemplate/ModFrameworkDefinitions": true,
         "**/ModTemplate/GameClassDefinitions": true,
         "**/ModTemplate/ModFramework": true,
     },

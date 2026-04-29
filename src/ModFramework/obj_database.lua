@@ -3,7 +3,6 @@
 ---@param q game_obj_database
 ---@param v_modid string
 function create(q,v_modid)
-
 	--path to the current file
 	local currentFilePath = (mod_info[v_modid]):gsub("obj_database.lua","")
 
@@ -17,6 +16,9 @@ function create(q,v_modid)
 	Internal = require("ModFrameworkInternal")
 	Internal.RegisterFramework()
 	Internal.ComponentShop.LoadShopSprites()
+
+	local a = require("TestFile2")
+	a.GetPath("")
 end
 
 ---saving system deletes the file and creates new one before saving new info
