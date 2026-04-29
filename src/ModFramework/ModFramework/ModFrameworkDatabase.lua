@@ -243,16 +243,16 @@ function Database.AddWeapon(weaponData)
 end
 
 ---Add a new solenoid to the games obj_database
----@param solenoidData SolenoidData
+---@param solenoidData SolenoidCreationData
 function Database.AddSolenoid(solenoidData)
-	local component = Common.GetModdedComponent(solenoidData.Name, Types.ComponentTypes.Solenoid)
+	local component = Common.GetModdedComponent(solenoidData.ReferenceName, Types.ComponentTypes.Solenoid)
 	if (component ~= nil) then
-		local newName = string.sub(solenoidData.Name.."_"..tostring(irandom_range(1000, 10000000)), 1, -3)
+		local newName = string.sub(solenoidData.ReferenceName.."_"..tostring(irandom_range(1000, 10000000)), 1, -3)
 		local message = "Trying to add a new component, but the reference name was already used.\n"
 		message = message.."Please provide a reference name that is unique, consider adding a prefix or suffix referencing your mod to prevent other mods from using the same name.\n\n"
-		message = message.."Debug info:\nName given: "..solenoidData.Name.."\nGenerated name: "..newName
+		message = message.."Debug info:\nName given: "..solenoidData.ReferenceName.."\nGenerated name: "..newName
 		Common.ShowError(message)
-		solenoidData.Name = newName
+		solenoidData.ReferenceName = newName
 	end
 	local obj_database = Common.GetObjDatabase()
 
@@ -286,7 +286,7 @@ function Database.AddSolenoid(solenoidData)
 	--Add the newly modded item to the component list. So we can find the reference later.
 	---@type ModdedComponent
 	local moddedComponent = {
-		ReferenceName = solenoidData.Name,
+		ReferenceName = solenoidData.ReferenceName,
 		ComponentType = Types.ComponentTypes.Solenoid,
 		ComponentSize = solenoidData.ComponentSize,
 		DatabaseIndex = solenoidIndex,

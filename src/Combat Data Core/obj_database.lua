@@ -254,7 +254,7 @@ function create(q,v_modid)
 	------------------------------------------------------------------------------
 
 	Mod.Database.AddSolenoid({
-		Name = "CDC_HighTechSolenoid",
+		ReferenceName = "CDC_HighTechSolenoid",
 		ComponentSize =     componentSizes.Small,
 		IsResearched = 	    false,
 		CanBeConstructed =  true,
