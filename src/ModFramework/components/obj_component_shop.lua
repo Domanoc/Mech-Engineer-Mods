@@ -11,6 +11,7 @@ end
 ---update information when item is picked
 ---@param q game_obj_component_shop
 function update_prices(q)
+	Internal.Production.UpdateCustomTypePrices()
 end
 
 ---if component is read.
@@ -23,4 +24,5 @@ end
 ---@param q game_obj_component_shop
 ---@param cut_item_type any
 function draw_item_text(q, cut_item_type)
+	Internal.Production.DrawCustomComponentDescription()
 end

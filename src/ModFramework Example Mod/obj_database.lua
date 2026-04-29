@@ -29,6 +29,8 @@ function create(q,v_modid)
 	--load the mod framework as a global for use within this file
 	Mod = require("ModFramework")
 
+	--Mod.Common.GenerateLocalizationFiles()
+
 	--path to the mod folder
 	local modFilepath = Mod.Common.GetModPath()
 
@@ -160,8 +162,9 @@ function create(q,v_modid)
 		ProductionDays =    2,					  --The amount of days it takes to produce this custom component
 		Sprite = 		    modFilepath.."sprites\\example_solenoid.png",
 		ShopDescription = {
-			{ Label = { LocalizedDefaultValue = "Custom" }, Value = 1 },
-			{ Label = { LocalizedDefaultValue = "SecondLine" }, Value = 1 }
+			{ Label = { LocalizedDefaultValue = "WEIGHT WAIT WEIGHT WAITING FOR THIS" }, Value = 65 },
+			{ Label = { LocalizedDefaultValue = "CUSTOM" }, Value = 0.45 },
+			{ Label = { LocalizedDefaultValue = "SECOND LINE" }, Value = 1 }
 		}
 	})
 end

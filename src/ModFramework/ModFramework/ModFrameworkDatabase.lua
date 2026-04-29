@@ -350,6 +350,17 @@ function Database.AddCustomComponent(componentData)
 
 	local spriteIndex = Common.AddSprite(componentData.Sprite, 0, false, false, 0, 0)
 
+	---@type LocalizedShopDescriptionLine[]
+	local shopDescription = {}
+	for Key, line in ipairs(componentData.ShopDescription) do
+		---@type LocalizedShopDescriptionLine
+		local localizedLine = {
+			Label = Common.GetLocalizedString("ShopDescription", componentData.ReferenceName.."_"..Key, line.Label),
+			Value = line.Value
+		}
+		table.insert(shopDescription, localizedLine)
+	end
+
 	---@type ModdedComponent
 	local moddedComponent = {
 		ReferenceName = componentData.ReferenceName,
@@ -368,7 +379,7 @@ function Database.AddCustomComponent(componentData)
 			PriceSkalaknit = componentData.PriceSkalaknit,
 			PriceStaff = componentData.PriceStaff,
 			ProductionDays = componentData.ProductionDays,
-			ShopDescription = componentData.ShopDescription
+			ShopDescription = shopDescription
 		}
 	}
 	table.insert(Storage.ModdedComponentList, moddedComponent)

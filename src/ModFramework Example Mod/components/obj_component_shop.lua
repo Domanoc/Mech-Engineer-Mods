@@ -2,12 +2,6 @@
 ---One time script when the game is started
 ---@param q game_obj_component_shop
 function create(q)
-    --load the mod framework as a global for use within this file
-	Mod = require("ModFramework")
---
---    local component = Mod.Common.GetObjComponent()
---    local instance = instance_create_depth(q.weapon_start_x + 96 * 4, q.weapon_start_y + 96 * 4, -1, component)
---    
 end
 
 ---update information when item is picked

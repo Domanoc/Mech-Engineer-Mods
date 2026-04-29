@@ -19,10 +19,16 @@ local Common = require("ModFrameworkCommon")
 local Types = require("ModFrameworkTypes")
 
 ---Flag indicating if the shop components are stored
+---@type boolean
 local areShopComponentsStored = false
 
 ---Flag indicating if the modded weapon descriptions are set
+---@type boolean
 local isWeaponDescComplete = false
+
+---A timer number to animate long texts
+---@type number
+local textScrollTimer = 0
 
 ------------------------------------------------------------------------------
 ------------------------------------------------------------------------------
@@ -231,6 +237,79 @@ function Production.AddModdedComponents()
 			end
 		end
 	end
+end
+
+---Sets the shop prices for the custom components
+---
+---Used in the update_prices function of obj_component_shop.lua
+function Production.UpdateCustomTypePrices()
+	local obj_component_shop = Common.GetObjComponentShop()
+	local component = Private.GetCustomComponent(obj_component_shop.cur_item.comp_type);
+
+	if (component ~= nil and 
+		component.comp_type >= 1000 and
+		component.comp_type < Storage.NextCustomComponentType and
+		component.CustomData ~= nil) then
+		obj_component_shop.price_metallite = component.CustomData.PriceMetallite
+		obj_component_shop.price_bjorn = component.CustomData.PriceBjorn
+		obj_component_shop.price_munilon = component.CustomData.PriceMunilon
+		obj_component_shop.price_skalaknit = component.CustomData.PriceSkalaknit
+		obj_component_shop.price_staff = component.CustomData.PriceStaff
+		obj_component_shop.days_left = component.CustomData.ProductionDays
+	end
+end
+
+function Production.DrawCustomComponentDescription()
+    local obj_component_shop = Common.GetObjComponentShop()
+	local component = Private.GetCustomComponent(obj_component_shop.cur_item.comp_type);
+
+	if (component ~= nil and 
+		component.comp_type >= 1000 and
+		component.comp_type < Storage.NextCustomComponentType and
+		component.CustomData ~= nil) then
+		local labelColor = make_colour_rgb(204, 165, 118)
+		local valueColor = make_colour_rgb(114, 165, 204)
+		local labelX = 834
+		local valueX = 1088
+		local startY = 686
+		local rowHeight = 32
+		local row = 0
+
+		for _, line in ipairs(component.CustomData.ShopDescription) do
+			--Draw label
+			draw_set_halign(0)
+			draw_set_color(labelColor)
+			draw_text_transformed(labelX, startY + (rowHeight * row), line.Label, 2, 2, 0)
+			--Draw value
+			draw_set_color(valueColor)
+			draw_set_halign(2)
+			draw_text_transformed(valueX, startY + (rowHeight * row), string.format("%g", line.Value), 2, 2, 0)
+			row = row + 1
+		end
+
+		--Draw label
+        draw_set_halign(0)
+        draw_set_color(labelColor)
+        draw_text_transformed(labelX, startY + (rowHeight * row), tostring(textScrollTimer), 2, 2, 0)
+
+		textScrollTimer = textScrollTimer + 1
+		textScrollTimer = textScrollTimer % 20
+	else
+		textScrollTimer = 0
+	end
+end
+
+---Gets the custom component of the requested type
+---@param componentType number The component type to search for.
+---@return game_obj_component? component The found component, nil otherwise.
+function Private.GetCustomComponent(componentType)
+	local obj_component_shop = Common.GetObjComponentShop()
+	for _, component in ipairs(obj_component_shop.CustomComponents) do
+		if (component.comp_type == componentType) then
+			return component
+		end
+	end
+	return nil
 end
 
 ---Adds a component of type mech to the production tab.
