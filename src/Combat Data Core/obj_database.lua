@@ -43,7 +43,7 @@ function create(q,v_modid)
 	--- MECHS --------------------------------------------------------------------
 	------------------------------------------------------------------------------
 	Mod.Database.AddMech({
-		Name = 			   "CDC_NovaMech",
+		ReferenceName =	   "CDC_NovaMech",
 		ComponentSize =    componentSizes.Large,
 		IsResearched = 	   false,
 		CanBeConstructed = true,
@@ -91,7 +91,7 @@ function create(q,v_modid)
 	})
 
 	Mod.Database.AddMech({
-		Name = 			   "CDC_SentinelMech",
+		ReferenceName =	   "CDC_SentinelMech",
 		ComponentSize =    componentSizes.Large,
 		IsResearched = 	   false,
 		CanBeConstructed = true,
@@ -142,7 +142,7 @@ function create(q,v_modid)
 	})
 
 	Mod.Database.AddMech({
-		Name = 			   "CDC_BehemothMech",
+		ReferenceName =	   "CDC_BehemothMech",
 		ComponentSize =    componentSizes.Large,
 		IsResearched = 	   false,
 		CanBeConstructed = true,
@@ -203,7 +203,7 @@ function create(q,v_modid)
 	})
 
 	Mod.Database.AddMech({
-		Name = 			   "CDC_EchoMech",
+		ReferenceName =	   "CDC_EchoMech",
 		ComponentSize =    componentSizes.Large,
 		IsResearched = 	   false,
 		CanBeConstructed = true,

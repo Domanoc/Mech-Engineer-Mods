@@ -24,16 +24,16 @@ local Types = require("ModFrameworkTypes")
 ------------------------------------------------------------------------------
 
 ---Adds a new mech to the games obj_database
----@param mechData MechData dataset for adding a new mech
+---@param mechData MechCreationData dataset for adding a new mech
 function Database.AddMech(mechData)
-	local component = Common.GetModdedComponent(mechData.Name, Types.ComponentTypes.Mech)
+	local component = Common.GetModdedComponent(mechData.ReferenceName, Types.ComponentTypes.Mech)
 	if (component ~= nil) then
-		local newName = string.sub(mechData.Name.."_"..tostring(irandom_range(1000, 10000000)), 1, -3)
+		local newName = string.sub(mechData.ReferenceName.."_"..tostring(irandom_range(1000, 10000000)), 1, -3)
 		local message = "Trying to add a new component, but the reference name was already used.\n"
 		message = message.."Please provide a reference name that is unique, consider adding a prefix or suffix referencing your mod to prevent other mods from using the same name.\n\n"
-		message = message.."Debug info:\nName given: "..mechData.Name.."\nGenerated name: "..newName
+		message = message.."Debug info:\nName given: "..mechData.ReferenceName.."\nGenerated name: "..newName
 		Common.ShowError(message)
-		mechData.Name = newName
+		mechData.ReferenceName = newName
 	end
 
 	local obj_database = Common.GetObjDatabase()
@@ -83,13 +83,13 @@ function Database.AddMech(mechData)
 		if(mechData.SpriteMeleeVertical == nil) then
 			local message = "Trying add a melee function to the mech. But the vertical melee sprite is missing.\n"
 			message = message.."Please check the spritePath for 'SpriteMeleeVertical'.\n"
-			message = message.."Debug info:\nMech name: "..mechData.Name
+			message = message.."Debug info:\nMech reference name: "..mechData.ReferenceName
 			Common.ShowError(message)
 		end
 		if(mechData.SpriteMeleeHorizontal == nil) then
 			local message = "Trying add a melee function to the mech. But the horizontal melee sprite is missing.\n"
 			message = message.."Please check the spritePath for 'SpriteMeleeHorizontal'.\n"
-			message = message.."Debug info:\nMech name: "..mechData.Name
+			message = message.."Debug info:\nMech reference name: "..mechData.ReferenceName
 			Common.ShowError(message)
 		end
 
@@ -106,7 +106,7 @@ function Database.AddMech(mechData)
 	--Add the newly modded item to the component list. So we can find the reference later.
 	---@type ModdedComponent
 	local moddedComponent = {
-		ReferenceName = mechData.Name,
+		ReferenceName = mechData.ReferenceName,
 		ComponentType = Types.ComponentTypes.Mech,
 		ComponentSize = mechData.ComponentSize,
 		DatabaseIndex = mechIndex,
