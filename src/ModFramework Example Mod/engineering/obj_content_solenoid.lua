@@ -24,8 +24,8 @@ function create(q,v_modid)--one time script when save is loaded
 	--We need to check for nil since a the component we searched for might not have existed.
 	if(example_solenoid ~= nil) then
 		--example on how to add 2 solenoids
-		Mod.Engineering.AddSolenoid(example_solenoid.Index)
-		Mod.Engineering.AddSolenoid(example_solenoid.Index)
+		Mod.Engineering.AddSolenoid(example_solenoid.ResourceNumber)
+		Mod.Engineering.AddSolenoid(example_solenoid.ResourceNumber)
 	end
 
 	--If we want to add a base solenoid we can use the Mod.Types.BaseSolenoids references to add the correct one

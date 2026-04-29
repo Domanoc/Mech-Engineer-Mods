@@ -69,8 +69,8 @@ function Database.AddMech(mechData)
 
 	--SPRITES
 	--small sprite
-	local smallSprite = Common.AddSprite(mechData.SpriteSmall, 0, false, false, 23, 49)
-	ds_map_add(mech, "sprite_small", smallSprite)
+	local smallSpriteIndex = Common.AddSprite(mechData.SpriteSmall, 0, false, false, 23, 49)
+	ds_map_add(mech, "sprite_small", smallSpriteIndex)
 	--big sprite
 	ds_map_add(mech, "sprite_big", Common.AddSprite(mechData.SpriteBig, 0, false, false, 200, 343))
 	--battle sprite
@@ -82,13 +82,13 @@ function Database.AddMech(mechData)
 	if (mechData.HasMelee) then
 		if(mechData.SpriteMeleeVertical == nil) then
 			local message = "Trying add a melee function to the mech. But the vertical melee sprite is missing.\n"
-			message = message.."Please check the spritepath for 'SpriteMeleeVertical'.\n"
+			message = message.."Please check the spritePath for 'SpriteMeleeVertical'.\n"
 			message = message.."Debug info:\nMech name: "..mechData.Name
 			Common.ShowError(message)
 		end
 		if(mechData.SpriteMeleeHorizontal == nil) then
 			local message = "Trying add a melee function to the mech. But the horizontal melee sprite is missing.\n"
-			message = message.."Please check the spritepath for 'SpriteMeleeHorizontal'.\n"
+			message = message.."Please check the spritePath for 'SpriteMeleeHorizontal'.\n"
 			message = message.."Debug info:\nMech name: "..mechData.Name
 			Common.ShowError(message)
 		end
@@ -106,16 +106,15 @@ function Database.AddMech(mechData)
 	--Add the newly modded item to the component list. So we can find the reference later.
 	---@type ModdedComponent
 	local moddedComponent = {
+		ReferenceName = mechData.Name,
 		ComponentType = Types.ComponentTypes.Mech,
-		Index = mechIndex - 1,
-		Sprite = smallSprite,
-		Name = mechData.Name,
 		ComponentSize = mechData.ComponentSize,
+		DatabaseIndex = mechIndex,
+		ResourceNumber = mechIndex - 1,
 		IsResearched = mechData.IsResearched,
 		CanBeConstructed = mechData.CanBeConstructed,
 		GiveFreeItem = mechData.GiveFreeItem,
-		BlueLength = 0,
-		WeaponDescription = ""
+		SpriteIndex = smallSpriteIndex,
 	}
 	table.insert(Storage.ModdedComponentList, moddedComponent)
 
@@ -207,15 +206,15 @@ function Database.AddWeapon(weaponData)
 
 	--SPRITES
 	--small sprite
-	local smallSprite = Common.AddSprite(weaponData.SpriteSmall, 0, false, false, 0, 0)
-	ds_map_add(weapon, "sprite", smallSprite)
+	local smallSpriteIndex = Common.AddSprite(weaponData.SpriteSmall, 0, false, false, 0, 0)
+	ds_map_add(weapon, "sprite", smallSpriteIndex)
 	--huge sprite
-	local hugeSprite = Common.AddSprite(weaponData.SpriteHuge, 0, false, false, 199, 134)
+	local hugeSpriteIndex = Common.AddSprite(weaponData.SpriteHuge, 0, false, false, 199, 134)
 	--big sprite
-	local bigSprite = Common.AddSprite(weaponData.SpriteBig, 0, false, false, 199, 134)
+	local bigSpriteIndex = Common.AddSprite(weaponData.SpriteBig, 0, false, false, 199, 134)
 	--merge the big and huge sprites
-	Common.MergeSprite(bigSprite, hugeSprite)
-	ds_map_add(weapon, "sprite_big", bigSprite)
+	Common.MergeSprite(bigSpriteIndex, hugeSpriteIndex)
+	ds_map_add(weapon, "sprite_big", bigSpriteIndex)
 
 	--Add the map the the list
 	weapon_stat[weaponIndex] = weapon
@@ -223,16 +222,19 @@ function Database.AddWeapon(weaponData)
 	--Add the newly modded item to the component list. So we can find the reference later.
 	---@type ModdedComponent
 	local moddedComponent = {
+		ReferenceName = weaponData.Name,
 		ComponentType = Types.ComponentTypes.Weapon,
-		Index = weaponIndex - 1,
-		Sprite = smallSprite,
-		Name = weaponData.Name,
 		ComponentSize = weaponData.ComponentSize,
+		DatabaseIndex = weaponIndex,
+		ResourceNumber = weaponIndex - 1,
 		IsResearched = weaponData.IsResearched,
 		CanBeConstructed = weaponData.CanBeConstructed,
 		GiveFreeItem = weaponData.GiveFreeItem,
-		BlueLength = weaponData.BlueLength,
-		WeaponDescription = Common.GetLocalizedString("WeaponDescription", weaponData.Name, weaponData.Description)
+		SpriteIndex = smallSpriteIndex,
+		WeaponData = {
+			Description = Common.GetLocalizedString("WeaponDescription", weaponData.Name, weaponData.Description),
+			BlueLength = weaponData.BlueLength,
+		},
 	}
 	table.insert(Storage.ModdedComponentList, moddedComponent)
 
@@ -275,8 +277,8 @@ function Database.AddSolenoid(solenoidData)
 	ds_map_add(solenoid, "type",			1)		--As far as i can see there is only type 1 for solenoids
 
 	--SPRITE
-	local sprite = Common.AddSprite(solenoidData.Sprite, 0, false, false, 0, 0)
-	ds_map_add(solenoid, "sprite", sprite)
+	local spriteIndex = Common.AddSprite(solenoidData.Sprite, 0, false, false, 0, 0)
+	ds_map_add(solenoid, "sprite", spriteIndex)
 
 	--Add the map the the list
 	solenoid_stat[solenoidIndex] = solenoid
@@ -284,16 +286,15 @@ function Database.AddSolenoid(solenoidData)
 	--Add the newly modded item to the component list. So we can find the reference later.
 	---@type ModdedComponent
 	local moddedComponent = {
+		ReferenceName = solenoidData.Name,
 		ComponentType = Types.ComponentTypes.Solenoid,
-		Index = solenoidIndex - 1,
-		Sprite = sprite,
-		Name = solenoidData.Name,
 		ComponentSize = solenoidData.ComponentSize,
+		DatabaseIndex = solenoidIndex,
+		ResourceNumber = solenoidIndex - 1,
 		IsResearched = solenoidData.IsResearched,
 		CanBeConstructed = solenoidData.CanBeConstructed,
 		GiveFreeItem = solenoidData.GiveFreeItem,
-		BlueLength = 0,
-		WeaponDescription = ""
+		SpriteIndex = spriteIndex,
 	}
 	table.insert(Storage.ModdedComponentList, moddedComponent)
 
@@ -340,6 +341,45 @@ function Database.AddPilotTemplate(pilotData)
 
 	--return new data
 	obj_database.pilot_stat = pilot_stat
+end
+
+---Add a new custom component to the games obj_database
+---@param componentData CustomComponentCreationData
+function Database.AddCustomComponent(componentData)
+	local componentType = Private.GetNextCustomComponentType()
+
+	local spriteIndex = Common.AddSprite(componentData.Sprite, 0, false, false, 0, 0)
+
+	---@type ModdedComponent
+	local moddedComponent = {
+		ReferenceName = componentData.ReferenceName,
+		ComponentType = componentType,
+		ComponentSize = componentData.ComponentSize,
+		DatabaseIndex = 1,
+		ResourceNumber = 1,
+		IsResearched = componentData.IsResearched,
+		CanBeConstructed = true, --The purpose of a custom component is the shop listing, so default true.
+		GiveFreeItem = false, --We cant tell what the adding should do on custom items so false.
+		SpriteIndex = spriteIndex,
+		CustomData = {
+			PriceMetallite = componentData.PriceMetallite,
+			PriceBjorn = componentData.PriceBjorn,
+			PriceMunilon = componentData.PriceMunilon,
+			PriceSkalaknit = componentData.PriceSkalaknit,
+			PriceStaff = componentData.PriceStaff,
+			ProductionDays = componentData.ProductionDays,
+			ShopDescription = componentData.ShopDescription
+		}
+	}
+	table.insert(Storage.ModdedComponentList, moddedComponent)
+end
+
+---Gets the next custom component type
+---@return number componentType the provided type that can be used
+function Private.GetNextCustomComponentType()
+	local next = Storage.NextCustomComponentType
+	Storage.NextCustomComponentType = Storage.NextCustomComponentType + 1
+	return next
 end
 
 ------------------------------------------------------------------------------

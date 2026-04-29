@@ -19,14 +19,14 @@ local Storage = require("ModFrameworkStorage")
 ------------------------------------------------------------------------------
 ------------------------------------------------------------------------------
 
----Generates Localization files based on the values requested by the registered components
+---Generates Localization files based on the values requested by the registered components.
 function Common.GenerateLocalizationFiles()
 	Storage.GenerateLocalization = true
 
 	Common.ShowMessage("Now generating localization files, don't forget to remove this before releasing your mod.")
 end
 
----Gets the filepath to the mod folder
+---Gets the filepath to the mod folder.
 function Common.GetModPath()
 	local level = 2
 	local source
@@ -46,9 +46,9 @@ function Common.GetModPath()
 	return modPath
 end
 
----Gets the filepath to the mod folder
----@param name string the name of the mod folder
----@return string? filepath the filepath to the mod folder or nil if the mod was not found
+---Gets the filepath to the mod folder.
+---@param name string The name of the mod folder.
+---@return string? filepath The filepath to the mod folder or nil if the mod was not found.
 function Common.GetModPathByName(name)
 	for _, mod in pairs(Storage.ModRegistrations) do
 		if (mod.Name == name) then
@@ -61,16 +61,16 @@ function Common.GetModPathByName(name)
 end
 
 ---Checks if this is a game loaded from a save. 
----@return boolean isLoadedGame true if this is a game loaded from a save, false otherwise.
+---@return boolean isLoadedGame True if this is a game loaded from a save, false otherwise.
 function Common.IsLoadedGame()
 	return variable_global_get("mech_engineer_load")
 end
 
----Selects the string based on the games current language setting
----@param section LocalizationSections the section for the localized string
----@param key string the key for the localized string
----@param default LocalizedString the default return value if not found
----@return string value the found string or the default value
+---Selects the string based on the games current language setting.
+---@param section LocalizationSections The section for the localized string.
+---@param key string The key for the localized string.
+---@param default LocalizedString The default return value if not found.
+---@return string value The found string or the default value.
 function Common.GetLocalizedString(section, key, default)
 	--generate the missing values if enabled
 	Private.GenerateLocalizationFiles(section, key, default)
@@ -87,10 +87,10 @@ function Common.GetLocalizedString(section, key, default)
 	return value
 end
 
----When enabled generates the files for all known localizations
----@param section LocalizationSections the section for the localized string
----@param key string the key for the localized string
----@param default LocalizedString the default value to set to new files
+---When enabled generates the files for all known localizations.
+---@param section LocalizationSections The section for the localized string.
+---@param key string The key for the localized string.
+---@param default LocalizedString The default value to set to new files.
 function Private.GenerateLocalizationFiles(section, key, default)
 	if (Storage.GenerateLocalization == false) then
 		return
@@ -109,9 +109,9 @@ function Private.GenerateLocalizationFiles(section, key, default)
 	end
 end
 
----Gets the phrase number for a given voice
----@param voice PilotVoices the voice type
----@return number phraseNumber the corresponding phrase number 
+---Gets the phrase number for a given voice.
+---@param voice PilotVoices The voice type.
+---@return number phraseNumber The corresponding phrase number.
 function Common.GetPhraseNumber(voice)
     local obj_database = Common.GetObjDatabase();
 
@@ -126,9 +126,9 @@ function Common.GetPhraseNumber(voice)
     return ds_map_find_value(default, "phrase_num")
 end
 
----Get the index for a pilot template
----@param name string the name for the pilot template to look for
----@return number? index the index if found nil otherwise
+---Get the index for a pilot template.
+---@param name string The name for the pilot template to look for.
+---@return number? index The index if found nil otherwise.
 function Common.GetPilotTemplateIndex(name)
 	local obj_database = Common.GetObjDatabase();
 
@@ -146,28 +146,28 @@ end
 --- FRAMEWORK OBJECT GETTERS -------------------------------------------------
 ------------------------------------------------------------------------------
 
----Gets the modded component
----@param name string the name of the component
----@param type ComponentType the type of component
----@return ModdedComponent? item the modded component if found, nil otherwise
+---Gets the modded component.
+---@param name string The name of the component.
+---@param type GameComponentType The type of component.
+---@return ModdedComponent? item The modded component if found, nil otherwise.
 function Common.GetModdedComponent(name, type)
 	for _, moddedComponent in ipairs(Storage.ModdedComponentList) do
-		if (moddedComponent.Name == name and moddedComponent.ComponentType == type) then
+		if (moddedComponent.ReferenceName == name and moddedComponent.ComponentType == type) then
 			return moddedComponent
 		end
 	end
 	return nil
 end
 
----Gets the modded components based on the search criteria
----@param searchCriteria ModdedComponentSearchCriteria[] the components to search for
----@return ModdedComponent[] components the components found, or and empty list
+---Gets the modded components based on the search criteria.
+---@param searchCriteria ModdedComponentSearchCriteria[] The components to search for.
+---@return ModdedComponent[] components The components found, or and empty list.
 function Common.GetModdedComponents(searchCriteria)
 	---@type ModdedComponent[]
 	local foundComponents = {}
 
 	for _, search in ipairs(searchCriteria) do
-		local component = Common.GetModdedComponent(search.Name, search.ComponentType)
+		local component = Common.GetModdedComponent(search.ReferenceName, search.ComponentType)
 		if(component ~= nil) then
 			table.insert(foundComponents, component)
 		end
@@ -176,9 +176,9 @@ function Common.GetModdedComponents(searchCriteria)
 	return foundComponents
 end
 
----Gets the modded research item
----@param name string the name of the research item
----@return ModdedResearch? item the modded research item if found, nil otherwise
+---Gets the modded research item.
+---@param name string The name of the research item.
+---@return ModdedResearch? item The modded research item if found, nil otherwise.
 function Common.GetModdedResearch(name)
 	for _, moddedComponent in ipairs(Storage.ModdedResearchList) do
 		if (moddedComponent.Name == name) then
@@ -193,103 +193,103 @@ end
 ------------------------------------------------------------------------------
 
 ---Gets the reference for "obj_database"
----@return game_obj_database obj_database the reference for "obj_database"
+---@return game_obj_database obj_database The reference for "obj_database"
 function Common.GetObjDatabase()
 	return asset_get_index("obj_database")
 end
 
 ---Gets the reference for "obj_component_shop"
----@return game_obj_component_shop obj_component_shop the reference for "obj_component_shop"
+---@return game_obj_component_shop obj_component_shop The reference for "obj_component_shop"
 function Common.GetObjComponentShop()
 	return asset_get_index("obj_component_shop")
 end
 
 ---Gets the reference for "obj_component"
----@return game_obj_component obj_component the reference for "obj_component"
+---@return game_obj_component obj_component The reference for "obj_component"
 function Common.GetObjComponent()
 	return asset_get_index("obj_component")
 end
 
 ---Gets the reference for "obj_weapon_test"
----@return game_obj_weapon_test obj_weapon_test the reference for "obj_weapon_test"
+---@return game_obj_weapon_test obj_weapon_test The reference for "obj_weapon_test"
 function Common.GetObjWeaponTest()
 	return asset_get_index("obj_weapon_test")
 end
 
 ---Gets the reference for "obj_research_panel"
----@return game_obj_research_panel obj_research_panel the reference for "obj_research_panel"
+---@return game_obj_research_panel obj_research_panel The reference for "obj_research_panel"
 function Common.GetObjResearchPanel()
 	return asset_get_index("obj_research_panel")
 end
 
 ---Gets the reference for "obj_content_cabins"
----@return game_obj_content_cabins obj_content_cabins the reference for "obj_content_cabins"
+---@return game_obj_content_cabins obj_content_cabins The reference for "obj_content_cabins"
 function Common.GetObjContentCabins()
 	return asset_get_index("obj_content_cabins")
 end
 
 ---Gets the reference for "obj_content_motors"
----@return game_obj_content_motors obj_content_motors the reference for "obj_content_motors"
+---@return game_obj_content_motors obj_content_motors The reference for "obj_content_motors"
 function Common.GetObjContentMotors()
 	return asset_get_index("obj_content_motors")
 end
 
 ---Gets the reference for "obj_content_mechs"
----@return game_obj_content_mechs obj_content_mechs the reference for "obj_content_mechs"
+---@return game_obj_content_mechs obj_content_mechs The reference for "obj_content_mechs"
 function Common.GetObjContentMechs()
 	return asset_get_index("obj_content_mechs")
 end
 
 ---Gets the reference for "obj_content_weapons"
----@return game_obj_content_weapons obj_content_weapons the reference for "obj_content_weapons"
+---@return game_obj_content_weapons obj_content_weapons The reference for "obj_content_weapons"
 function Common.GetObjContentWeapons()
 	return asset_get_index("obj_content_weapons")
 end
 
 ---Gets the reference for "obj_content_reactor"
----@return game_obj_content_reactor obj_content_reactor the reference for "obj_content_reactor"
+---@return game_obj_content_reactor obj_content_reactor The reference for "obj_content_reactor"
 function Common.GetObjContentReactor()
 	return asset_get_index("obj_content_reactor")
 end
 
 ---Gets the reference for "obj_content_piston"
----@return game_obj_content_piston obj_content_piston the reference for "obj_content_piston"
+---@return game_obj_content_piston obj_content_piston The reference for "obj_content_piston"
 function Common.GetObjContentPiston()
 	return asset_get_index("obj_content_piston")
 end
 
 ---Gets the reference for "obj_content_injector"
----@return game_obj_content_injector obj_content_injector the reference for "obj_content_injector"
+---@return game_obj_content_injector obj_content_injector The reference for "obj_content_injector"
 function Common.GetObjContentInjector()
 	return asset_get_index("obj_content_injector")
 end
 
 ---Gets the reference for "obj_content_kernel"
----@return game_obj_content_kernel obj_content_kernel the reference for "obj_content_kernel"
+---@return game_obj_content_kernel obj_content_kernel The reference for "obj_content_kernel"
 function Common.GetObjContentKernel()
 	return asset_get_index("obj_content_kernel")
 end
 
 ---Gets the reference for "obj_content_safety"
----@return game_obj_content_safety obj_content_safety the reference for "obj_content_safety"
+---@return game_obj_content_safety obj_content_safety The reference for "obj_content_safety"
 function Common.GetObjContentSafety()
 	return asset_get_index("obj_content_safety")
 end
 
 ---Gets the reference for "obj_content_magnet"
----@return game_obj_content_magnet obj_content_magnet the reference for "obj_content_magnet"
+---@return game_obj_content_magnet obj_content_magnet The reference for "obj_content_magnet"
 function Common.GetObjContentMagnet()
 	return asset_get_index("obj_content_magnet")
 end
 
 ---Gets the reference for "obj_content_solenoid"
----@return game_obj_content_solenoid obj_content_solenoid the reference for "obj_content_solenoid"
+---@return game_obj_content_solenoid obj_content_solenoid The reference for "obj_content_solenoid"
 function Common.GetObjContentSolenoid()
 	return asset_get_index("obj_content_solenoid")
 end
 
 ---Gets the reference for "obj_content_pilots"
----@return game_obj_content_pilots obj_content_pilots the reference for "obj_content_pilots"
+---@return game_obj_content_pilots obj_content_pilots The reference for "obj_content_pilots"
 function Common.GetObjContentPilots()
 	return asset_get_index("obj_content_pilots")
 end
@@ -298,16 +298,16 @@ end
 --- SPRITE FUNCTION WRAPPERS -------------------------------------------------
 ------------------------------------------------------------------------------
 
----With this function you can add an image as a sprite, loading it from an external source where the image file to be loaded should always be in either *.png, *.gif, *.jpg/jpeg
+---With this function you can add a sprite, loading it from an external source where the image file to be loaded should always be in either *.png, *.gif, *.jpg/jpeg
 ---
 ---Use this instead of calling sprite_add directly to prevent crashes when incorrect sprite data is passed.
 ---@param filepath string The filepath of the file to add.
----@param numberOfImages number Use to indicate the number of sub-images
+---@param numberOfImages number Use to indicate the number of sub-images.
 ---@param removeback boolean Indicates whether to make all pixels with the background color (left-bottom pixel) transparent.
 ---@param smooth boolean Indicates whether to smooth the edges if transparent.
 ---@param xOrig number Indicate the x position of the origin in the sprite.
 ---@param yOrig number Indicate the y position of the origin in the sprite.
----@return number spriteIndex the index for the loaded sprite 
+---@return number spriteIndex The index for the loaded sprite.
 function Common.AddSprite(filepath, numberOfImages, removeback, smooth, xOrig, yOrig)
 	local imageIndex = sprite_add(filepath, numberOfImages, removeback, smooth, xOrig, yOrig)
 	if(imageIndex < 0) then
@@ -324,8 +324,8 @@ end
 ---then the appended sprites are stretched to fit the image size for "firstSpriteIndex".
 ---
 ---Use this instead of calling sprite_merge directly to prevent crashes when incorrect sprite data is passed.
----@param firstSpriteIndex number the index for the sprite to merge
----@param secondSpriteIndex number the index for the sprite to merge
+---@param firstSpriteIndex number The index for the sprite to merge.
+---@param secondSpriteIndex number The index for the sprite to merge.
 function Common.MergeSprite(firstSpriteIndex, secondSpriteIndex)
 	if(firstSpriteIndex < 0) then
 		local message = "Cannot merge sprites the first sprite index provided was not referencing a sprite.\n\n"
@@ -346,7 +346,7 @@ end
 ---This function will delete a sprite from the game, freeing any memory that was reserved for it.
 ---
 ---Use this instead of calling sprite_delete directly to prevent crashes when incorrect sprite data is passed.
----@param spriteIndex number the index for the sprite to delete
+---@param spriteIndex number The index for the sprite to delete.
 function Common.DeleteSprite(spriteIndex)
 	if(spriteIndex < 0) then
 		local message = "Cannot delete the sprite the index provided was not referencing a sprite."
@@ -361,7 +361,7 @@ end
 ---Use this instead of calling sprite_replace directly to prevent crashes when incorrect sprite data is passed.
 ---@param spriteIndex number the index for the sprite that will be replaced 
 ---@param filepath string The filepath of the file to add.
----@param numberOfImages number Use to indicate the number of sub-images
+---@param numberOfImages number Use to indicate the number of sub-images.
 ---@param removeback boolean Indicates whether to make all pixels with the background color (left-bottom pixel) transparent.
 ---@param smooth boolean Indicates whether to smooth the edges if transparent.
 ---@param xOrig number Indicate the x position of the origin in the sprite.
@@ -381,14 +381,14 @@ end
 --- DEBUG HELPER FUNCTIONS ---------------------------------------------------
 ------------------------------------------------------------------------------
 
----A spacerLine for the print functions
+---A spacerLine for the print functions.
 local spacerLine = "\n###################################################\n"
 
 ---A debug helper function:
----Prints a message box with the value
----The message box freezes the game for de duration it is opened allowing it to be used as a breakpoint for debugging
----The message box can be copied be selecting it and using ctrl+c and then dump in a text editor of choice
----@param value string|number the value to show
+---Prints a message box with the value.
+---The message box freezes the game for de duration it is opened allowing it to be used as a breakpoint for debugging.
+---The message box can be copied be selecting it and using ctrl+c and then dump in a text editor of choice.
+---@param value string|number|boolean The value to show.
 function Common.ShowMessage(value)
 	local prefix = "MOD FRAMEWORK MESSAGE"..spacerLine
 	local suffix = "\n"..Private.Traceback(3)
@@ -396,10 +396,10 @@ function Common.ShowMessage(value)
 end
 
 ---A debug helper function:
----Prints a message box with the error message
----The message box freezes the game for de duration it is opened allowing it to be used as a breakpoint for debugging
----The message box can be copied be selecting it and using ctrl+c and then dump in a text editor of choice
----@param message string the error message to show
+---Prints a message box with the error message.
+---The message box freezes the game for de duration it is opened allowing it to be used as a breakpoint for debugging.
+---The message box can be copied be selecting it and using ctrl+c and then dump in a text editor of choice.
+---@param message string The error message to show.
 function Common.ShowError(message)
 	local prefix = "MOD FRAMEWORK ERROR"..spacerLine
 	local suffix = "\n"..Private.Traceback(3)
@@ -407,10 +407,10 @@ function Common.ShowError(message)
 end
 
 ---A debug helper function:
----Prints a message box with the key and values of the GameMaker struct or table
----The message box freezes the game for de duration it is opened allowing it to be used as a breakpoint for debugging
----The message box can be copied be selecting it and using ctrl+c and then dump in a text editor of choice
----@param ref any the GameMaker struct reference or table reference
+---Prints a message box with the key and values of the GameMaker struct or table.
+---The message box freezes the game for de duration it is opened allowing it to be used as a breakpoint for debugging.
+---The message box can be copied be selecting it and using ctrl+c and then dump in a text editor of choice.
+---@param ref any The GameMaker struct reference or table reference.
 function Common.DumpObjToMessage(ref)
 	local prefix = "MOD FRAMEWORK"..spacerLine
 	local suffix = "\n"..Private.Traceback(3)
@@ -466,9 +466,9 @@ function Common.DumpObjToMessage(ref)
 	show_message(prefix..message..suffix)
 end
 
----Convert a table into a single line of key value pairs
----@param ref table the table to convert
----@return string value the string value with key value pairs, truncated to 120 chars
+---Convert a table into a single line of key value pairs.
+---@param ref table The table to convert.
+---@return string value The string value with key value pairs, truncated to 120 chars.
 function Private.TableToString(ref)
 	local values = {}
 	for key, refValue in pairs(ref) do
@@ -479,22 +479,22 @@ function Private.TableToString(ref)
 	return "TABLE:: { ".. value.." }"
 end
 
----Truncate a string to a max length
----@param value string the string to truncate
----@param length number the max length
----@return string value returns the string truncated to the max length and adds ... if truncated
-function Private.Truncate(value, length)
-    if #value > length then
-        return value:sub(1, length - 3).."..."
+---Truncate a string to a max length.
+---@param value string The string to truncate.
+---@param maxLength number The max length.
+---@return string value The string truncated to the max length and adds "..." if truncated.
+function Private.Truncate(value, maxLength)
+    if #value > maxLength then
+        return value:sub(1, maxLength - 3).."..."
     end
     return value
 end
 
 ---A debug helper function:
----Prints a message box with the key and values of the GameMaker ds_map
----The message box freezes the game for de duration it is opened allowing it to be used as a breakpoint for debugging
----The message box can be copied be selecting it and using ctrl+c and then dump in a text editor of choice
----@param ds_map ds_map the reference to the ds_map
+---Prints a message box with the key and values of the GameMaker ds_map.
+---The message box freezes the game for de duration it is opened allowing it to be used as a breakpoint for debugging.
+---The message box can be copied be selecting it and using ctrl+c and then dump in a text editor of choice.
+---@param ds_map ds_map The reference to the ds_map.
 function Common.DsmapToMessage(ds_map)
 	local prefix = "MOD FRAMEWORK"..spacerLine
 	local suffix = "\n"..Private.Traceback(3)
@@ -510,11 +510,11 @@ function Common.DsmapToMessage(ds_map)
 end
 
 ---A debug helper function:
----Prints a message box with the key and values of the GameMaker struct as a field definitions 
----This was used to convert GameMaker objects into a lua class definition
----The message box freezes the game for de duration it is opened allowing it to be used as a breakpoint for debugging
----The message box can be copied be selecting it and using ctrl+c and then dump in a text editor of choice
----@param ref any the GameMaker struct reference
+---Prints a message box with the key and values of the GameMaker struct as a field definitions.
+---This was used to convert GameMaker objects into a lua class definition.
+---The message box freezes the game for de duration it is opened allowing it to be used as a breakpoint for debugging.
+---The message box can be copied be selecting it and using ctrl+c and then dump in a text editor of choice.
+---@param ref any The GameMaker struct reference.
 function Common.ToClassTypeMessage(ref)
 	local info = debug.getinfo(2, "Sl")
 	local caller = info.short_src:gsub("/","\\")
@@ -542,9 +542,9 @@ function Common.ToClassTypeMessage(ref)
 	end
 end
 
----Gets a traceback suffix for a message
----@param level number? sets the level to any value more then 2 to skip util functions
----@return string traceback the traceback suffix for a message
+---Gets a traceback suffix for a message.
+---@param level number? The level to any value more then 2 to skip util functions. Leave nil for 2.
+---@return string traceback The traceback suffix for a message.
 function Private.Traceback(level)
 	if(level == nil or level < 2) then
 		level = 2

@@ -133,14 +133,12 @@ end
 ---@param component ModdedComponent the mech component to process
 ---@param giveItem boolean true if a free item is given, false otherwise
 function Private.ProcessMechUnlock(component, giveItem)
-	local component_shop = Common.GetObjComponentShop()
 	if (component.ShopComponent ~= nil) then
-		local shopComponent = component_shop.comp_mech[component.ShopComponent.Index]
-		shopComponent.researched = true --activates the shop component
+		component.ShopComponent.researched = true --activates the shop component
 	end
 
 	if (giveItem == true and component.GiveFreeItem) then
-		Engineering.AddMech(component.Index)
+		Engineering.AddMech(component.ResourceNumber)
 	end
 end
 
@@ -148,14 +146,12 @@ end
 ---@param component ModdedComponent the weapon component to process
 ---@param giveItem boolean true if a free item is given, false otherwise
 function Private.ProcessWeaponUnlock(component, giveItem)
-	local component_shop = Common.GetObjComponentShop()
 	if (component.ShopComponent ~= nil) then
-		local shopComponent = component_shop.comp_wep[component.ShopComponent.Index]
-		shopComponent.researched = true --activates the shop component
+		component.ShopComponent.researched = true --activates the shop component
 	end
 
 	if (giveItem == true and component.GiveFreeItem) then
-		Engineering.AddWeapon(component.Index, false)
+		Engineering.AddWeapon(component.ResourceNumber, false)
 	end
 end
 
@@ -163,14 +159,12 @@ end
 ---@param component ModdedComponent the solenoid component to process
 ---@param giveItem boolean true if a free item is given, false otherwise
 function Private.ProcessSolenoidUnlock(component, giveItem)
-	local component_shop = Common.GetObjComponentShop()
 	if (component.ShopComponent ~= nil) then
-		local shopComponent = component_shop.comp_solenoid[component.ShopComponent.Index]
-		shopComponent.researched = true --activates the shop component
+		component.ShopComponent.researched = true --activates the shop component
 	end
 
 	if (giveItem == true and component.GiveFreeItem) then
-		Engineering.AddSolenoid(component.Index)
+		Engineering.AddSolenoid(component.ResourceNumber)
 	end
 end
 

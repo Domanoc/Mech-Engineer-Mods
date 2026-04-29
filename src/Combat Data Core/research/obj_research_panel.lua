@@ -57,7 +57,7 @@ function create(q, v_modid)
 	})
 
 	local novaUnlocks = Mod.Common.GetModdedComponents({
-		{ Name = "CDC_NovaMech", ComponentType = componentTypes.Mech }
+		{ ReferenceName = "CDC_NovaMech", ComponentType = componentTypes.Mech }
 	})
 	local novaResearch = Mod.Research.AddResearch({
 		Name = "CDC_NovaResearch",
@@ -74,7 +74,7 @@ function create(q, v_modid)
 	})
 
 	local sentinelUnlocks = Mod.Common.GetModdedComponents({
-		{ Name = "CDC_SentinelMech", ComponentType = componentTypes.Mech }
+		{ ReferenceName = "CDC_SentinelMech", ComponentType = componentTypes.Mech }
 	})
 	Mod.Research.AddResearch({
 		Name = "CDC_SentinelResearch",
@@ -91,7 +91,7 @@ function create(q, v_modid)
 	})
 
 	local behemothUnlocks = Mod.Common.GetModdedComponents({
-		{ Name = "CDC_BehemothMech", ComponentType = componentTypes.Mech }
+		{ ReferenceName = "CDC_BehemothMech", ComponentType = componentTypes.Mech }
 	})
 	Mod.Research.AddResearch({
 		Name = "CDC_BehemothResearch",
@@ -108,7 +108,7 @@ function create(q, v_modid)
 	})
 
 	local echoUnlocks = Mod.Common.GetModdedComponents({
-		{ Name = "CDC_EchoMech", ComponentType = componentTypes.Mech }
+		{ ReferenceName = "CDC_EchoMech", ComponentType = componentTypes.Mech }
 	})
 	Mod.Research.AddResearch({
 		Name = "CDC_EchoResearch",
@@ -125,7 +125,7 @@ function create(q, v_modid)
 	})
 
 	local highTechSolenoidUnlocks = Mod.Common.GetModdedComponents({
-		{ Name = "CDC_HighTechSolenoid", ComponentType = componentTypes.Solenoid }
+		{ ReferenceName = "CDC_HighTechSolenoid", ComponentType = componentTypes.Solenoid }
 	})
 	Mod.Research.AddResearch({
 		Name = "CDC_HighTechSolenoidResearch",
@@ -142,7 +142,7 @@ function create(q, v_modid)
 	})
 
 	local howitzerUnlocks = Mod.Common.GetModdedComponents({
-		{ Name = "CDC_Howitzer", ComponentType = componentTypes.Weapon }
+		{ ReferenceName = "CDC_Howitzer", ComponentType = componentTypes.Weapon }
 	})
 	Mod.Research.AddResearch({
 		Name = "CDC_HowitzerResearch",
@@ -159,7 +159,7 @@ function create(q, v_modid)
 	})
 
 	local laserPulseCannonUnlocks = Mod.Common.GetModdedComponents({
-		{ Name = "CDC_LaserPulseCannon", ComponentType = componentTypes.Weapon }
+		{ ReferenceName = "CDC_LaserPulseCannon", ComponentType = componentTypes.Weapon }
 	})
 	Mod.Research.AddResearch({
 		Name = "CDC_LaserPulseCannonResearch",

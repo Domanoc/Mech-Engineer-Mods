@@ -4,15 +4,16 @@
 ---As not all values may be present at every point of the game.
 ---Or values could be missing from the definition.
 ---@class game_obj_component
----@field comp_data_type number the index number of the component
----@field comp_type ComponentType the type of component
----@field depth number the current depth lower number are drawn in front of high number depths
+---@field comp_data_type number The index number of the component.
+---@field comp_type GameComponentType The type of component.
+---@field CustomData ModdedComponentCustomData? --A Framework added object the containing data used to handle custom components.
+---@field depth number The current depth lower number are drawn in front of high number depths.
 ---@field item_pos number
----@field logo number the index of the sprite, use -4 to auto set it
+---@field logo number The index of the sprite, use -4 to auto set it.
 ---@field logo_index number
----@field researched boolean when true the component can be constructed
----@field size ComponentSize the size of the component when constructing it.
+---@field researched boolean True if it can be constructed, false otherwise.
+---@field size ComponentSize The size of the component when constructing it.
 ---@field size_x number
 ---@field size_y number
----@field x number the x position of the instance
----@field y number the y position of the instance
+---@field x number The x position of the instance
+---@field y number The y position of the instance

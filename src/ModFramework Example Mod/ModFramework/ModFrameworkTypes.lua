@@ -137,14 +137,14 @@ local WeaponTypes = {
 Types.WeaponTypes = WeaponTypes
 
 ---Weapon indicator identifiers
----@class WeaponInicator
-local WeaponInicator = {
+---@class WeaponIndicator
+local WeaponIndicator = {
 	Kinetic = 0,
 	Missile = 1,
 	Thermal = 2,
 	Energy = 3,
 }
-Types.WeaponInicator = WeaponInicator
+Types.WeaponIndicator = WeaponIndicator
 
 ------------------------------------------------------------------------------
 --- REACTOR TYPES ------------------------------------------------------------
@@ -292,7 +292,7 @@ local BaseResearchResNumbers = {
 }
 Types.BaseResearchResNumbers = BaseResearchResNumbers
 
----Reseach index identifiers for the mres tables
+---Research index identifiers for the mres tables
 ---@class ResearchIndexes
 local ResearchIndexes = {
 	Position = 1, 		--position number on the research tree. You can see positions in the game with f6 (debug mode)
@@ -354,7 +354,7 @@ local PilotActivities = {
 	Sports = 1,
 	Resting = 2,
 	Walking = 3,
-	Unkown = 4,
+	Unknown = 4,
 	Simulator = 5,
 }
 Types.PilotActivities = PilotActivities
@@ -431,7 +431,7 @@ local VirtualKeys = {
 	Y = 89,
 	Z = 90,
 
-	--Numpad
+	--NumPad
 
 	NumPad0 = 96,
 	NumPad1 = 97,

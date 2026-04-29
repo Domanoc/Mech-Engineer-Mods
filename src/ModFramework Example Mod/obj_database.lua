@@ -143,6 +143,133 @@ function create(q,v_modid)
 		Voice = "male_hispanic",
 		Sprite = modFilepath.."sprites\\example_pilot.png"
 	})
+
+	Mod.Database.AddCustomComponent({
+		ReferenceName = "example_custom_component",
+		ComponentSize =     componentSizes.Small, --The size of the component when constructing it. 1 for single slot or 5 for a full row
+		IsResearched = 	    true,				  --Set to true if its pre researched, else false.
+		PriceMetallite =    1000,				  --The amount of metallite needed to produce this custom component
+		PriceBjorn = 	    1000,				  --The amount of bjorn needed to produce this custom component
+		PriceMunilon =      1000,				  --The amount of munilon needed to produce this custom component
+		PriceSkalaknit =    1000,				  --The amount of skalaknit needed to produce this custom component
+		PriceStaff = 	    10,					  --The amount of staff needed to produce this custom component
+		ProductionDays =    2,					  --The amount of days it takes to produce this custom component
+		Sprite = 		    modFilepath.."sprites\\example_solenoid.png",
+		ShopDescription = {
+			{ Label = { LocalizedDefaultValue = "" }, Value = 1 },
+			{ Label = { LocalizedDefaultValue = "" }, Value = 1 }
+		}
+	})
+
+	for i = 1, 15, 1 do
+		Mod.Database.AddCustomComponent({
+			ReferenceName = "example_custom_component_"..i,
+			ComponentSize =     componentSizes.Small, --The size of the component when constructing it. 1 for single slot or 5 for a full row
+			IsResearched = 	    true,				  --Set to true if its pre researched, else false.
+			PriceMetallite =    1000,				  --The amount of metallite needed to produce this custom component
+			PriceBjorn = 	    1000,				  --The amount of bjorn needed to produce this custom component
+			PriceMunilon =      1000,				  --The amount of munilon needed to produce this custom component
+			PriceSkalaknit =    1000,				  --The amount of skalaknit needed to produce this custom component
+			PriceStaff = 	    10,					  --The amount of staff needed to produce this custom component
+			ProductionDays =    2,					  --The amount of days it takes to produce this custom component
+			Sprite = 		    modFilepath.."sprites\\example_solenoid.png",
+			ShopDescription = {
+				{ Label = { LocalizedDefaultValue = "" }, Value = 1 },
+				{ Label = { LocalizedDefaultValue = "" }, Value = 1 }
+			}
+		})
+
+		Mod.Database.AddWeapon({
+			Name = 			    "example_weapon_"..i,	  --The name of the mech, used to find its references
+			Description = {							  --the description text for a weapon. used when the weapon is added to the main slot in engineering.
+				--Data that represents a string that will be localized. Its recommended to be in english for code readability
+				--The other actual values will be pulled from the mods localization files
+				--Use the GenerateLocalizationFiles() function to generate the mods localization files in development
+				LocalizedDefaultValue = "Description text for this weapon."
+			},
+			ComponentSize =     componentSizes.Small, --The size of the component when constructing it. 1 for single slot or 5 for a full row
+			IsResearched = 	    false,				  --Set to true if its pre researched, else false.
+			CanBeConstructed =  true,				  --Set to true if it can be constructed in the component shop, false otherwise
+			GiveFreeItem = 	    true,				  --Set to true to return a free copy when triggered as an unlock
+			PriceMetallite =    1000,				  --The amount of metallite needed to produce this weapon
+			PriceBjorn = 	    1000,				  --The amount of bjorn needed to produce this weapon
+			PriceMunilon =      1000,				  --The amount of munilon needed to produce this weapon
+			PriceSkalaknit =    1000,				  --The amount of skalaknit needed to produce this weapon
+			PriceStaff = 	    10,					  --The amount of staff needed to produce this weapon
+			ProductionDays =    2,					  --The amount of days it takes to produce this weapon
+			WeaponType =	    weaponTypes.Kinetic,  --the type of weapon (white = kinetic, red = missiles, blue = energy, yellow = thermal)
+			FireRate =		    400,				  --the base fire rate. higher values offer a faster rate, 600 with full fire speed points will fill the fire speed bar completely
+			Weight = 		    48,					  --the base weight of the weapon
+			Accuracy = 		    5.0,				  --the base accuracy for the weapon. accuracy in degrees, 0 is perfect accuracy
+			EnergyCost = 		5,					  --the base energy cost of the weapon
+			Damage = 		    10,					  --the base damage value of the weapon
+			Penetration = 	    1,					  --the base penetration value of the weapon
+			ProjectileSpeed =   24,					  --the base projectile speed of the weapon
+			IsEnergyBuffed =    false,				  --whether the energy cost boost damage output, for energy weapons this is an additional increase on their native bonus.
+			BlueLength =        0,					  --the range of a blue weapon, default is 750
+			SpriteSmall =       modFilepath.."sprites\\example_weapon_small.png",	--the small sprite for the weapon
+			SpriteBig = 	    modFilepath.."sprites\\example_weapon_big.png",		--the big sprite for the weapon
+			SpriteHuge = 	    modFilepath.."sprites\\example_weapon_huge.png",		--the huge sprite for the weapon
+		})
+
+		Mod.Database.AddSolenoid({
+			Name = "example_solenoid_"..i,
+			ComponentSize =     componentSizes.Small, --The size of the component when constructing it. 1 for single slot or 5 for a full row
+			IsResearched = 	    false,				  --Set to true if its pre researched, else false.
+			CanBeConstructed =  true,				  --Set to true if it can be constructed in the component shop, false otherwise
+			GiveFreeItem = 	    true,				  --Set to true to return a free copy when triggered as an unlock
+			PriceMetallite =    1000,				  --The amount of metallite needed to produce this weapon
+			PriceBjorn = 	    1000,				  --The amount of bjorn needed to produce this weapon
+			PriceMunilon =      1000,				  --The amount of munilon needed to produce this weapon
+			PriceSkalaknit =    1000,				  --The amount of skalaknit needed to produce this weapon
+			PriceStaff = 	    10,					  --The amount of staff needed to produce this weapon
+			ProductionDays =    2,					  --The amount of days it takes to produce this weapon
+			Power = 		    2,					  --the power value of the solenoid, lower numbers give more heat resist on reactor
+			Induction = 	    0.75,				  --the induction value of the solenoid, any deviation from 1 gives worse energy stats
+			Sprite = 		    modFilepath.."sprites\\example_solenoid.png"
+		})
+
+		Mod.Database.AddMech({
+			Name = 			   "example_mech_"..i,		 --The name of the mech, used to find its references
+			ComponentSize =    componentSizes.Large, --The size of the component when constructing it. 1 for single slot or 5 for a full row
+			IsResearched = 	   false,				 --Set to true if its pre researched, else false.
+			CanBeConstructed = true,				 --Set to true if it can be constructed in the component shop, false otherwise
+			GiveFreeItem = 	   true,				 --Set to true to return a free copy when triggered as an unlock
+			PriceMetallite =   1000,				 --The amount of metallite needed to produce this mech
+			PriceBjorn = 	   1000,				 --The amount of bjorn needed to produce this mech
+			PriceMunilon =     1000,				 --The amount of munilon needed to produce this mech
+			PriceSkalaknit =   1000,				 --The amount of skalaknit needed to produce this mech
+			PriceStaff = 	   10,					 --The amount of staff needed to produce this mech
+			ProductionDays =   2,					 --The amount of days it takes to produce this mech
+			HeatResist = 	   10,					 --The heat resist value of the mech
+			ImpactResist =     10,					 --The impact resist value of the mech
+			CurrentResist =    10,					 --The current resist value of the mech
+			HasMelee = 	   	   true,				 --Indicates if the mech can use a melee weapon, if true the sprites for vertical and horizontal are expected
+			PassiveArmor =     0,					 --The amount of passive armor the mech has
+			Weight = 		   60,					 --The base weight of the mech
+			Speed = 		   0.4,					 --The base speed of the mech
+			ReloadTime = 	   3,					 --The base reload time of the mech
+			BattleTime = 	   3,					 --The base battle time of the mech (the length of time it has ammo reserves for to shoot)
+			MechCells = {
+				{ModuleType = mechModules.Cabin, 	X =   0, Y = 22} --cabin, the game is design for mechs to have only 1 cabin. adding more might result in issues	or unexpected behavior
+				,{ModuleType = mechModules.Reactor, X =   0, Y = 15} --reactor, the game is design for mechs to have only 1 reactor. adding more might result in issues	or unexpected behavior
+				,{ModuleType = mechModules.Motor, 	X =   5, Y =  4} --motor 1, you can add more motors.
+				,{ModuleType = mechModules.Motor, 	X =  -5, Y =  4} --motor 2
+				,{ModuleType = mechModules.Motor, 	X =   5, Y =  9} --motor 3
+				,{ModuleType = mechModules.Motor, 	X =  -5, Y =  9} --motor 4
+				,{ModuleType = mechModules.Weapon, 	X =  10, Y = 16} --gun 1, you can add a maximum of 12 guns, the game throws errors when a mech has more
+				,{ModuleType = mechModules.Weapon, 	X = -10, Y = 16} --gun 2
+				,{ModuleType = mechModules.Aux, 	X =   6, Y = 23} --aux 1, you can add more auxiliary slots.
+				,{ModuleType = mechModules.Aux, 	X =  -6, Y = 23} --aux 2
+			},
+			SpriteSmall = 			modFilepath.."sprites\\example_mech_small.png", 			--The sprite used at the production screen
+			SpriteBig = 			modFilepath.."sprites\\example_mech_big.png",				--The paintable mech sprite
+			SpriteBattle = 		  	modFilepath.."sprites\\example_mech_battle.png",			--The shoot and idle frames during battle
+			SpriteBattleDead = 	  	modFilepath.."sprites\\example_mech_dead.png",				--The death sprite when the mech gets destroyed during battle
+			SpriteMeleeVertical = 	modFilepath.."sprites\\example_mech_melee_vertical.png",    --The animation atlas for a vertical melee, optional if the mech has no melee
+			SpriteMeleeHorizontal = modFilepath.."sprites\\example_mech_melee_horizontal.png"   --The animation atlas for a horizontal melee,  optional if the mech has no melee
+		})
+	end
 end
 
 ---saving system deletes the file and creates new one before saving new info

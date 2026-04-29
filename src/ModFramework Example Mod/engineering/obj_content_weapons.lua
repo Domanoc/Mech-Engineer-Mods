@@ -23,8 +23,8 @@ function create(q)--one time script when save is loaded
 	--We need to check for nil since a the component we searched for might not have existed.
 	if(example_weapon ~= nil) then
 		--example on how to add 2 weapons, one is +sized
-		Mod.Engineering.AddWeapon(example_weapon.Index, false)
-		Mod.Engineering.AddWeapon(example_weapon.Index, true)
+		Mod.Engineering.AddWeapon(example_weapon.ResourceNumber, false)
+		Mod.Engineering.AddWeapon(example_weapon.ResourceNumber, true)
 	end
 
 	--If we want to add a base weapon we can use the Mod.Types.BaseWeapons references to add the correct one

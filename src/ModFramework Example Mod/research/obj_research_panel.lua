@@ -19,8 +19,8 @@ function create(q, v_modid)
 	--An component that is added as research unlock will, add a copy on completion and or unlock the production of item based on this setting.
 	--With this function we can get our modded components that we made in "obj_database.lua".
 	local unlocks = Mod.Common.GetModdedComponents({
-		{ Name = "example_mech", ComponentType = componentTypes.Mech },
-		{ Name = "example_solenoid", ComponentType = componentTypes.Solenoid }
+		{ ReferenceName = "example_mech", ComponentType = componentTypes.Mech },
+		{ ReferenceName = "example_solenoid", ComponentType = componentTypes.Solenoid }
 	})
 	
 	--We can create a new research and as a return value we get the new res number to create links with.

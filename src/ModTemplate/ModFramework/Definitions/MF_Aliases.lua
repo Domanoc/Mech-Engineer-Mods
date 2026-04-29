@@ -1,6 +1,6 @@
 ---@alias ComponentSize 1|5 the amount of hangar slots used in construction
 
----@alias ComponentType 1|2|3|4|5|6|7|8|9|10|11|94|95|96|97|98|99 the type of component
+---@alias GameComponentType 1|2|3|4|5|6|7|8|9|10|11|94|95|96|97|98|99 the type of component
 
 ---@alias WeaponType "white"|"red"|"blue"|"yellow" the type of weapon (white = kinetic, red = missiles, blue = energy, yellow = thermal)
 

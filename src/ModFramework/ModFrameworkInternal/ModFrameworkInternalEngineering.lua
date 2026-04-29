@@ -27,8 +27,11 @@ local Types = require("ModFrameworkTypes")
 ---@param weapon game_obj_big_holder_weapon the weapon to update
 function Engineering.SetWeaponRange(weapon)
 	for _, component in ipairs(Storage.ModdedComponentList) do
-		if (component.ComponentType == Types.ComponentTypes.Weapon and component.Index == weapon.weapon_number) then
-			weapon.blue_length = component.BlueLength
+		if (component.ResourceNumber == weapon.weapon_number and
+			component.ComponentType == Types.ComponentTypes.Weapon and
+			component.WeaponData ~= nil) then
+			weapon.blue_length = component.WeaponData.BlueLength
+			return
 		end
 	end
 end

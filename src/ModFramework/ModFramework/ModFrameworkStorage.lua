@@ -21,7 +21,7 @@ Storage.ModRegistrations = {}
 ---@type boolean Flag indicating where to generate the localization files
 Storage.GenerateLocalization = false
 
----@type string The language file setting that is seleced, example "loc_english.ini"
+---@type string The language file setting that is selected, example "loc_english.ini"
 Storage.SelectedLanguage = "loc_english.ini"
 
 ---@type string[] The known Localizations files, example "loc_english.ini"
@@ -61,6 +61,10 @@ Storage.PilotDataQueue = {}
 ------------------------------------------------------------------------------
 --- COMPONENT SHOP -----------------------------------------------------------
 ------------------------------------------------------------------------------
+
+---We track what the next framework custom component type will be
+---@type number
+Storage.NextCustomComponentType = 1000
 
 ---We keep a list of the all shop components.
 ---@type game_obj_component[]

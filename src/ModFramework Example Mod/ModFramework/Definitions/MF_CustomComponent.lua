@@ -1,0 +1,16 @@
+---@class CustomComponentCreationData
+---@field ReferenceName string The reference name of the custom component. Should be an unique name to prevent conflicts with other mods.
+---@field ComponentSize ComponentSize The size of the component when constructing it.
+---@field IsResearched boolean Set to true if its pre researched, else false.
+---@field Sprite string The sprite for the custom component
+---@field PriceMetallite number The amount of metallite needed to produce this custom component
+---@field PriceBjorn number The amount of bjorn needed to produce this custom component
+---@field PriceMunilon number The amount of munilon needed to produce this custom component
+---@field PriceSkalaknit number The amount of skalaknit needed to produce this custom component
+---@field PriceStaff number The amount of staff needed to produce this custom component
+---@field ProductionDays number The amount of days it takes to produce this custom component
+---@field ShopDescription ShopDescriptionLine[]
+
+---@class ShopDescriptionLine
+---@field Label LocalizedString
+---@field Value number

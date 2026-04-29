@@ -10,23 +10,24 @@
 ---@field cabin_start_x number
 ---@field cabin_start_y number
 ---@field change boolean
----@field comp_beacon game_obj_component --the shop component for the beacon
----@field comp_cabin game_obj_component[] --array containing the shop components for cabins
----@field comp_city_parts game_obj_component --the shop component for the city parts
----@field comp_engineer game_obj_component --the shop component for the engineer
----@field comp_injector game_obj_component[] --array containing the shop components for injectors
----@field comp_kernel game_obj_component[] --array containing the shop components for kernels
----@field comp_lr_armor_end game_obj_component[] --array containing the shop components for end armor
----@field comp_lr_armor_middle game_obj_component[] --array containing the shop components for middle armor
----@field comp_magnet game_obj_component[] --array containing the shop components for magnets
----@field comp_mech game_obj_component[] --array containing the shop components for mechs
----@field comp_motor game_obj_component[] --array containing the shop components for motos
----@field comp_piston game_obj_component[] --array containing the shop components for pistons
----@field comp_reactor game_obj_component[] --array containing the shop components for reactors
----@field comp_rocket game_obj_component --the shop component for the rocket
----@field comp_safety game_obj_component[] --array containing the shop components for safety
----@field comp_solenoid game_obj_component[] --array containing the shop components for solenoids
----@field comp_wep game_obj_component[] --array containing the shop components for weapons
+---@field comp_beacon game_obj_component --The shop component for the beacon.
+---@field comp_cabin game_obj_component[] --Array containing the shop components for cabins.
+---@field comp_city_parts game_obj_component --The shop component for the city parts.
+---@field comp_engineer game_obj_component --The shop component for the engineer.
+---@field comp_injector game_obj_component[] --Array containing the shop components for injectors.
+---@field comp_kernel game_obj_component[] --Array containing the shop components for kernels.
+---@field comp_lr_armor_end game_obj_component[] --Array containing the shop components for end armor.
+---@field comp_lr_armor_middle game_obj_component[] --Array containing the shop components for middle armor.
+---@field comp_magnet game_obj_component[] --Array containing the shop components for magnets.
+---@field comp_mech game_obj_component[] --Array containing the shop components for mechs.
+---@field comp_motor game_obj_component[] --Array containing the shop components for motors.
+---@field comp_piston game_obj_component[] --Array containing the shop components for pistons.
+---@field comp_reactor game_obj_component[] --Array containing the shop components for reactors.
+---@field comp_rocket game_obj_component --The shop component for the rocket.
+---@field comp_safety game_obj_component[] --Array containing the shop components for safety.
+---@field comp_solenoid game_obj_component[] --Array containing the shop components for solenoids.
+---@field comp_wep game_obj_component[] --Array containing the shop components for weapons.
+---@field CustomComponents game_obj_component[]? --A Framework added array containing the shop components for custom components.
 ---@field cur_item game_obj_component|0
 ---@field cur_item_type number
 ---@field days_left number
