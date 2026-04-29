@@ -56,23 +56,30 @@ ModFrameworkInternal.Research = Research
 
 ---Registers the framework and loaded mods.
 function ModFrameworkInternal.RegisterFramework()
-	for index, path in pairs(mod_info) do
+	local keys = {}
+	for k in pairs(mod_info) do
+		table.insert(keys, k)
+	end
+	table.sort(keys)
+	for _, index in ipairs(keys) do
+		local path = mod_info[index]
 		local loadOrderId = tonumber(index:match("^(%d+)"))
-		local modFileId = tonumber(index:match("(%d+)$"))
 
-		if (loadOrderId ~= nil and modFileId == 2) then
-			local normalizedPath = path:gsub("/","\\")
-			local name = normalizedPath:match("mods\\([^\\]+)"):gsub("_DEV_","")
-			local modPath = normalizedPath:gsub("obj_database.lua","")
+		if (loadOrderId ~= nil) then
+			local normalizedPath = path:gsub("/","\\"):gsub("@","")
+			local root = normalizedPath:match("^(.-\\mods\\)")
+			local modFolder = normalizedPath:match("\\mods\\([^\\]+)")
+			local modPath = root..modFolder.."\\"
+
 			---@type ModRegistration
 			local mod = {
 				LoadOrderId = loadOrderId,
-				Name = name,
+				Name = modFolder,
 				Path = modPath,
 			}
-			table.insert(Storage.ModRegistrations, mod)
+			Storage.ModRegistrations[loadOrderId] = mod
 
-			if (name == "ModFramework" and loadOrderId ~= 1) then
+			if (modFolder == "ModFramework" and loadOrderId ~= 1) then
 				Common.ShowError("The ModFramework was not first in the mod load order. This can lead to issues.")
 			end
 		end
