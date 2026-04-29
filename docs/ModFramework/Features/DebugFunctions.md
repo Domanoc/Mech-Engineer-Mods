@@ -59,7 +59,7 @@ local modFilepath = Mod.Common.GetModPath()
 There is an alternative version to get the path by name
 ```lua
 ---path to the ModFramework folder
-local modPath = Mod.Common.GetModPathByName("ModFramework");
+local modPath = Mod.Common.GetModPathByName("ModFramework")
 ```
 
 ## Check if its a loaded game
@@ -86,18 +86,18 @@ Useful for printing the contents of gamemaker structs or tables. you can copy th
 **Note:** since gamemaker structs are seen as numbers in lua this function cannot see the difference. Every number is treated as a gamemaker struct. So it wil throw an error when it was just a number.
 ```lua
 --Prints the contents of a object to a message box
-Mod.Common.DumpObjToMessage(object);
+Mod.Common.DumpObjToMessage(object)
 ```
 
 For DS maps use this.
 ```lua
-Mod.Common.DsmapToMessage(ds_map);
+Mod.Common.DsmapToMessage(ds_map)
 ```
 
 ## To Class Type message
 Was used to make the gameobject documentation as seen [here](../../src/ModFramework/GameClassDefinitions/).
 ```lua
-Mod.Common.ToClassTypeMessage(object);
+Mod.Common.ToClassTypeMessage(object)
 ```
 
 ---

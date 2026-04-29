@@ -10,24 +10,24 @@
 ---Regardless of the sprite being replaced, this function will create a new texture page for the sprite and so care should be taken 
 ---when using it as it may adversely affect performance by increasing the number of required texture swaps for rendering.
 ---@param ind number The index of the sprite to permanently replace.
----@param fname string The filename of the image to make the new sprite.
+---@param filepath string The filename of the image to make the new sprite.
 ---@param imgnumb number The number of frames the sprite will be cut up into horizontally.
 ---@param removeback boolean Indicates whether to make all pixels with the background color (left-bottom pixel) transparent.
 ---@param smooth boolean Indicates whether to smooth the edges.
 ---@param xorig number The x coordinate of the origin, relative to the sprite's top left corner.
 ---@param yorig number The y coordinate of the origin, relative to the sprite's top left corner.
-function sprite_replace(ind, fname, imgnumb, removeback, smooth, xorig, yorig) end
+function sprite_replace(ind, filepath, imgnumb, removeback, smooth, xorig, yorig) end
 
 ---With this function you can add an image as a sprite, loading it from an external source where the image file to be loaded should always be in either *.png, *.gif, *.jpg/jpeg or *.json format. 
 ---The function returns the new sprite index which must then be used in all further code that relates to the sprite. 
----@param fname string The filename of the image to make the new sprite.
+---@param filepath string The filename of the image to make the new sprite.
 ---@param imgnumb number The number of frames the sprite will be cut up into horizontally.
 ---@param removeback boolean Indicates whether to make all pixels with the background color (left-bottom pixel) transparent.
 ---@param smooth boolean Indicates whether to smooth the edges.
 ---@param xorig number The x coordinate of the origin, relative to the sprite's top left corner.
 ---@param yorig number The y coordinate of the origin, relative to the sprite's top left corner.
 ---@return number index The index of the sprite
-function sprite_add(fname, imgnumb, removeback, smooth, xorig, yorig) end
+function sprite_add(filepath, imgnumb, removeback, smooth, xorig, yorig) end
 
 ---This function will merge the sprite indexed in argument 1 ("ind2") with that which is indexed in argument 0 ("ind1"). 
 ---The images themselves are NOT merged together, but rather the image indices are merged, 

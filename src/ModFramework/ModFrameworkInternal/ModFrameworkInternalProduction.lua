@@ -30,6 +30,18 @@ local isWeaponDescComplete = false
 ---@type number
 local textScrollTimer = 0
 
+---The interval in frames for the scroll timer
+---@type number
+local textScrollInterval = 30
+
+---The description animation data, or nil when not animating.
+---@type DescriptionLineData[]?
+local descriptionData = nil
+
+---The component type of the current item. So we can track if it changes.
+---@type number
+local CurrentComponentType = -1
+
 ------------------------------------------------------------------------------
 ------------------------------------------------------------------------------
 ------------------------------------------------------------------------------
@@ -244,7 +256,7 @@ end
 ---Used in the update_prices function of obj_component_shop.lua
 function Production.UpdateCustomTypePrices()
 	local obj_component_shop = Common.GetObjComponentShop()
-	local component = Private.GetCustomComponent(obj_component_shop.cur_item.comp_type);
+	local component = Private.GetCustomComponent(obj_component_shop.cur_item.comp_type)
 
 	if (component ~= nil and 
 		component.comp_type >= 1000 and
@@ -259,14 +271,34 @@ function Production.UpdateCustomTypePrices()
 	end
 end
 
+---Draws the shop description for custom components
+---
+---Used in the draw_item_text function of obj_component_shop.lua
 function Production.DrawCustomComponentDescription()
     local obj_component_shop = Common.GetObjComponentShop()
-	local component = Private.GetCustomComponent(obj_component_shop.cur_item.comp_type);
+	local component = Private.GetCustomComponent(obj_component_shop.cur_item.comp_type)
 
-	if (component ~= nil and 
+	if (component ~= nil and
 		component.comp_type >= 1000 and
 		component.comp_type < Storage.NextCustomComponentType and
 		component.CustomData ~= nil) then
+
+		--Create the animation dataset
+		if (descriptionData == nil or CurrentComponentType ~= component.comp_type) then
+			descriptionData = {}
+			for key, _ in ipairs(component.CustomData.ShopDescription) do
+				---@type DescriptionLineData
+				local data = {
+					DisplayStep = -1,
+					IsDoneScrolling = false,
+					IsDoneWaiting = false
+				}
+				descriptionData[key] = data
+			end
+			--Reset Timer
+			textScrollTimer = 0
+		end
+
 		local labelColor = make_colour_rgb(204, 165, 118)
 		local valueColor = make_colour_rgb(114, 165, 204)
 		local labelX = 834
@@ -275,28 +307,73 @@ function Production.DrawCustomComponentDescription()
 		local rowHeight = 32
 		local row = 0
 
-		for _, line in ipairs(component.CustomData.ShopDescription) do
+		for key, line in ipairs(component.CustomData.ShopDescription) do
+			local lineData = descriptionData[key]
+			local value = string.format("%g", line.Value)
+			local label = Private.GetDisplayLabel(lineData, line.Label, value)
+
 			--Draw label
 			draw_set_halign(0)
 			draw_set_color(labelColor)
-			draw_text_transformed(labelX, startY + (rowHeight * row), line.Label, 2, 2, 0)
+			draw_text_transformed(labelX, startY + (rowHeight * row), label, 2, 2, 0)
 			--Draw value
 			draw_set_color(valueColor)
 			draw_set_halign(2)
-			draw_text_transformed(valueX, startY + (rowHeight * row), string.format("%g", line.Value), 2, 2, 0)
+			draw_text_transformed(valueX, startY + (rowHeight * row), value, 2, 2, 0)
 			row = row + 1
+
+			if (textScrollTimer == textScrollInterval - 1) then
+				if (lineData.IsDoneScrolling == true and lineData.IsDoneWaiting == false) then
+					lineData.IsDoneWaiting = true
+				elseif (lineData.IsDoneScrolling == true and lineData.IsDoneWaiting == true) then
+					lineData.DisplayStep = -1
+					lineData.IsDoneScrolling = false
+					lineData.IsDoneWaiting = false
+				else
+					lineData.DisplayStep = lineData.DisplayStep + 1
+				end
+			end
 		end
 
-		--Draw label
-        draw_set_halign(0)
-        draw_set_color(labelColor)
-        draw_text_transformed(labelX, startY + (rowHeight * row), tostring(textScrollTimer), 2, 2, 0)
-
+		--Increase the timer
 		textScrollTimer = textScrollTimer + 1
-		textScrollTimer = textScrollTimer % 20
+		textScrollTimer = textScrollTimer % textScrollInterval
 	else
+		--Reset
 		textScrollTimer = 0
+		descriptionData = nil
 	end
+
+	CurrentComponentType = obj_component_shop.cur_item.comp_type
+end
+
+---Get the part of the string that will fit. And scroll based on the lines DisplayStep.
+---@param lineData DescriptionLineData The dataset to track the shop description line animation.
+---@param label string The label string.
+---@param value string The value string.
+---@return string label The label string or part that will fit.
+function Private.GetDisplayLabel(lineData, label, value)
+	local maxLineWidth = 252 / 2 --text is scaled by factor 2
+	local padding = 10
+	local valueWidth = string_width(value) + padding
+	if (string_width(label) <= maxLineWidth - valueWidth) then
+		return label
+	end
+
+	local firstLoop = true
+	local labelLength = #label
+	for i = labelLength, 0, -1 do
+		local widthTest = label:sub(1 + lineData.DisplayStep, i)
+		if (string_width(widthTest) <= maxLineWidth - valueWidth) then
+			if (firstLoop == true) then
+				lineData.IsDoneScrolling = true
+			end
+			return widthTest
+		end
+		firstLoop = false
+	end
+
+	return "" --If we get here the value must have been massive
 end
 
 ---Gets the custom component of the requested type

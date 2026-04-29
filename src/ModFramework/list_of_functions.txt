@@ -25,28 +25,28 @@ dot_product_3d_normalised(x1:real, y1:real, z1:real, x2:real, y2:real, z2:real)
 dot_product_3d(x1:real, y1:real, z1:real, x2:real, y2:real, z2:real)
 dot_product_normalised(x1:real, y1:real, x2:real, y2:real)
 dot_product(x1:real, y1:real, x2:real, y2:real)
-draw_clear_alpha(col_id:real, alpha:real);
+draw_clear_alpha(col_id:real, alpha:real)
 draw_self(self)
-draw_set_alpha(alpha:real);
+draw_set_alpha(alpha:real)
 draw_set_color(col:index)
 draw_set_font(font:index)
 draw_set_halign(halign:int)
 draw_set_valign(valign:int)
 draw_sprite_ext(sprite:index, subimg:real, x:real, y:real, xscale:real, yscale:real, rot:real, :color, alpha:real)
 draw_sprite(sprite:index, subimg:real, x:real, y:real)
-draw_surface_tiled(id:real, x:real, y:real);
-draw_surface(id:real, x:real, y:real);
+draw_surface_tiled(id:real, x:real, y:real)
+draw_surface(id:real, x:real, y:real)
 draw_text_ext(x:real, y:real, string, sep:real, w:real)
 draw_text_transformed(x:real, y:real, string:string, xscale:real, yscale:real, angle:real)
 ds_grid_create(w:real,h:real)
-ds_grid_get(grid:index, x:real, y:real);
+ds_grid_get(grid:index, x:real, y:real)
 ds_grid_read(index:real,str:string)
-ds_grid_set(grid:index, x:real, y:real, value:real);
+ds_grid_set(grid:index, x:real, y:real, value:real)
 ds_grid_write(index:real)
-ds_map_add(id:real, key:string, val:any);
-ds_map_copy(id:real, source:real);
-ds_map_create();
-ds_map_destroy(id:real);
+ds_map_add(id:real, key:string, val:any)
+ds_map_copy(id:real, source:real)
+ds_map_create()
+ds_map_destroy(id:real)
 ds_map_exists(id:real, key:string):bool
 ds_map_find_value(id:real, key:string):
 ds_map_keys_to_array(id:real) //returns array with keys as strings
@@ -102,10 +102,10 @@ sign(x:real)
 sin(radian_angle:real)
 sprite_add(fname:string, imgnumb:real, removeback:bool, smooth:bool, xorig:real, yorig:real)
 sprite_collision_mask(ind:number, sepmasks:number, bboxmode:number, bbleft:number, bbtop:number, bbright:number, bbbottom:number, kind:number, tolerance:number) returns n/a
-sprite_delete(index:real);
-sprite_duplicate(index:real):real;
+sprite_delete(index:real)
+sprite_duplicate(index:real):real
 sprite_get_name(index:real):string
-sprite_merge(ind1:real, ind2:real);
+sprite_merge(ind1:real, ind2:real)
 sprite_replace(ind:assetind, fname:string, imgnumb:real, removeback:bool, smooth:bool, xorig:real, yorig:real)
 sqrt(x:real)
 string_height_ext(string:string, sep:real, w:real)
@@ -117,15 +117,15 @@ surface_create(width:real, height:real)
 surface_exists(surface_id:real)
 surface_free(surface_id:real)
 surface_reset_target()
-surface_save(surface_id:real, fname:string);
+surface_save(surface_id:real, fname:string)
 surface_set_target(surface_id:real)
 tan(radian_angle:real)
 variable_global_exists(name:string):bool
 variable_global_get(name:string)
 variable_global_set(name:string, val:any)
-variable_instance_exists(instance_id:real, name:string):bool;
+variable_instance_exists(instance_id:real, name:string):bool
 variable_instance_get_names(instance_id/global:real)
-variable_instance_get(instance_id:real, name:string):any;
+variable_instance_get(instance_id:real, name:string):any
 variable_instance_set(instance_id:real, name:string, val:any)
 window_mouse_get_x():real
 window_mouse_get_y():real

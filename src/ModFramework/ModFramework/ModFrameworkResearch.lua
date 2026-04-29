@@ -62,7 +62,7 @@ function Research.AddResearch(researchData)
 	newResearch[ResearchIndexes.RequiredStaff] = researchData.RequiredStaff
 	newResearch[ResearchIndexes.IconType] = researchData.ResearchIcon.IconType
 	newResearch[ResearchIndexes.IconSubtype] = researchData.ResearchIcon.IconSubType
-	mres[researchIndex] = newResearch;
+	mres[researchIndex] = newResearch
 
 	local description = Common.GetLocalizedString("ResearchDescription", researchData.ReferenceName, researchData.Description)
 	newResearch[ResearchIndexes.Description] = description

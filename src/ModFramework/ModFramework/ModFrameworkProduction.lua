@@ -24,7 +24,7 @@ local Storage = require("ModFrameworkStorage")
 ---Unlocks all shop components
 function Production.UnlockAllShopComponents()
 	for _, component in pairs(Storage.AllShopComponents) do
-		component.researched = true;
+		component.researched = true
 	end
 
     Storage.IsShopUpdateNeeded = true

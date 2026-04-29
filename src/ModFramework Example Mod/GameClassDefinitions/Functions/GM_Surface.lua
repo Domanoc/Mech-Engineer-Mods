@@ -29,8 +29,8 @@ function surface_reset_target() end
 
 ---This function will save a surface to disc using the given filename. The surface must be saved as a *.png format file.
 ---@param surface_id number The ID of the surface to set as the drawing target.
----@param fname string The filepath of the saved image file.
-function surface_save(surface_id, fname) end
+---@param filepath string The filepath of the saved image file.
+function surface_save(surface_id, filepath) end
 
 ---With this function you set all further drawing to the target surface rather than the screen and in this way you can tell GameMaker to only draw specific things to the specified surface.
 ---@param surface_id number	The surface to set as the drawing target.

@@ -112,7 +112,7 @@ end
 ---@param voice PilotVoices The voice type.
 ---@return number phraseNumber The corresponding phrase number.
 function Common.GetPhraseNumber(voice)
-    local obj_database = Common.GetObjDatabase();
+    local obj_database = Common.GetObjDatabase()
 
     for _, pilot in pairs(obj_database.pilot_stat) do
         local soundIndex = ds_map_find_value(pilot, "sound_index")
@@ -129,7 +129,7 @@ end
 ---@param name string The name for the pilot template to look for.
 ---@return number? index The index if found nil otherwise.
 function Common.GetPilotTemplateIndex(name)
-	local obj_database = Common.GetObjDatabase();
+	local obj_database = Common.GetObjDatabase()
 
     for index, pilot in pairs(obj_database.pilot_stat) do
         local templateName = ds_map_find_value(pilot, "name")

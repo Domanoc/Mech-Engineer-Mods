@@ -94,7 +94,7 @@ function ModFrameworkInternal.RegisterFramework()
 	Storage.SelectedLanguage = language
 
 	--Set a variable that mods can check before trying to load the framework
-	variable_global_set("IsModFrameworkLoaded", true);
+	variable_global_set("IsModFrameworkLoaded", true)
 end
 
 ------------------------------------------------------------------------------

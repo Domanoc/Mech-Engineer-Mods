@@ -8,7 +8,8 @@
 ---@param x number The x position the instance of the given object will be created at
 ---@param y number The y position the instance of the given object will be created at
 ---@param depth number The depth to assign the created instance to
----@param obj number The object index of the object to create an instance of
+---@param obj any The object index of the object to create an instance of
+---@return any instance The created instance.
 function instance_create_depth(x, y, depth, obj) end
 
 ---This function can be used in two ways depending on what you wish to check. 

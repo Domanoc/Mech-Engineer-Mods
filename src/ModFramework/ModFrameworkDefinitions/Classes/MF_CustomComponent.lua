@@ -27,3 +27,8 @@
 ---@class LocalizedShopDescriptionLine A description line that will be shown when the custom component is selected in the shop.
 ---@field Label string The label text for the description line.
 ---@field Value number The value for the description line.
+
+---@class DescriptionLineData Dataset to track the shop description line animations
+---@field DisplayStep number The Current step number.
+---@field IsDoneScrolling boolean True if done scrolling to the left, false otherwise.
+---@field IsDoneWaiting boolean True if done waiting to restart scrolling, false otherwise.

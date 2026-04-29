@@ -323,18 +323,18 @@ function Database.AddPilotTemplate(pilotData)
 	local pilot = ds_map_create()
 	local sprite = Common.AddSprite(pilotData.Sprite, 4, false, false, 23, 23)
 
-	ds_map_add(pilot, "hp",						1000);									  --doesn't seem to do anything
-	ds_map_add(pilot, "type",					1);										  --Seems to be a default value
-	ds_map_add(pilot, "name",					pilotData.Name);						  --the name of the pilot
-	ds_map_add(pilot, "level",					pilotData.Level);						  --the level of the pilot
-	ds_map_add(pilot, "level_ex",				pilotData.LevelExperience); 			  --the amount of experience in the current level
-	ds_map_add(pilot, "stat_skill",				pilotData.Skill);						  --the skill stat of the pilot (0-100)
-	ds_map_add(pilot, "stat_reaction",			pilotData.Reaction);					  --the reaction stat of the pilot (0-100)
-	ds_map_add(pilot, "stat_vitality",			pilotData.Vitality);					  --the vitality stat of the pilot (0-100)
-	ds_map_add(pilot, "stat_stress_resistance",	pilotData.StressResistance);			  --the stress resistance stat of the pilot (0-100)
-	ds_map_add(pilot, "sound_index",			pilotData.Voice);						  --the voice used by the pilot
-	ds_map_add(pilot, "phrase_num",				Common.GetPhraseNumber(pilotData.Voice)); --the voice used by the pilot
-	ds_map_add(pilot, "sprite",					sprite);								  --the sprite sheet for the pilot
+	ds_map_add(pilot, "hp",						1000)									  --doesn't seem to do anything
+	ds_map_add(pilot, "type",					1)										  --Seems to be a default value
+	ds_map_add(pilot, "name",					pilotData.Name)							  --the name of the pilot
+	ds_map_add(pilot, "level",					pilotData.Level)						  --the level of the pilot
+	ds_map_add(pilot, "level_ex",				pilotData.LevelExperience) 				  --the amount of experience in the current level
+	ds_map_add(pilot, "stat_skill",				pilotData.Skill)						  --the skill stat of the pilot (0-100)
+	ds_map_add(pilot, "stat_reaction",			pilotData.Reaction)						  --the reaction stat of the pilot (0-100)
+	ds_map_add(pilot, "stat_vitality",			pilotData.Vitality)						  --the vitality stat of the pilot (0-100)
+	ds_map_add(pilot, "stat_stress_resistance",	pilotData.StressResistance)				  --the stress resistance stat of the pilot (0-100)
+	ds_map_add(pilot, "sound_index",			pilotData.Voice)						  --the voice used by the pilot
+	ds_map_add(pilot, "phrase_num",				Common.GetPhraseNumber(pilotData.Voice))  --the voice used by the pilot
+	ds_map_add(pilot, "sprite",					sprite)								  	  --the sprite sheet for the pilot
 
 	--Add the map the the list
 	pilot_stat[pilotIndex] = pilot

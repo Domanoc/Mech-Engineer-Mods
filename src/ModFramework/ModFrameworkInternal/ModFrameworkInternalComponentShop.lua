@@ -47,7 +47,7 @@ local reactorsPage = { CurrentPage = 0, MaxPage = 0 }
 ---
 ---Used in the create function of obj_database.lua
 function ComponentShop.LoadShopSprites()
-	local modPath = Common.GetModPathByName("ModFramework");
+	local modPath = Common.GetModPathByName("ModFramework")
 	Storage.SpriteShopButtonLeft = Common.AddSprite(modPath.."sprites\\ShopButtonLeft.png", 2, false, false, 0, 0)
 	Storage.SpriteShopButtonRight = Common.AddSprite(modPath.."sprites\\ShopButtonRight.png", 2, false, false, 0, 0)
     Storage.SpriteShopRobotOriginal = asset_get_index("spr_engineer_robot")
@@ -182,7 +182,7 @@ function Private.DrawButton(image, x, y, func)
 	local my = window_mouse_get_y()
 	local isButtonDown
 	if (mx > x and mx < x + 22 and my > y and my < y + 24) then
-		isButtonDown = 1;
+		isButtonDown = 1
 		if (mouse_check_button_pressed(Types.MouseButtons.Left)) then
 			func()
 		end
@@ -199,7 +199,7 @@ function Private.DrawMouseCursor()
 	local my = window_mouse_get_y()
 	local isButtonDown
 	if (mouse_check_button(Types.MouseButtons.Left)) then
-		isButtonDown = 1;
+		isButtonDown = 1
 	else
 		isButtonDown = 0
 	end

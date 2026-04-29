@@ -47,7 +47,7 @@ function Private.AddPilotFromQueue(pilotData)
 
 	local arraySize = #list_pilot
 	local itemIndex = arraySize + 1
-    local templateData = Private.GetPilotTemplateData(pilotData.Template);
+    local templateData = Private.GetPilotTemplateData(pilotData.Template)
 	local addedPilot = Private.AddPilotItemInstance()
 	addedPilot.my_num = arraySize
     --optional set values
@@ -83,7 +83,7 @@ end
 ---@param template number|PilotNames the reference for the sprite
 ---@return PilotDsMap templateData the dataset for the template
 function Private.GetPilotTemplateData(template)
-    local obj_database = Common.GetObjDatabase();
+    local obj_database = Common.GetObjDatabase()
     ---@type number
     local index = 1
 

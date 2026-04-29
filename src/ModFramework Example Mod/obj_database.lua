@@ -162,9 +162,11 @@ function create(q,v_modid)
 		ProductionDays =    2,					  --The amount of days it takes to produce this custom component
 		Sprite = 		    modFilepath.."sprites\\example_solenoid.png",
 		ShopDescription = {
-			{ Label = { LocalizedDefaultValue = "WEIGHT WAIT WEIGHT WAITING FOR THIS" }, Value = 65 },
-			{ Label = { LocalizedDefaultValue = "CUSTOM" }, Value = 0.45 },
-			{ Label = { LocalizedDefaultValue = "SECOND LINE" }, Value = 1 }
+			--Add the lines that should be displayed in the shop description
+			--We can add a maximum of 10 lines. More will overflow the shop window.
+			--The label supports localization
+			{ Label = { LocalizedDefaultValue = "CUSTOM ITEM" }, Value = 1 },
+			{ Label = { LocalizedDefaultValue = "SOME STAT NAME" }, Value = 0.45 },
 		}
 	})
 end

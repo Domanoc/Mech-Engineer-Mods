@@ -33,7 +33,7 @@ function Research.FixResearchPanelList()
 
     --Copy the array to the working set
     local mres = obj_research_panel.mres
-    local newMres = {};
+    local newMres = {}
 
     --the mres has a lot of empty entries we will remove them to reduce modding complexity
     for i = 1, 44, 1 do
@@ -41,7 +41,7 @@ function Research.FixResearchPanelList()
     end
 
     --return the updated table
-    obj_research_panel.mres = newMres;
+    obj_research_panel.mres = newMres
 end
 
 local isResearchFixed = false

@@ -14,8 +14,8 @@ function variable_global_get(name) end
 ---and then the value to set (can be any valid data type). 
 ---If the global variable does not exist already in the game it will be created and then assigned the value.
 ---@param name string The name of the global variable to set (as a string)
----@param val any The value to set the global variable to
-function variable_global_set(name, val) end
+---@param value any The value to set the global variable to
+function variable_global_set(name, value) end
 
 ---With this function you can check whether a global scope variable exists or not. 
 ---You supply the global variable name to check for as a string (see example code below) 
@@ -55,5 +55,5 @@ function variable_instance_get(instance_id, name) end
 ---and then finally the value to set (can be any valid data type). If the variable does not exist already in the instance it will be created and then assigned the value.
 ---@param instance_id number The unique ID value of the instance to use
 ---@param name string The name of the variable to set (as a string)
----@param val any The value to set the variable to
-function variable_instance_set(instance_id, name, val) end
+---@param value any The value to set the variable to
+function variable_instance_set(instance_id, name, value) end
