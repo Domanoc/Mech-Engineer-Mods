@@ -1,31 +1,31 @@
----@class WeaponData dataset for adding a new weapon
----@field Name string the name of the mech, used to find its references
----@field ComponentSize ComponentSize the size of the component when constructing it.
----@field IsResearched boolean set to true if its pre researched, else false.
----@field CanBeConstructed boolean set to true if it can be constructed in the component shop, false otherwise
----@field GiveFreeItem boolean set to true to return a free copy when triggered as an unlock
----@field PriceMetallite number the amount of metallite needed to produce this weapon
----@field PriceBjorn number the amount of bjorn needed to produce this weapon
----@field PriceMunilon number the amount of munilon needed to produce this weapon
----@field PriceSkalaknit number the amount of skalaknit needed to produce this weapon
----@field PriceStaff number the amount of staff needed to produce this weapon
----@field ProductionDays number the amount of days it takes to produce this weapon
----@field WeaponType WeaponType the type of weapon (white = kinetic, red = missiles, blue = energy, yellow = thermal)
----@field FireRate number the base fire rate. higher values offer a faster rate, 600 with full fire speed points will fill the fire speed bar completely
----@field Weight number the base weight of the weapon
----@field Accuracy number the base accuracy for the weapon. accuracy in degrees, 0 is perfect accuracy
----@field EnergyCost number the base energy cost of the weapon
----@field Damage number the base damage value of the weapon
----@field Penetration number the base penetration value of the weapon
----@field ProjectileSpeed number the base projectile speed of the weapon
----@field IsEnergyBuffed boolean whether the energy cost boost damage output, for energy weapons this is an additional increase on their native bonus.
----@field SpriteSmall string the small sprite for the weapon
----@field SpriteBig string the big sprite for the weapon
----@field SpriteHuge string the huge sprite for the weapon
----@field BlueLength number the range of a blue weapon, default is 750
----@field Description LocalizedString the description text for a weapon. used when the weapon is added to the main slot in engineering.
+---@class WeaponData Dataset for adding a new weapon.
+---@field ReferenceName string The reference name of the weapon, used to find its references..
+---@field ComponentSize ComponentSize The size of the component when constructing it.
+---@field IsResearched boolean True if the component is researched from the start of the game, false otherwise.
+---@field CanBeConstructed boolean True if it can be constructed in the component shop, false otherwise.
+---@field GiveFreeItem boolean True if a free copy is created when triggered as an unlock, false otherwise.
+---@field PriceMetallite number The amount of metallite needed to produce this weapon.
+---@field PriceBjorn number The amount of bjorn needed to produce this weapon.
+---@field PriceMunilon number The amount of munilon needed to produce this weapon.
+---@field PriceSkalaknit number The amount of skalaknit needed to produce this weapon.
+---@field PriceStaff number The amount of staff needed to produce this weapon.
+---@field ProductionDays number The amount of days it takes to produce this weapon.
+---@field WeaponType WeaponType The type of weapon (white = kinetic, red = missiles, blue = energy, yellow = thermal).
+---@field FireRate number The base fire rate. higher values offer a faster rate, 600 with full fire speed points will fill the fire speed bar completely.
+---@field Weight number The base weight of the weapon.
+---@field Accuracy number The base accuracy for the weapon. accuracy in degrees, 0 is perfect accuracy.
+---@field EnergyCost number The base energy cost of the weapon.
+---@field Damage number The base damage value of the weapon.
+---@field Penetration number The base penetration value of the weapon.
+---@field ProjectileSpeed number The base projectile speed of the weapon.
+---@field IsEnergyBuffed boolean True if energy can boost the damage output, false otherwise. For energy weapons this is an additional increase on their native bonus.
+---@field SpriteSmall string The small sprite for the weapon.
+---@field SpriteBig string The big sprite for the weapon.
+---@field SpriteHuge string The huge sprite for the weapon.
+---@field BlueLength number The range of a energy weapon, default is 750. Not used for non energy weapons.
+---@field Description LocalizedString The description text for a weapon. Used when the weapon is added to the main slot in engineering.
 
----@class WeaponIndicatorLocation dataset containing the information to display a weapon indicator sprite
----@field X number the x position
----@field Y number the y position
----@field SubImageIndex 0|1|2|3 the sub image that needs to be shown 
+---@class WeaponIndicatorLocation Dataset containing the information to display a weapon indicator sprite.
+---@field X number the x position.
+---@field Y number the y position.
+---@field SubImageIndex 0|1|2|3 the sub image that needs to be shown.

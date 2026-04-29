@@ -166,14 +166,14 @@ end
 ---Add a new weapon to the games obj_database
 ---@param weaponData WeaponData
 function Database.AddWeapon(weaponData)
-	local component = Common.GetModdedComponent(weaponData.Name, Types.ComponentTypes.Weapon)
+	local component = Common.GetModdedComponent(weaponData.ReferenceName, Types.ComponentTypes.Weapon)
 	if (component ~= nil) then
-		local newName = string.sub(weaponData.Name.."_"..tostring(irandom_range(1000, 10000000)), 1, -3)
+		local newName = string.sub(weaponData.ReferenceName.."_"..tostring(irandom_range(1000, 10000000)), 1, -3)
 		local message = "Trying to add a new component, but the reference name was already used.\n"
 		message = message.."Please provide a reference name that is unique, consider adding a prefix or suffix referencing your mod to prevent other mods from using the same name.\n\n"
-		message = message.."Debug info:\nName given: "..weaponData.Name.."\nGenerated name: "..newName
+		message = message.."Debug info:\nName given: "..weaponData.ReferenceName.."\nGenerated name: "..newName
 		Common.ShowError(message)
-		weaponData.Name = newName
+		weaponData.ReferenceName = newName
 	end
 
 	local obj_database = Common.GetObjDatabase()
@@ -222,7 +222,7 @@ function Database.AddWeapon(weaponData)
 	--Add the newly modded item to the component list. So we can find the reference later.
 	---@type ModdedComponent
 	local moddedComponent = {
-		ReferenceName = weaponData.Name,
+		ReferenceName = weaponData.ReferenceName,
 		ComponentType = Types.ComponentTypes.Weapon,
 		ComponentSize = weaponData.ComponentSize,
 		DatabaseIndex = weaponIndex,
@@ -232,7 +232,7 @@ function Database.AddWeapon(weaponData)
 		GiveFreeItem = weaponData.GiveFreeItem,
 		SpriteIndex = smallSpriteIndex,
 		WeaponData = {
-			Description = Common.GetLocalizedString("WeaponDescription", weaponData.Name, weaponData.Description),
+			Description = Common.GetLocalizedString("WeaponDescription", weaponData.ReferenceName, weaponData.Description),
 			BlueLength = weaponData.BlueLength,
 		},
 	}

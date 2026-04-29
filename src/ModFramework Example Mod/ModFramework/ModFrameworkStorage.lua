@@ -55,7 +55,7 @@ Storage.LoadedResearchList = {}
 Storage.ModdedResearchList = {}
 
 ---The queue for pilots to be added
----@type LocalizedPilotData[]
+---@type LocalizedPilotCreationData[]
 Storage.PilotDataQueue = {}
 
 ------------------------------------------------------------------------------

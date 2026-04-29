@@ -1,6 +1,6 @@
 ---@class MechCreationData Dataset for adding a new mech to the obj database.
 ---@field ReferenceName string The reference name of the mech, used to find its references.
----@field ComponentSize ComponentSize the size of the component when constructing it.
+---@field ComponentSize ComponentSize The size of the component when constructing it.
 ---@field IsResearched boolean True if the component is researched from the start of the game, false otherwise.
 ---@field CanBeConstructed boolean True if it can be constructed in the component shop, false otherwise.
 ---@field GiveFreeItem boolean True if a free copy is created when triggered as an unlock, false otherwise.

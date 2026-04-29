@@ -81,7 +81,7 @@ function create(q,v_modid)
 
 	--An example for creating a modded weapon
 	Mod.Database.AddWeapon({
-		Name = 			    "example_weapon",	  --The name of the mech, used to find its references
+		ReferenceName = 			    "example_weapon",	  --The name of the mech, used to find its references
 		Description = {							  --the description text for a weapon. used when the weapon is added to the main slot in engineering.
 			--Data that represents a string that will be localized. Its recommended to be in english for code readability
 			--The other actual values will be pulled from the mods localization files

@@ -9,7 +9,7 @@
 ---@field Vitality number the vitality stat of the pilot (0-100)
 ---@field StressResistance number the stress resistance stat of the pilot (0-100)
 
----@class PilotData dataset for adding a new pilot
+---@class PilotCreationData dataset for adding a new pilot
 ---@field Template number|PilotNames the base dataset to base the pilot on, either the index number in obj_database.pilot_stat or reference one of the existing pilots. this wil determine the used sprite.
 ---@field WorkExperience ReferencedLocalizedString the description text for the work experience of the pilot.
 ---@field Age number the age of the pilot
@@ -23,7 +23,7 @@
 ---@field Vitality number? the vitality stat of the pilot (0-100), leave nil to use the template settings
 ---@field StressResistance number? the stress resistance stat of the pilot (0-100), leave nil to use the template settings
 
----@class LocalizedPilotData localized dataset for adding a new pilot
+---@class LocalizedPilotCreationData localized dataset for adding a new pilot
 ---@field Template number|PilotNames the base dataset to base the pilot on, either the index number in obj_database.pilot_stat or reference one of the existing pilots. this wil determine the used sprite.
 ---@field WorkExperience string the description text for the work experience of the pilot.
 ---@field Age number the age of the pilot

@@ -254,7 +254,7 @@ function create(q,v_modid)
 	------------------------------------------------------------------------------
 
 	Mod.Database.AddSolenoid({
-		ReferenceName = "CDC_HighTechSolenoid",
+		ReferenceName = 	"CDC_HighTechSolenoid",
 		ComponentSize =     componentSizes.Small,
 		IsResearched = 	    false,
 		CanBeConstructed =  true,
@@ -275,7 +275,7 @@ function create(q,v_modid)
 	------------------------------------------------------------------------------
 
 	Mod.Database.AddWeapon({
-		Name = 			    "CDC_Howitzer",
+		ReferenceName =		"CDC_Howitzer",
 		Description = {
 			LocalizedDefaultValue = "240-MM HOWITZER GUN"
 		},
@@ -305,7 +305,7 @@ function create(q,v_modid)
 	})
 
 	Mod.Database.AddWeapon({
-		Name = 			    "CDC_LaserPulseCannon",
+		ReferenceName =		"CDC_LaserPulseCannon",
 		Description = {
 			LocalizedDefaultValue = "EXTENDED RANGE LASER PULSE CANNON#Uses an internal power unit to provide most of the energy. Can be boosted by providing additional power."
 		},
