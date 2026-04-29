@@ -1,4 +1,4 @@
----@class WeaponData Dataset for adding a new weapon.
+---@class WeaponCreationData Dataset for adding a new weapon.
 ---@field ReferenceName string The reference name of the weapon, used to find its references..
 ---@field ComponentSize ComponentSize The size of the component when constructing it.
 ---@field IsResearched boolean True if the component is researched from the start of the game, false otherwise.

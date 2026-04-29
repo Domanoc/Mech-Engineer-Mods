@@ -236,7 +236,7 @@ function Private.ArrangeAdditionalComponents()
 
     local index = 0
 	local pageWidth = 3 * componentSpacing
-    ---@type ArrangeSettings
+    ---@type ShopArrangeSettings
     local settings = {
         CurrentPage = additionalPage.CurrentPage,
         SlotsPerPage = 18,
@@ -286,7 +286,7 @@ function Private.ArrangeMechsComponents()
 
     local index = 0
 	local pageHeight = 6 * componentSpacing
-    ---@type ArrangeSettings
+    ---@type ShopArrangeSettings
     local settings = {
         CurrentPage = mechsPage.CurrentPage,
         SlotsPerPage = 30,
@@ -340,7 +340,7 @@ end
 function Private.ArrangeWeaponsComponents()
     local index = 0
 	local pageWidth = 8 * componentSpacing
-    ---@type ArrangeSettings
+    ---@type ShopArrangeSettings
     local settings = {
         CurrentPage = weaponsPage.CurrentPage,
         SlotsPerPage = 24,
@@ -405,7 +405,7 @@ function Private.ArrangeSupportComponents()
 
     local index = 0
 	local pageHeight = componentSpacing
-    ---@type ArrangeSettings
+    ---@type ShopArrangeSettings
     local settings = {
         CurrentPage = supportPage.CurrentPage,
         SlotsPerPage = 8,
@@ -502,7 +502,7 @@ function Private.ArrangeReactorsComponents()
 
     local index = 0
 	local pageHeight = 3 * componentSpacing
-    ---@type ArrangeSettings
+    ---@type ShopArrangeSettings
     local settings = {
         CurrentPage = reactorsPage.CurrentPage,
         SlotsPerPage = 24,
@@ -538,7 +538,7 @@ end
 ---Arrange components to a grid in vertical columns.
 ---@param array game_obj_component[] The components to be arranged.
 ---@param index number The current index for the placement.
----@param settings ArrangeSettings The settings for the arrangement.
+---@param settings ShopArrangeSettings The settings for the arrangement.
 ---@return number index The new current index for the placement.
 function Private.ArrangeLoopVertical(array, index, settings)
     local upperBounds = (settings.SlotsPerPage - 1) + (settings.SlotsPerPage * settings.CurrentPage)
@@ -565,7 +565,7 @@ end
 ---Arrange components to a grid in horizontal rows.
 ---@param array game_obj_component[] The components to be arranged.
 ---@param index number The current index for the placement.
----@param settings ArrangeSettings The settings for the arrangement.
+---@param settings ShopArrangeSettings The settings for the arrangement.
 ---@return number index The new current index for the placement.
 function Private.ArrangeLoopHorizontal(array, index, settings)
     local upperBounds = (settings.SlotsPerPage - 1) + (settings.SlotsPerPage * settings.CurrentPage)
@@ -593,7 +593,7 @@ end
 ---Has special logic to add weapon indicators.
 ---@param array game_obj_component[] The components to be arranged.
 ---@param index number The current index for the placement.
----@param settings ArrangeSettings The settings for the arrangement.
+---@param settings ShopArrangeSettings The settings for the arrangement.
 ---@param indicatorType 0|1|2|3 The sub image that needs to be shown.
 ---@return number index The new current index for the placement.
 function Private.ArrangeWeaponsLoopVertical(array, index, settings, indicatorType)

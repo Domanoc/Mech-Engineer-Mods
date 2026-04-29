@@ -1,4 +1,4 @@
----@class ResearchData dataset for a new research item
+---@class ResearchCreationData dataset for a new research item
 ---@field ReferenceName string the name of the research item, used to find its references
 ---@field Position ResearchPosition position number on the research tree. You can see positions in the game with f6 (debug mode)
 ---@field PrerequisiteResearchResNumber number? the res number of the prerequisite research that unlocks this research, each research can only be the prerequisite for 3 other researches. leave nil for no prerequisite.
