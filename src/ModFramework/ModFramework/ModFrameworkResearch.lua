@@ -29,7 +29,7 @@ local Types = require("ModFrameworkTypes")
 function Research.AddResearch(researchData)
 	local checkPosition = Private.GetResearchByPosition(researchData.Position)
 	if(checkPosition ~= nil) then
-		local message = "Trying to set the new research to a position that is already ocupied.\n"
+		local message = "Trying to set the new research to a position that is already occupied.\n"
 		message = message.."Check if the correct position was given, or if a another mod in the load order assigned the position.\n\n"
 		message = message.."Debug info:\nResearch name: "..researchData.ReferenceName.."\nDesired position: "..researchData.Position
 		Common.ShowError(message)
@@ -137,7 +137,7 @@ end
 function Research.MoveResearch(resNumber, position)
 	local checkPosition = Private.GetResearchByPosition(position)
 	if(checkPosition ~= nil) then
-		local message = "Trying to move a research to a position that is already ocupied.\n"
+		local message = "Trying to move a research to a position that is already occupied.\n"
 		message = message.."Check if the correct position was given, or if a another mod in the load order assigned the position.\n\n"
 		message = message.."Debug info:\nResearch res number: "..resNumber.."\nDesired position: "..position
 		Common.ShowError(message)
@@ -215,7 +215,7 @@ function Research.ChangePrerequisite(resNumber, newPrerequisiteResNumber)
 		prerequisite[Types.ResearchIndexes.Link_3] = resNumber
 	else
 		local message = "Trying to set the prerequisite research but the prerequisite already has 3 linked researches.\n"
-		message = message.."Check if the correct res number was given, or rearange the research tree so there are no more that 3 unlocks per research.\n"
+		message = message.."Check if the correct res number was given, or rearrange the research tree so there are no more that 3 unlocks per research.\n"
 		message = message.."Each research res number can be found in the debug view (F6) of the research screen (upper left white number).\n\n"
 		message = message.."Debug info:\nResearch res number: "..resNumber.."\nPrerequisite res number: "..newPrerequisiteResNumber
 		Common.ShowError(message)
@@ -226,7 +226,7 @@ function Research.ChangePrerequisite(resNumber, newPrerequisiteResNumber)
 end
 
 ---Remove all unlock links (that unlock other researches on completion) on a given research
----@param resNumber number the res numer of the research that has its links cleared
+---@param resNumber number the res number of the research that has its links cleared
 function Research.ClearUnlockLinks(resNumber)
 
 	local obj_research_panel = Common.GetObjResearchPanel()
@@ -326,7 +326,7 @@ function Private.GetResearchByPosition(position)
 	return nil
 end
 
----Gets the mres research item that is the parent rerequisite for the given res number
+---Gets the mres research item that is the parent prerequisite for the given res number
 ---@param resNumber number the res number to look for
 ---@return number? index returns the found research item index or nil otherwise
 function Private.GetResearchByLink(resNumber)

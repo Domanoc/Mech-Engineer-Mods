@@ -20,7 +20,7 @@ function Research.MoveResearch(resNumber, position) end
 function Research.ChangePrerequisite(resNumber, newPrerequisiteResNumber) end
 
 ---Remove all unlock links (that unlock other researches on completion) on a given research
----@param resNumber number the res numer of the research that has its links cleared
+---@param resNumber number the res number of the research that has its links cleared
 function Research.ClearUnlockLinks(resNumber) end
 
 ---Add unlocks to an existing research

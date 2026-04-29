@@ -13,7 +13,8 @@ function struct_get_names(id) end
 ---This ID can then be used in other functions as you would any other index value, like the sprite_index or the path_index, for example. 
 ---Please note that although this function can be used to reference assets from strings (see example below), 
 ---you should always make sure that the asset exists before using it otherwise you may get errors that will crash your game.
----@param name any
+---@param name any The name of the game asset to get the index of (a string).
+---@return any asset The asset for the object, or -1 if the asset is not found.
 function asset_get_index(name) end
 
 ---This function creates a pop-up message box which displays the given string and a button marked "Ok" to close it.
