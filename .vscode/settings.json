@@ -7,22 +7,23 @@
     "Lua.diagnostics.severity": {
         "undefined-field": "Warning"
     },
-
+    "Lua.workspace.library": [
+        "${workspaceFolder}/src/ModFramework/ModFrameworkDefinitions/Classes/",
+        "${workspaceFolder}/src/ModFramework/ModFrameworkDefinitions/Modules/",
+        "${workspaceFolder}/src/ModFramework/GameClassDefinitions/Functions/",
+        "${workspaceFolder}/src/ModFramework/GameClassDefinitions/"
+    ],
     "files.exclude": {
         "**/ModFramework Example Mod/ModFrameworkDefinitions": true,
         "**/ModFramework Example Mod/GameClassDefinitions": true,
-        "**/ModFramework Example Mod/ModFramework": true,
         "**/ModTemplate/ModFrameworkDefinitions": true,
         "**/ModTemplate/GameClassDefinitions": true,
-        "**/ModTemplate/ModFramework": true,
     },
     "search.exclude": {
         "**/ModFramework Example Mod/ModFrameworkDefinitions": true,
         "**/ModFramework Example Mod/GameClassDefinitions": true,
-        "**/ModFramework Example Mod/ModFramework": true,
         "**/ModTemplate/ModFrameworkDefinitions": true,
         "**/ModTemplate/GameClassDefinitions": true,
-        "**/ModTemplate/ModFramework": true,
     },
     "git.addAICoAuthor": "off",
     "cSpell.words": [
