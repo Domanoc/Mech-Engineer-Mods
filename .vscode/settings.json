@@ -8,22 +8,30 @@
         "undefined-field": "Warning"
     },
     "Lua.workspace.library": [
-        "${workspaceFolder}/src/ModFramework/ModFrameworkDefinitions/Classes/",
-        "${workspaceFolder}/src/ModFramework/ModFrameworkDefinitions/Modules/",
-        "${workspaceFolder}/src/ModFramework/GameClassDefinitions/Functions/",
-        "${workspaceFolder}/src/ModFramework/GameClassDefinitions/"
+        "${workspaceFolder}/src/ModFramework/_ModFrameworkDefinitions/Classes/",
+        "${workspaceFolder}/src/ModFramework/_ModFrameworkDefinitions/Modules/",
+        "${workspaceFolder}/src/ModFramework/_GameDefinitions/Functions/",
+        "${workspaceFolder}/src/ModFramework/_GameDefinitions/"
     ],
     "files.exclude": {
-        "**/ModFramework Example Mod/ModFrameworkDefinitions": true,
-        "**/ModFramework Example Mod/GameClassDefinitions": true,
-        "**/ModTemplate/ModFrameworkDefinitions": true,
-        "**/ModTemplate/GameClassDefinitions": true,
+        "**/ModFramework Example Mod/_ModFrameworkDefinitions": true,
+        "**/ModFramework Example Mod/_GameDefinitions": true,
+
+        "**/ModTemplate/_ModFrameworkDefinitions": true,
+        "**/ModTemplate/_GameDefinitions": true,
+
+        "**/Combat Data Core/_ModFrameworkDefinitions": true,
+        "**/Combat Data Core/_GameDefinitions": true,
     },
     "search.exclude": {
-        "**/ModFramework Example Mod/ModFrameworkDefinitions": true,
-        "**/ModFramework Example Mod/GameClassDefinitions": true,
-        "**/ModTemplate/ModFrameworkDefinitions": true,
-        "**/ModTemplate/GameClassDefinitions": true,
+        "**/ModFramework Example Mod/_ModFrameworkDefinitions": true,
+        "**/ModFramework Example Mod/_GameDefinitions": true,
+
+        "**/ModTemplate/_ModFrameworkDefinitions": true,
+        "**/ModTemplate/_GameDefinitions": true,
+
+        "**/Combat Data Core/_ModFrameworkDefinitions": true,
+        "**/Combat Data Core/_GameDefinitions": true,
     },
     "git.addAICoAuthor": "off",
     "cSpell.words": [
