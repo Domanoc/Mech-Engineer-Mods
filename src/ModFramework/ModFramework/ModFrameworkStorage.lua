@@ -18,7 +18,7 @@ Storage.ModRegistrations = {}
 --- LOCALIZATION -------------------------------------------------------------
 ------------------------------------------------------------------------------
 
----@type boolean Flag indicating where to generate the localization files
+---@type boolean Flag indicating where to generate the localization files.
 Storage.GenerateLocalization = false
 
 ---@type string The language file setting that is selected, example "loc_english.ini"
@@ -54,7 +54,7 @@ Storage.LoadedResearchList = {}
 ---@type ModdedResearch[]
 Storage.ModdedResearchList = {}
 
----The queue for pilots to be added
+---The queue for pilots to be added.
 ---@type LocalizedPilotCreationData[]
 Storage.PilotDataQueue = {}
 
@@ -62,7 +62,7 @@ Storage.PilotDataQueue = {}
 --- COMPONENT SHOP -----------------------------------------------------------
 ------------------------------------------------------------------------------
 
----We track what the next framework custom component type will be
+---We track what the next framework custom component type will be.
 ---@type number
 Storage.NextCustomComponentType = 1000
 
@@ -84,7 +84,7 @@ local WeaponsComponents = {
 }
 Storage.WeaponsComponents = WeaponsComponents
 
----We keep a list of the shop reactor components by type.
+---We keep a list of the shop reactor components by type..
 ---@class ReactorComponents
 ---@field Combustion game_obj_component[] combustion reactors
 ---@field Fission game_obj_component[] fission reactors
@@ -96,27 +96,27 @@ local ReactorComponents = {
 }
 Storage.ReactorComponents = ReactorComponents
 
----The reference list where additional weapon indicators need to be displayed
+---The reference list where additional weapon indicators need to be displayed.
 ---@type WeaponIndicatorLocation[]
 Storage.WeaponIndicators = {}
 
----The reference to the left button
+---The reference to the left button.
 ---@type number
 Storage.SpriteShopButtonLeft = -1
 
----The reference to the right button
+---The reference to the right button.
 ---@type number
 Storage.SpriteShopButtonRight = -1
 
----The reference to original icon for the robot engineer
+---The reference to original icon for the robot engineer.
 ---@type number
 Storage.SpriteShopRobotOriginal = -1
 
----The reference to compressed icon for the robot engineer
+---The reference to compressed icon for the robot engineer.
 ---@type number
 Storage.SpriteShopRobotCompressed = -1
 
----Flag indicating if the shop icons need to be updated
+---Flag indicating if the shop icons need to be updated.
 ---@type boolean
 Storage.IsShopUpdateNeeded = true
 

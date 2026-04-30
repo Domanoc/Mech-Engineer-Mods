@@ -31,6 +31,7 @@
         - Support to relink existing researches
         - support to add framework handled unlocks to existing researches
     - Pilots
+    - Custom Components
 - Added framework support to add to inventory
     - Cabins
     - Motors

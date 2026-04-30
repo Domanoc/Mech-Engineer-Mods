@@ -21,8 +21,8 @@ local Common = require("ModFrameworkCommon")
 ------------------------------------------------------------------------------
 ------------------------------------------------------------------------------
 
----Add a new pilot to the hanger
----@param pilotData PilotCreationData dataset for adding a new pilot
+---Add a new pilot to the hanger.
+---@param pilotData PilotCreationData The dataset for adding a new pilot.
 function Hanger.AddPilot(pilotData)
     ---@type LocalizedPilotCreationData
     local localizedPilotData = {

@@ -23,8 +23,8 @@ local Types = require("ModFrameworkTypes")
 ------------------------------------------------------------------------------
 ------------------------------------------------------------------------------
 
----Adds a new mech to the games obj_database
----@param mechData MechCreationData dataset for adding a new mech
+---Adds a new mech to the games obj_database.
+---@param mechData MechCreationData The dataset for adding a new mech.
 function Database.AddMech(mechData)
 	local component = Common.GetModdedComponent(mechData.ReferenceName, Types.ComponentTypes.Mech)
 	if (component ~= nil) then
@@ -122,9 +122,9 @@ function Database.AddMech(mechData)
 	obj_database.mech_stat = mech_stat
 end
 
----Adds the Cell data to the ds_map of the mech
----@param mech ds_map the reference to the ds_map of the mech
----@param cells MechCell[] the cell data array for the mech
+---Adds the Cell data to the ds_map of the mech.
+---@param mech ds_map The reference to the ds_map of the mech.
+---@param cells MechCell[] The cell data array for the mech.
 function Private.AddCells(mech, cells)
 	local auxCount = 0
 	local weaponCount = 0
@@ -153,18 +153,18 @@ function Private.AddCells(mech, cells)
 	ds_map_add(mech, "number_of_cells",   #cells)
 end
 
----Adds a new cell to the ds_map for the mech
----@param mech ds_map the reference to the ds_map of the mech
----@param cell_num number the number of the newly added cell
----@param cell MechCell the data for the cell
+---Adds a new cell to the ds_map for the mech.
+---@param mech ds_map The reference to the ds_map of the mech.
+---@param cell_num number The number of the newly added cell.
+---@param cell MechCell The data for the cell.
 function Private.AddCell(mech, cell_num, cell)
 	ds_map_add(mech, "cell_"..cell_num, 	cell.ModuleType)
 	ds_map_add(mech, "cell_x_"..cell_num, 	cell.X)
 	ds_map_add(mech, "cell_y_"..cell_num, 	cell.Y)
 end
 
----Add a new weapon to the games obj_database
----@param weaponData WeaponCreationData
+---Add a new weapon to the games obj_database.
+---@param weaponData WeaponCreationData The dataset for adding a new weapon.
 function Database.AddWeapon(weaponData)
 	local component = Common.GetModdedComponent(weaponData.ReferenceName, Types.ComponentTypes.Weapon)
 	if (component ~= nil) then
@@ -242,8 +242,8 @@ function Database.AddWeapon(weaponData)
 	obj_database.weapon_stat = weapon_stat
 end
 
----Add a new solenoid to the games obj_database
----@param solenoidData SolenoidCreationData
+---Add a new solenoid to the games obj_database.
+---@param solenoidData SolenoidCreationData The dataset for adding a new solenoid.
 function Database.AddSolenoid(solenoidData)
 	local component = Common.GetModdedComponent(solenoidData.ReferenceName, Types.ComponentTypes.Solenoid)
 	if (component ~= nil) then
@@ -302,8 +302,8 @@ function Database.AddSolenoid(solenoidData)
 	obj_database.solenoid_stat = solenoid_stat
 end
 
----Add a new pilot template to the games obj_database
----@param pilotData PilotTemplateData the dataset for creating a new pilot template
+---Add a new pilot template to the games obj_database.
+---@param pilotData PilotTemplateData The dataset for creating a new pilot template.
 function Database.AddPilotTemplate(pilotData)
 	local duplicate = Common.GetPilotTemplateIndex(pilotData.Name)
 	if (duplicate ~= nil) then
@@ -343,8 +343,10 @@ function Database.AddPilotTemplate(pilotData)
 	obj_database.pilot_stat = pilot_stat
 end
 
----Add a new custom component to the games obj_database
----@param componentData CustomComponentCreationData
+---Add a new custom component to the game.
+---
+---Reminder this will only create the shop listing. A completion trigger needs to manually created.
+---@param componentData CustomComponentCreationData The dataset for adding a new custom component.
 function Database.AddCustomComponent(componentData)
 	local componentType = Private.GetNextCustomComponentType()
 
@@ -385,8 +387,8 @@ function Database.AddCustomComponent(componentData)
 	table.insert(Storage.ModdedComponentList, moddedComponent)
 end
 
----Gets the next custom component type
----@return number componentType the provided type that can be used
+---Gets the next custom component type.
+---@return number componentType The provided type that can be used.
 function Private.GetNextCustomComponentType()
 	local next = Storage.NextCustomComponentType
 	Storage.NextCustomComponentType = Storage.NextCustomComponentType + 1

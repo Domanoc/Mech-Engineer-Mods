@@ -23,9 +23,9 @@ local Types = require("ModFrameworkTypes")
 ------------------------------------------------------------------------------
 ------------------------------------------------------------------------------
 
----Adds a research item to the tech tree
----@param researchData ResearchCreationData the dataset for the new research item
----@return number? resNumber the number for the research as found in the debug view (F6) of the research screen (upper left white number)
+---Adds a research item to the tech tree.
+---@param researchData ResearchCreationData The dataset for the new research item.
+---@return number? resNumber The number for the research as found in the debug view (F6) of the research screen (upper left white number).
 function Research.AddResearch(researchData)
 	local checkPosition = Private.GetResearchByPosition(researchData.Position)
 	if(checkPosition ~= nil) then
@@ -131,9 +131,9 @@ function Research.AddResearch(researchData)
 	return resNumber
 end
 
----Move a research to a new position in the tree, this keeps any present links
----@param resNumber number the number for the research as found in the debug view (F6) of the research screen (upper left white number)
----@param position ResearchPosition position number on the research tree where to move the research to
+---Move a research to a new position in the tree, this keeps any present links.
+---@param resNumber number The number for the research as found in the debug view (F6) of the research screen (upper left white number).
+---@param position ResearchPosition The position number on the research tree where to move the research to.
 function Research.MoveResearch(resNumber, position)
 	local checkPosition = Private.GetResearchByPosition(position)
 	if(checkPosition ~= nil) then
@@ -165,9 +165,9 @@ function Research.MoveResearch(resNumber, position)
 	obj_research_panel.mres = mres
 end
 
----Change the prerequisite of a research to a new target
----@param resNumber number the number for the research that gets its prerequisite changed
----@param newPrerequisiteResNumber number the res number of the research that gets set as prerequisite
+---Change the prerequisite of a research to a new target.
+---@param resNumber number The number for the research that gets its prerequisite changed.
+---@param newPrerequisiteResNumber number The res number of the research that gets set as prerequisite.
 function Research.ChangePrerequisite(resNumber, newPrerequisiteResNumber)
 
 	local obj_research_panel = Common.GetObjResearchPanel()
@@ -225,8 +225,8 @@ function Research.ChangePrerequisite(resNumber, newPrerequisiteResNumber)
 	obj_research_panel.mres = mres
 end
 
----Remove all unlock links (that unlock other researches on completion) on a given research
----@param resNumber number the res number of the research that has its links cleared
+---Remove all unlock links (that unlock other researches on completion) on a given research.
+---@param resNumber number The res number of the research that has its links cleared.
 function Research.ClearUnlockLinks(resNumber)
 
 	local obj_research_panel = Common.GetObjResearchPanel()
@@ -252,9 +252,9 @@ function Research.ClearUnlockLinks(resNumber)
 	obj_research_panel.mres = mres
 end
 
----Add unlocks to an existing research
----@param resNumber number the res number to add unlocks to
----@param unlock ModdedComponent? the component that are unlocked by this research, if a nil value is provided no action is taken
+---Add unlocks to an existing research.
+---@param resNumber number The res number to add unlocks to.
+---@param unlock ModdedComponent? The component that are unlocked by this research, if a nil value is provided no action is taken.
 function Research.AddUnlock(resNumber, unlock)
 	if (unlock == nil) then
 		return
@@ -296,9 +296,9 @@ function Research.AddUnlock(resNumber, unlock)
 	table.insert(Storage.ModdedResearchList, newModdedResearch)
 end
 
----Get the modded research by its res number
----@param resNumber number the res number to look for
----@return ModdedResearch? moddedResearch returns the modded research if found or nil otherwise
+---Get the modded research by its res number.
+---@param resNumber number The res number to look for.
+---@return ModdedResearch? moddedResearch The modded research if found or nil otherwise.
 function Private.GetModdedResearchByResNumber(resNumber)
 	for _, moddedResearch in ipairs(Storage.ModdedResearchList) do
 		if (moddedResearch.ResNumber == resNumber) then
@@ -309,8 +309,8 @@ function Private.GetModdedResearchByResNumber(resNumber)
 end
 
 ---Gets the mres research item by its position value
----@param position ResearchPosition? the position value to look for
----@return number? index returns the found research item index or nil otherwise
+---@param position ResearchPosition? The position value to look for.
+---@return number? index The found research item index or nil otherwise.
 function Private.GetResearchByPosition(position)
 	if (position == nil) then
 		return nil
@@ -326,9 +326,9 @@ function Private.GetResearchByPosition(position)
 	return nil
 end
 
----Gets the mres research item that is the parent prerequisite for the given res number
----@param resNumber number the res number to look for
----@return number? index returns the found research item index or nil otherwise
+---Gets the mres research item that is the parent prerequisite for the given res number.
+---@param resNumber number The res number to look for.
+---@return number? index The found research item index or nil otherwise.
 function Private.GetResearchByLink(resNumber)
 	local obj_research_panel = Common.GetObjResearchPanel()
 	local ResearchIndexes = Types.ResearchIndexes
@@ -347,9 +347,9 @@ end
 --- DEBUG HELPER FUNCTIONS ---------------------------------------------------
 ------------------------------------------------------------------------------
 
----Use in the draw_top_menu function of obj_database.lua
+---Sets all uncompleted research to unlock the next day.
 ---
----Sets all uncompleted research to unlock the next day
+---Recommended use in the draw_top_menu function of obj_database.lua
 function Research.UnlockAllResearch()
 	for _, research in ipairs(Storage.LoadedResearchList) do
 		if(research.condition ~= Types.ResearchConditions.Researched) then

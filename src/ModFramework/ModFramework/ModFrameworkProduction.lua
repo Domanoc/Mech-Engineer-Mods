@@ -19,9 +19,9 @@ local Storage = require("ModFrameworkStorage")
 --- DEBUG HELPER FUNCTIONS ---------------------------------------------------
 ------------------------------------------------------------------------------
 
----Use in the draw_top_menu function of obj_database.lua
+---Unlocks all shop components on the next day.
 ---
----Unlocks all shop components
+---Recommended use in the draw_top_menu function of obj_database.lua
 function Production.UnlockAllShopComponents()
 	for _, component in pairs(Storage.AllShopComponents) do
 		component.researched = true
