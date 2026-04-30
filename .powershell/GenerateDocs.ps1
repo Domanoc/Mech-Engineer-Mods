@@ -195,6 +195,6 @@ function Write-DocumentationFiles {
 }
 
 $FolderPath = "D:\Mod Projects\Mech Engineer Mods\src\ModFramework\ModFramework\"
-$OutputFolder = "D:\Mod Projects\Mech Engineer Mods\src\ModFramework\ModFrameworkDefinitions\Modules\"
+$OutputFolder = "D:\Mod Projects\Mech Engineer Mods\src\ModFramework\_ModFrameworkDefinitions\Modules\"
 
 Write-DocumentationFiles -FolderPath $FolderPath -OutputFolder $OutputFolder

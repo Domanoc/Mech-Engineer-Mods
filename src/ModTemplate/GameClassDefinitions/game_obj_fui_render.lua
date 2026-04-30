@@ -1,8 +1,0 @@
----This is an auto generated class definition.
----
----Please use the found values as a starting point for your use.
----As not all values may be present at every point of the game.
----Or values could be missing from the definition.
----@class game_obj_fui_render
----@field array_lua table
----@field st_lua table

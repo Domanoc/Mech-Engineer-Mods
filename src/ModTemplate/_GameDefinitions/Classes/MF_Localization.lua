@@ -1,0 +1,14 @@
+---Data that represents a string that will be localized.
+---The value that is requested is the default value and recommended to be in english for code readability.
+---The other actual values will be pulled from the mods localization files.
+---
+---Use the GenerateLocalizationFiles() function to generate the mods localization files in development
+---@class LocalizedString
+---@field LocalizedDefaultValue string the default localization value, recommended to be in english for code readability
+
+---The ModFramework needs a stable reference name to find the localization data.
+---Is some cases this can not be inferred by the parent class.
+---Use this to provide a shared reference name to the value you are localizing
+---@class ReferencedLocalizedString
+---@field ReferenceName string The reference name for the value that is localized.
+---@field LocalizedString LocalizedString the localized string data

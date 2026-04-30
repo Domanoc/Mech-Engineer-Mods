@@ -1,0 +1,51 @@
+---@class PilotTemplateData dataset for creating a new pilot template.
+---@field Sprite string The sprite sheet for the pilot.
+---@field Voice PilotVoices The voice used by the pilot.
+---@field Name string The name of the pilot, also used as a value to lookup the reference, Recommended to use full uppercase as this is what the game does.
+---@field Level number The level of the pilot.
+---@field LevelExperience number The amount of experience in the current level.
+---@field Skill number The skill stat of the pilot (0-100).
+---@field Reaction number The reaction stat of the pilot (0-100).
+---@field Vitality number The vitality stat of the pilot (0-100).
+---@field StressResistance number The stress resistance stat of the pilot (0-100).
+
+---@class PilotCreationData dataset for adding a new pilot.
+---@field Template number|PilotNames the base dataset to base the pilot on, either the index number in obj_database.pilot_stat or reference one of the existing pilots. this wil determine the used sprite.
+---@field WorkExperience ReferencedLocalizedString The description text for the work experience of the pilot.
+---@field Age number The age of the pilot.
+---@field IsCyborg boolean True if the pilot is a cyborg, false otherwise.
+---@field Name string? The name for the pilot, leave nil to use the template settings.
+---@field Voice PilotVoices? the voice used by the pilot, leave nil to use the template settings.
+---@field Level number? The level of the pilot, leave nil to use the template settings.
+---@field LevelExperience number? the amount of experience in the current level.
+---@field Skill number? The skill stat of the pilot (0-100), leave nil to use the template settings.
+---@field Reaction number? The reaction stat of the pilot (0-100), leave nil to use the template settings.
+---@field Vitality number? The vitality stat of the pilot (0-100), leave nil to use the template settings.
+---@field StressResistance number? The stress resistance stat of the pilot (0-100), leave nil to use the template settings.
+
+---@class LocalizedPilotCreationData localized dataset for adding a new pilot.
+---@field Template number|PilotNames the base dataset to base the pilot on, either the index number in obj_database.pilot_stat or reference one of the existing pilots. this wil determine the used sprite.
+---@field WorkExperience string The description text for the work experience of the pilot.
+---@field Age number The age of the pilot.
+---@field IsCyborg boolean True if the pilot is a cyborg, false otherwise.
+---@field Name string? The name for the pilot, leave nil to use the template settings.
+---@field Voice PilotVoices? The voice used by the pilot, leave nil to use the template settings.
+---@field Level number? The level of the pilot, leave nil to use the template settings.
+---@field LevelExperience number? the amount of experience in the current level.
+---@field Skill number? The skill stat of the pilot (0-100), leave nil to use the template settings.
+---@field Reaction number? The reaction stat of the pilot (0-100), leave nil to use the template settings.
+---@field Vitality number? The vitality stat of the pilot (0-100), leave nil to use the template settings.
+---@field StressResistance number? The stress resistance stat of the pilot (0-100), leave nil to use the template settings.
+
+---@class PilotDsMap The converted dataset for a pilot ds_map.
+---@field Index number The index of the ds_map in obj_database.pilot_stat.
+---@field Sprite number The sprite index.
+---@field SoundIndex string The sound index value.
+---@field PhraseNumber number The phrase number.
+---@field Name string The name of the pilot.
+---@field Level number The level of the pilot.
+---@field LevelExperience number The amount of experience in the current level.
+---@field Skill number The skill stat of the pilot (0-100).
+---@field Reaction number The reaction stat of the pilot (0-100).
+---@field Vitality number The vitality stat of the pilot (0-100).
+---@field StressResistance number The stress resistance stat of the pilot (0-100).

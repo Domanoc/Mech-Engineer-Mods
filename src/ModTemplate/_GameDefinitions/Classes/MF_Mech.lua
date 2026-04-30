@@ -1,0 +1,33 @@
+---@class MechCreationData Dataset for adding a new mech to the obj database.
+---@field ReferenceName string The reference name of the mech, used to find its references.
+---@field ComponentSize ComponentSize The size of the component when constructing it.
+---@field IsResearched boolean True if the component is researched from the start of the game, false otherwise.
+---@field CanBeConstructed boolean True if it can be constructed in the component shop, false otherwise.
+---@field GiveFreeItem boolean True if a free copy is created when triggered as an unlock, false otherwise.
+---@field PriceMetallite number The amount of metallite needed to produce this mech.
+---@field PriceBjorn number The amount of bjorn needed to produce this mech.
+---@field PriceMunilon number The amount of munilon needed to produce this mech.
+---@field PriceSkalaknit number The amount of skalaknit needed to produce this mech.
+---@field PriceStaff number The amount of staff needed to produce this mech.
+---@field ProductionDays number The amount of days it takes to produce this mech.
+---@field HeatResist number The heat resist value of the mech.
+---@field ImpactResist number The impact resist value of the mech.
+---@field CurrentResist number The current resist value of the mech.
+---@field HasMelee boolean Indicates if the mech can use a melee weapon.
+---@field PassiveArmor number The amount of passive armor the mech has.
+---@field Weight number The base weight of the mech.
+---@field Speed number The base speed of the mech.
+---@field ReloadTime number The base reload time of the mech.
+---@field BattleTime number The base battle time of the mech (the length of time it has ammo reserves for to shoot).
+---@field MechCells MechCell[] The dataset on what cells the mech has.
+---@field SpriteSmall string The small sprite for the mech.
+---@field SpriteBig string The big sprite for the mech.
+---@field SpriteBattle string The sprite sheet for the mech used on the battle screen.
+---@field SpriteBattleDead string The sprite for a destroyed mech on the battle screen.
+---@field SpriteMeleeVertical string? The vertical melee attack sprite sheet used on the battle screen. optional if the mech has no melee.
+---@field SpriteMeleeHorizontal string? The horizontal melee attack sprite sheet used on the battle screen. optional if the mech has no melee.
+
+---@class MechCell Dataset on what cells a mech has.
+---@field ModuleType ModuleType Module type (1-aux, 2-motor, 3-reactor, 4-gun, 5-cabin).
+---@field X number The x coordinate for the cell, use the mod_mech_grid_help.png for help determining the location.
+---@field Y number The y coordinate for the cell, use the mod_mech_grid_help.png for help determining the location.

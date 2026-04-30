@@ -1,0 +1,22 @@
+---@class ResearchCreationData Dataset for a new research item
+---@field ReferenceName string The reference name of the research, used to find its references.
+---@field Position ResearchPosition The position number on the research tree. You can see positions in the game with f6 (debug mode).
+---@field PrerequisiteResearchResNumber number? The res number of the prerequisite research that unlocks this research, each research can only be the prerequisite for 3 other researches. leave nil for no prerequisite.
+---@field Condition ResearchCondition? condition (0-closed, 1-opened, 2-researching, 3-researched), leave nil for closed.
+---@field RequiredDays number The required days to complete the research.
+---@field RequiredStaff number The required available staff to start the research.
+---@field ResearchIcon ResearchIcon The info on what icon to use.
+---@field Description LocalizedString The description text for the research.
+---@field SpritePath string The filepath to the sprite used for the research.
+---@field UnlockedComponents ModdedComponent[] The components that are unlocked by this research.
+
+---@class ResearchIcon The information on the icon and sub icon for the research item.
+---@field IconType number 0|1|2 The research icon type (0-combat, 1-production, 2-passability).
+---@field IconSubType number The research icon subtype (see left column in the game in research menu).
+
+---@class ModdedResearch Dataset for a stored modded research item.
+---@field Index number The assigned index for the modded research item.
+---@field ResNumber number The number for the research as found in the debug view (F6) of the research screen (upper left white number).
+---@field InitialCondition ResearchCondition The condition the modded research item was created with (0-closed, 1-opened, 2-researching, 3-researched).
+---@field Name string The name of the research item.
+---@field UnlockedComponents ModdedComponent[] The components that are unlocked by this research.
