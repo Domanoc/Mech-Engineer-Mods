@@ -152,33 +152,7 @@ function Hanger.PilotClickListener()
 	local pilotBoxWidth = 144
 
 	for _, pilot in ipairs(obj_content_pilots.list_pilot) do
-		local minX = pilot.x
-		local maxX = pilot.x + pilotBoxWidth
-		local minY = pilot.y
-		local maxY = pilot.y + pilotBoxHeight
-
-		if (mx > minX and
-			mx < maxX and
-			my > minY and
-			my < maxY and
-			my > minListY and
-			my < maxListY and
-			pilot.deleted == false) then
-
-			if (mouse_check_button_pressed(Types.MouseButtons.Left) and
-				keyboard_check(Types.VirtualKeys.Shift)) then
-				Private.PlacePilotIntoMech(pilot, obj_content_pilots)
-				return
-			end
-		end
-	end
-
-	for _, mech in ipairs(obj_content_hangar.list_mech) do
-		if (mech ~= -4 and mech.cur_item ~= 0) then
-			local pilot = mech.cur_item
-			---@cast mech game_obj_mech_item
-			---@cast pilot game_obj_pilot_item 
-
+		if(instance_exists(pilot) == true) then
 			local minX = pilot.x
 			local maxX = pilot.x + pilotBoxWidth
 			local minY = pilot.y
@@ -187,12 +161,42 @@ function Hanger.PilotClickListener()
 			if (mx > minX and
 				mx < maxX and
 				my > minY and
-				my < maxY) then
+				my < maxY and
+				my > minListY and
+				my < maxListY and
+				pilot.deleted == false) then
 
 				if (mouse_check_button_pressed(Types.MouseButtons.Left) and
 					keyboard_check(Types.VirtualKeys.Shift)) then
-					Private.PlacePilotIntoHanger(mech, pilot)
+					Private.PlacePilotIntoMech(pilot, obj_content_pilots)
 					return
+				end
+			end
+		end
+	end
+
+	for _, mech in ipairs(obj_content_hangar.list_mech) do
+		if (instance_exists(mech) == true) then
+			if (mech ~= -4 and mech.cur_item ~= 0) then
+				local pilot = mech.cur_item
+				---@cast mech game_obj_mech_item
+				---@cast pilot game_obj_pilot_item 
+
+				local minX = pilot.x
+				local maxX = pilot.x + pilotBoxWidth
+				local minY = pilot.y
+				local maxY = pilot.y + pilotBoxHeight
+
+				if (mx > minX and
+					mx < maxX and
+					my > minY and
+					my < maxY) then
+
+					if (mouse_check_button_pressed(Types.MouseButtons.Left) and
+						keyboard_check(Types.VirtualKeys.Shift)) then
+						Private.PlacePilotIntoHanger(mech, pilot)
+						return
+					end
 				end
 			end
 		end
