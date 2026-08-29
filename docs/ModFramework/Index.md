@@ -7,8 +7,8 @@
 - [Mod Compatibility Testing](./ModCompatibilityTesting.md)
 - [Overview](./Overview.md)
 - [Steam Description](./SteamDescription.txt)
-- [Upload mod to steam workshop](./docs/ModFramework/UploadingModToSteamWorkshop.md)   
-- [Update steam workshop mod](./docs/ModFramework/UpdatingWorkshopMod.md)
+- [Upload mod to steam workshop](./UploadingModToSteamWorkshop.md)   
+- [Update steam workshop mod](./UpdatingWorkshopMod.md)
 
 ---
 ##### [Home](../../readme.md)

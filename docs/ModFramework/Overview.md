@@ -46,8 +46,8 @@
 - [Changing research](./Features/ChangingResearch.md)
 
 ## Steam workshop
-- [Upload mod to steam workshop](./docs/ModFramework/UploadingModToSteamWorkshop.md)   
-- [Update steam workshop mod](./docs/ModFramework/UpdatingWorkshopMod.md)
+- [Upload mod to steam workshop](./UploadingModToSteamWorkshop.md)   
+- [Update steam workshop mod](./UpdatingWorkshopMod.md)
 
 ---
 ##### [Home](../../readme.md)
