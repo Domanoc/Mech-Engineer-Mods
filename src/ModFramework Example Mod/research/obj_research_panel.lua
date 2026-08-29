@@ -113,6 +113,10 @@ function create(q, v_modid)
 
 	--We can get a custom component to add as an unlock to a research
 	local unlock = Mod.Common.GetCustomComponent("example_custom_component")
+
+	--We can add an additional prerequisite research link.
+	--However the game will unlock the research if either of the prerequisite is completed
+	Mod.Research.AddPrerequisite(baseResearchResNumbers.NEW_MECH_QUADRO, baseResearchResNumbers.CABINS_2_AND_3)
 end
 
 ---if activated = true

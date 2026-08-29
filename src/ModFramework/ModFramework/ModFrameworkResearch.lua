@@ -225,6 +225,54 @@ function Research.ChangePrerequisite(resNumber, newPrerequisiteResNumber)
 	obj_research_panel.mres = mres
 end
 
+---Add an additional prerequisite to a research. 
+---Note that only 1 prerequisite needs to be completed for the game to unlock the research.
+---@param resNumber number The number for the research that gets an additional prerequisite.
+---@param prerequisiteResNumber number The res number of the research that gets set as the additional prerequisite.
+function Research.AddPrerequisite(resNumber, prerequisiteResNumber)
+
+	local obj_research_panel = Common.GetObjResearchPanel()
+	local ResearchIndexes = Types.ResearchIndexes
+
+	--Copy the array to the working set
+	local mres = obj_research_panel.mres
+
+	local research = mres[resNumber + 1]
+	if (research == nil) then
+		local message = "Trying to add a prerequisite to a research but the reference was nil.\n"
+		message = message.."Check if the correct res number was given. Found in the debug view (F6) of the research screen (upper left white number)\n\n"
+		message = message.."Debug info:\nResearch res number: "..resNumber
+		Common.ShowError(message)
+		return
+	end
+
+	local prerequisite = mres[prerequisiteResNumber + 1]
+	if (prerequisite == nil) then
+		local message = "Trying to add the prerequisite of a research but the prerequisite reference was nil.\n"
+		message = message.."Check if the correct res number was given. Found in the debug view (F6) of the research screen (upper left white number)\n\n"
+		message = message.."Debug info:\nPrerequisite research res number: "..prerequisiteResNumber
+		Common.ShowError(message)
+		return
+	end
+
+	if (prerequisite[ResearchIndexes.Link_1] == -4)  then
+		prerequisite[Types.ResearchIndexes.Link_1] = resNumber
+	elseif (prerequisite[ResearchIndexes.Link_2] == -4)  then
+		prerequisite[Types.ResearchIndexes.Link_2] = resNumber
+	elseif (prerequisite[ResearchIndexes.Link_3] == -4)  then
+		prerequisite[Types.ResearchIndexes.Link_3] = resNumber
+	else
+		local message = "Trying to set the prerequisite research but the prerequisite already has 3 linked researches.\n"
+		message = message.."Check if the correct res number was given, or rearrange the research tree so there are no more that 3 unlocks per research.\n"
+		message = message.."Each research res number can be found in the debug view (F6) of the research screen (upper left white number).\n\n"
+		message = message.."Debug info:\nResearch res number: "..resNumber.."\nPrerequisite res number: "..prerequisiteResNumber
+		Common.ShowError(message)
+	end
+
+	--send array back
+	obj_research_panel.mres = mres
+end
+
 ---Remove all unlock links (that unlock other researches on completion) on a given research.
 ---@param resNumber number The res number of the research that has its links cleared.
 function Research.ClearUnlockLinks(resNumber)

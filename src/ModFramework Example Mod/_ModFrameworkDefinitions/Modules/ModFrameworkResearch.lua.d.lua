@@ -19,6 +19,12 @@ function Research.MoveResearch(resNumber, position) end
 ---@param newPrerequisiteResNumber number The res number of the research that gets set as prerequisite.
 function Research.ChangePrerequisite(resNumber, newPrerequisiteResNumber) end
 
+---Add an additional prerequisite to a research. 
+---Note that only 1 prerequisite needs to be completed for the game to unlock the research.
+---@param resNumber number The number for the research that gets an additional prerequisite.
+---@param prerequisiteResNumber number The res number of the research that gets set as the additional prerequisite.
+function Research.AddPrerequisite(resNumber, prerequisiteResNumber) end
+
 ---Remove all unlock links (that unlock other researches on completion) on a given research.
 ---@param resNumber number The res number of the research that has its links cleared.
 function Research.ClearUnlockLinks(resNumber) end
