@@ -45,14 +45,14 @@ local WaitingForKey = nil
 
 ---Adds the mod setting data to the save file
 function InternalSettings.SaveData()
-	local obj_content_hangar = Common.GetObjContentHanger()
+	local obj_content_hangar = Common.GetObjContentHangar()
 	local json = lunaJson.encode(Storage.ModSettingData)
 	ds_grid_set(obj_content_hangar.data_map_level, 0, 0, json)
 end
 
 ---Loads the mod setting data from the save file back into storage
 function InternalSettings.LoadData()
-	local obj_content_hangar = Common.GetObjContentHanger()
+	local obj_content_hangar = Common.GetObjContentHangar()
 	local json = ds_grid_get(obj_content_hangar.data_map_level, 0, 0)
 	local ok, jsonData = pcall(lunaJson.decode, json)
 	if not ok then

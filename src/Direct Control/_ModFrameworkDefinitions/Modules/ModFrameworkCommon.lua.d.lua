@@ -156,7 +156,7 @@ function Common.GetObjPilotItem() end
 
 ---Gets the reference for "obj_content_hangar"
 ---@return game_obj_content_hangar obj_content_hangar The reference for "obj_content_hangar"
-function Common.GetObjContentHanger() end
+function Common.GetObjContentHangar() end
 
 ---Gets the reference for "obj_button_engineering"
 ---@return game_obj_button_engineering obj_button_engineering The reference for "obj_button_engineering"

@@ -142,7 +142,7 @@ function Hanger.PilotClickListener()
 		return
 	end
 
-	local obj_content_hangar = Common.GetObjContentHanger()
+	local obj_content_hangar = Common.GetObjContentHangar()
 	local obj_content_pilots = Common.GetObjContentPilots()
 	local mx = window_views_mouse_get_x()
 	local my = window_views_mouse_get_y()
@@ -274,7 +274,7 @@ end
 ---Find a available mech for a pilot.
 ---@return game_obj_mech_item? mech The mech when available, nil otherwise.
 function Private.FindAvailableMech()
-	local obj_content_hangar = Common.GetObjContentHanger()
+	local obj_content_hangar = Common.GetObjContentHangar()
 
 	for _, mech in ipairs(obj_content_hangar.list_mech) do
 		if (mech ~= -4 and

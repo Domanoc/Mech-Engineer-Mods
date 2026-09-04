@@ -376,7 +376,7 @@ end
 
 ---Gets the reference for "obj_content_hangar"
 ---@return game_obj_content_hangar obj_content_hangar The reference for "obj_content_hangar"
-function Common.GetObjContentHanger()
+function Common.GetObjContentHangar()
 	return asset_get_index("obj_content_hangar")
 end
 

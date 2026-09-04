@@ -83,7 +83,7 @@ end
 
 ---Set the squad size based on the district 5 level.
 function SetSquadSize()
-	local obj_content_hangar = Mod.Common.GetObjContentHanger()
+	local obj_content_hangar = Mod.Common.GetObjContentHangar()
 	---@type game_obj_district
 	local district5 = obj_content_hangar.m_dist[6][1]
 
