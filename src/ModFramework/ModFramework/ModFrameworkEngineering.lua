@@ -256,6 +256,105 @@ function Engineering.AddSolenoid(resourceNumber)
 	obj_content_solenoid.number_of_items = #list_solenoid
 end
 
+---Removes all existing cabins from engineering.
+function Engineering.RemoveCabins()
+	local obj_content_cabins = Common.GetObjContentCabins()
+
+	--return new data
+	obj_content_cabins.list_cabin = {}
+	obj_content_cabins.number_of_items = 0
+end
+
+---Removes all existing motors from engineering.
+function Engineering.RemoveMotors()
+	local obj_content_motors = Common.GetObjContentMotors()
+
+	--return new data
+	obj_content_motors.list_motor = {}
+	obj_content_motors.number_of_items = 0
+end
+
+---Removes all existing mechs from engineering.
+function Engineering.RemoveMechs()
+	local obj_content_mechs = Common.GetObjContentMechs()
+
+	--return new data
+	obj_content_mechs.list_mech = {}
+	obj_content_mechs.number_of_items = 0
+end
+
+---Removes all existing weapons from engineering.
+function Engineering.RemoveWeapons()
+	local obj_content_weapons = Common.GetObjContentWeapons()
+
+	--return new data
+	obj_content_weapons.list_weapon = {}
+	obj_content_weapons.number_of_items = 0
+end
+
+---Removes all existing reactors from engineering.
+function Engineering.RemoveReactors()
+	local obj_content_reactor = Common.GetObjContentReactor()
+
+	--return new data
+	obj_content_reactor.list_reactor = {}
+	obj_content_reactor.number_of_items = 0
+end
+
+---Removes all existing injectors from engineering.
+function Engineering.RemoveInjectors()
+	local obj_content_injector = Common.GetObjContentInjector()
+
+	--return new data
+	obj_content_injector.list_injector = {}
+	obj_content_injector.number_of_items = 0
+end
+
+---Removes all existing pistons from engineering.
+function Engineering.RemovePistons()
+	local obj_content_piston = Common.GetObjContentPiston()
+
+	--return new data
+	obj_content_piston.list_piston = {}
+	obj_content_piston.number_of_items = 0
+end
+
+---Removes all existing kernels from engineering.
+function Engineering.RemoveKernels()
+	local obj_content_kernel = Common.GetObjContentKernel()
+
+	--return new data
+	obj_content_kernel.list_kernel = {}
+	obj_content_kernel.number_of_items = 0
+end
+
+---Removes all existing safeties from engineering.
+function Engineering.RemoveSafeties()
+	local obj_content_safety = Common.GetObjContentSafety()
+
+	--return new data
+	obj_content_safety.list_safety = {}
+	obj_content_safety.number_of_items = 0
+end
+
+---Removes all existing magnets from engineering.
+function Engineering.RemoveMagnets()
+	local obj_content_magnet = Common.GetObjContentMagnet()
+
+	--return new data
+	obj_content_magnet.list_magnet = {}
+	obj_content_magnet.number_of_items = 0
+end
+
+---Removes all existing solenoids from engineering.
+function Engineering.RemoveSolenoids()
+	local obj_content_solenoid = Common.GetObjContentSolenoid()
+
+	--return new data
+	obj_content_solenoid.list_solenoid = {}
+	obj_content_solenoid.number_of_items = 0
+end
+
 ---Create a new obj_cabin_item instance.
 ---@return game_obj_cabin_item objCabinItem The new obj_cabin_item instance.
 function Private.AddCabinItemInstance()

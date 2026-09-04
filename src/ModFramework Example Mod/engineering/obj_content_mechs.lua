@@ -40,6 +40,9 @@ function create(q,v_modid) -- one time script when save is loaded
 		return
 	end
 
+	--We can remove all existing mechs
+	Mod.Engineering.RemoveMechs()
+
 	--load needed types
 	local componentTypes = Mod.Types.ComponentTypes
 	local baseMechs = Mod.Types.BaseMechs

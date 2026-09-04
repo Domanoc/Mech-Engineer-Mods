@@ -50,4 +50,37 @@ function Engineering.AddMagnet(resourceNumber) end
 ---@param resourceNumber number The resource number of the solenoid.
 function Engineering.AddSolenoid(resourceNumber) end
 
+---Removes all existing cabins from engineering.
+function Engineering.RemoveCabins() end
+
+---Removes all existing motors from engineering.
+function Engineering.RemoveMotors() end
+
+---Removes all existing mechs from engineering.
+function Engineering.RemoveMechs() end
+
+---Removes all existing weapons from engineering.
+function Engineering.RemoveWeapons() end
+
+---Removes all existing reactors from engineering.
+function Engineering.RemoveReactors() end
+
+---Removes all existing injectors from engineering.
+function Engineering.RemoveInjectors() end
+
+---Removes all existing pistons from engineering.
+function Engineering.RemovePistons() end
+
+---Removes all existing kernels from engineering.
+function Engineering.RemoveKernels() end
+
+---Removes all existing safeties from engineering.
+function Engineering.RemoveSafeties() end
+
+---Removes all existing magnets from engineering.
+function Engineering.RemoveMagnets() end
+
+---Removes all existing solenoids from engineering.
+function Engineering.RemoveSolenoids() end
+
 return Engineering
