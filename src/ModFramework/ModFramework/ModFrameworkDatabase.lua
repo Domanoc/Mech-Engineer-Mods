@@ -229,6 +229,7 @@ function Database.AddWeapon(weaponData)
 		WeaponData = {
 			Description = Common.GetLocalizedString("WeaponDescription", weaponData.ReferenceName, weaponData.Description),
 			BlueLength = weaponData.BlueLength,
+			HomingPower = weaponData.HomingPower
 		},
 	}
 	table.insert(Storage.ModdedComponentList, moddedComponent)

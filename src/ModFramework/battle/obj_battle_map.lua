@@ -61,6 +61,7 @@ end
 ---@param q game_obj_battle_map
 function battle_going_start(q)
 	Internal.Battle.SetWeaponRange(q)
+	Internal.Battle.SetWeaponHoming(q)
 end
 
 ---Triggers every unpaused frame of the battle

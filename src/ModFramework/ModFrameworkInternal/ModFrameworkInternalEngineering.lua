@@ -170,6 +170,27 @@ function Engineering.SetWeaponRange(weapon)
 	end
 end
 
+---Use in the draw_weapons function of obj_big_holder.lua
+---
+---Use in the draw_mechs function of obj_big_holder.lua
+---
+---Use in the battle_going_start function of obj_battle_map.lua
+---
+---Updates the given weapon with the modded homing power if applicable
+---@param weapon game_obj_big_holder_weapon the weapon to update
+function Engineering.SetWeaponHoming(weapon)
+	for _, component in ipairs(Storage.ModdedComponentList) do
+		if (component.ResourceNumber == weapon.weapon_number and
+			component.ComponentType == Types.ComponentTypes.Weapon and
+			component.WeaponData ~= nil) then
+			if (component.WeaponData.HomingPower ~= nil) then
+				weapon.homing_power = component.WeaponData.HomingPower
+			end
+			return
+		end
+	end
+end
+
 ------------------------------------------------------------------------------
 --- EXPORT INTERNAL ENGINEERING ----------------------------------------------
 ------------------------------------------------------------------------------

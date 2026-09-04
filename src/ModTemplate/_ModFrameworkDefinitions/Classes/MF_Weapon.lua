@@ -22,11 +22,13 @@
 ---@field SpritePathProduction string The filepath for the weapon's production sprite. Used on the production tab. (expected 56x24 pixels)
 ---@field SpritePathBig string The filepath for the weapon's big sprite. Used on the engineering tab. (expected 796x134 pixels, 2 frames)
 ---@field BlueLength number The range of a energy weapon, default is 750. Not used for non energy weapons.
+---@field HomingPower number? The power that the bullets have to track the target.
 ---@field Description LocalizedString The description text for a weapon. Used when the weapon is added to the main slot in engineering.
 
 ---@class ModdedComponentWeaponData Dataset containing weapon info.
 ---@field Description string The description text for the weapon component.
 ---@field BlueLength number The range of a blue weapon for a weapon component, zero otherwise.
+---@field HomingPower number? The power that the bullets have to track the target.
 
 ---@class WeaponIndicatorLocation Dataset containing the information to display a weapon indicator sprite.
 ---@field X number the x position.

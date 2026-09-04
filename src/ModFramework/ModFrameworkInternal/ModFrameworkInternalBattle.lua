@@ -86,6 +86,22 @@ function Battle.SetWeaponRange(q)
 	end
 end
 
+---Updates the modded weapons with the modded homing power if applicable.
+---
+---Used in the battle_going_start function of obj_battle_map.lua
+---@param q game_obj_battle_map the battle map reference
+function Battle.SetWeaponHoming(q)
+	for _, mech in ipairs(q.mech_id) do 					--Loop all the mechs
+		if (mech ~= -4 and mech ~= 0) then 					--Filter nil values
+			for _, weapon in ipairs(mech.mass_gun_id) do 	--loop all the weapons of the mech
+				if (weapon ~= -4) then 						--Filter nil values
+					Engineering.SetWeaponHoming(weapon)
+				end
+			end
+		end
+	end
+end
+
 ---Creates the default control groups at the start of a battle
 function Battle.SetDefaultControlGroups()
 	local keys = Types.VirtualKeys
