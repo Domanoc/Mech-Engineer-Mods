@@ -15,7 +15,7 @@ function instance_create_depth(x, y, depth, obj) end
 ---This function can be used in two ways depending on what you wish to check. 
 ---You can give it an object_index to check for, in which case this function will return true if any active instances of the specified object exist in the current room, 
 ---or you can also supply it with an instance id, in which case this function will return true if that specific instance exists and is active in the current room.
----@param obj number object_index or instance id
+---@param obj any object_index or instance id
 ---@return boolean bool 
 function instance_exists(obj) end
 
