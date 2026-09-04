@@ -94,6 +94,10 @@ function Common.GetObjComponent() end
 ---@return game_obj_weapon_test obj_weapon_test The reference for "obj_weapon_test"
 function Common.GetObjWeaponTest() end
 
+---Gets the reference for "obj_test_mech"
+---@return game_obj_test_mech obj_test_mech The reference for "obj_test_mech"
+function Common.GetObjTestMech() end
+
 ---Gets the reference for "obj_research_panel"
 ---@return game_obj_research_panel obj_research_panel The reference for "obj_research_panel"
 function Common.GetObjResearchPanel() end

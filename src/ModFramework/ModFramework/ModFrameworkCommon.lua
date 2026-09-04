@@ -284,6 +284,12 @@ function Common.GetObjWeaponTest()
 	return asset_get_index("obj_weapon_test")
 end
 
+---Gets the reference for "obj_test_mech"
+---@return game_obj_test_mech obj_test_mech The reference for "obj_test_mech"
+function Common.GetObjTestMech()
+	return asset_get_index("obj_test_mech")
+end
+
 ---Gets the reference for "obj_research_panel"
 ---@return game_obj_research_panel obj_research_panel The reference for "obj_research_panel"
 function Common.GetObjResearchPanel()

@@ -21,7 +21,7 @@
 ---@field overall_damage_mass table
 ---@field scroll number
 ---@field show_energy_sim number
----@field simulate_aux number
+---@field simulate_aux boolean When true it simulates the use of the correct auxiliary items to help with underwater fights, false otherwise.
 ---@field simulate_energy number
 ---@field single_mod number
 ---@field start number
@@ -38,5 +38,5 @@
 ---@field text_misses string
 ---@field text_pot_damage string
 ---@field text_shots string
----@field water_mod number
+---@field water_mod boolean When true simulate an underwater test, false otherwise.
 ---@field weapon_description table
