@@ -65,3 +65,13 @@ end
 ---@param q game_obj_content_hangar
 function draw_battle_fullscreen(q)
 end
+
+---player won the game
+---@param q game_obj_fui_render
+function win_true(q)
+end
+
+---winning animation after collecting the last part
+---@param q game_obj_fui_render
+function win_animation(q)
+end
