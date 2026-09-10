@@ -37,9 +37,9 @@ Types.ComponentTypes = ComponentTypes
 ---Component sizes
 ---@class ComponentSizes
 local ComponentSizes = {
-	--a single hanger slot
+	--a single hangar slot
 	Small = 1,
-	--a full hanger row, 5 slots
+	--a full hangar row, 5 slots
 	Large = 5
 }
 Types.ComponentSizes = ComponentSizes
@@ -364,14 +364,14 @@ Types.PilotActivities = PilotActivities
 ------------------------------------------------------------------------------
 
 ---Hangar index identifiers
----@class HangerIndexes
-local HangerIndexes = {
+---@class HangarIndexes
+local HangarIndexes = {
 	component_type = 2,
 	item_index = 3,
 	logo = 5,
 	logo_index = 11
 }
-Types.HangerIndexes = HangerIndexes
+Types.HangarIndexes = HangarIndexes
 
 ------------------------------------------------------------------------------
 --- OTHER TYPES --------------------------------------------------------------

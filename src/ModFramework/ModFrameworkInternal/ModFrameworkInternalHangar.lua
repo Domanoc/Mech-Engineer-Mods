@@ -1,13 +1,13 @@
 ------------------------------------------------------------------------------
---- HANGER FUNCTIONS -----------------------------------------------------
+--- HANGAR FUNCTIONS -----------------------------------------------------
 ------------------------------------------------------------------------------
 
----Access to the functions for the Hanger tab.
----@class ModFrameworkInternalHanger
-local Hanger = {}
+---Access to the functions for the Hangar tab.
+---@class ModFrameworkInternalHangar
+local Hangar = {}
 
 ---Access to the private functions in this file.
----@class ModFrameworkInternalHangerPrivate
+---@class ModFrameworkInternalHangarPrivate
 local Private = {}
 
 ------------------------------------------------------------------------------
@@ -26,7 +26,7 @@ local Types = require("ModFrameworkTypes")
 ------------------------------------------------------------------------------
 
 ---Adds all the pilots in the queue
-function Hanger.ProcessPilotDataQueue()
+function Hangar.ProcessPilotDataQueue()
     local obj_weapon_test = Common.GetObjWeaponTest()
 
 	--We check if the ini has been loaded
@@ -41,7 +41,12 @@ function Hanger.ProcessPilotDataQueue()
     Storage.PilotDataQueue = {}
 end
 
----Add a new pilot to the hanger
+---Adds and or removed queued mechs in the hangar
+function Hangar.ProcessHangarQueue()
+	Private.RemoveStartingMechs()
+end
+
+---Add a new pilot to the hangar
 ---@param pilotData LocalizedPilotCreationData dataset for adding a new pilot
 function Private.AddPilotFromQueue(pilotData)
 	local obj_content_pilots = Common.GetObjContentPilots()
@@ -128,6 +133,31 @@ function Private.AddPilotItemInstance()
 	return instance_create_depth(0, 0, 0, obj_pilot_item)
 end
 
+local areMechsRemoved = false
+---Removes the default mechs that a new save starts with
+function Private.RemoveStartingMechs()
+	--Check if the remove is queued
+	if (Storage.RemoveStarterMechs == false or areMechsRemoved) then
+		return
+	end
+
+    local obj_weapon_test = Common.GetObjWeaponTest()
+    --We check if the ini has been loaded
+	if (obj_weapon_test.load_ini == false) then
+		return
+	end
+
+    local hangar = Common.GetObjContentHangar()
+    local mechs = hangar.list_mech
+    for key, _ in pairs(mechs) do
+        mechs[key] = -4
+    end
+
+    hangar.list_mech = mechs
+    hangar.number_of_items = 0
+	areMechsRemoved = true
+end
+
 ------------------------------------------------------------------------------
 --- PILOT MOVER --------------------------------------------------------------
 ------------------------------------------------------------------------------
@@ -136,7 +166,7 @@ end
 ---When the input combination on the correct coordinates it will:
 ---Move a pilot into a free mech.
 ---Move the pilot back to the hangar.
-function Hanger.PilotClickListener()
+function Hangar.PilotClickListener()
 	local quickMovePilots = Settings.GetBooleanSettingValue("QuickMovePilots")
 	if (quickMovePilots == false) then
 		return
@@ -194,7 +224,7 @@ function Hanger.PilotClickListener()
 
 					if (mouse_check_button_pressed(Types.MouseButtons.Left) and
 						keyboard_check(Types.VirtualKeys.Shift)) then
-						Private.PlacePilotIntoHanger(mech, pilot)
+						Private.PlacePilotIntoHangar(mech, pilot)
 						return
 					end
 				end
@@ -206,7 +236,7 @@ end
 ---Place the given pilot in the first available mech.
 ---If there are no free mechs do nothing.
 ---@param pilot game_obj_pilot_item The pilot.
----@param obj_content_pilots game_obj_content_pilots The hanger.
+---@param obj_content_pilots game_obj_content_pilots The hangar.
 function Private.PlacePilotIntoMech(pilot, obj_content_pilots)
 	local mech = Private.FindAvailableMech()
 	if mech == nil then
@@ -245,10 +275,10 @@ function Private.PlacePilotIntoMech(pilot, obj_content_pilots)
 	obj_content_pilots.number_of_items = numberOfItems - 1
 end
 
----Place the given pilot back into the hanger and clear the mech.
+---Place the given pilot back into the hangar and clear the mech.
 ---@param mech game_obj_mech_item The mech containing the pilot.
 ---@param pilot game_obj_pilot_item The pilot.
-function Private.PlacePilotIntoHanger(mech, pilot)
+function Private.PlacePilotIntoHangar(mech, pilot)
 	local obj_content_pilots = Common.GetObjContentPilots()
 	local numberOfItems = obj_content_pilots.number_of_items
 	local list_pilot = obj_content_pilots.list_pilot
@@ -380,7 +410,7 @@ function Private.SetPilotVoice(templateData, voice)
 end
 
 ------------------------------------------------------------------------------
---- EXPORT HANGER ------------------------------------------------------------
+--- EXPORT HANGAR ------------------------------------------------------------
 ------------------------------------------------------------------------------
 
-return Hanger
+return Hangar

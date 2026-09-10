@@ -1,5 +1,12 @@
 # Changelog
 
+## [v1.5] - 2026-09-10
+### Added
+- Remove functions for items
+- Remove function for starting mechs
+### Fixed
+- Bug where items where incorrectly added resulting in duplicate or missing items
+
 ## [v1.4] - 2026-05-18
 ### Fixed
 - Fix the error when a mech was destroyed with the RTS controls enabled
@@ -16,7 +23,7 @@
 
 ## [v1.1] - 2026-05-12
 ### Fixed
-- Pilots being deleted when returning to the hanger.
+- Pilots being deleted when returning to the hangar.
 
 ## [v1.0] - 2026-05-09
 Public release on steam
@@ -29,7 +36,7 @@ Public release on steam
 ### Added
 - Added Quality of life feature: Quick move pilots
     - Shift+Left clicking pilots moves them into free mechs
-    - Shift+Left clicking pilots moves them back into the hanger
+    - Shift+Left clicking pilots moves them back into the hangar
     - Option is toggleable from the mod settings menu
 - Added Quality of life feature: RTS unit selection
     - Default selection with 1-8 to select that mech and unselect the rest

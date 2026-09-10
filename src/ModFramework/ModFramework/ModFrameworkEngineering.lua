@@ -26,18 +26,19 @@ function Engineering.AddCabin(resourceNumber)
 
 	--Copy the array to the working set
 	local list_cabin = obj_content_cabins.list_cabin
+	--The list can contain more items that is used by the game, so we need to use the stored item count.
+	local numberOfItems = obj_content_cabins.number_of_items
 
-	local arraySize = #list_cabin
-	local itemIndex = arraySize + 1
+	local itemIndex = numberOfItems + 1
 	local addedCabin = Private.AddCabinItemInstance()
-	addedCabin.my_num = arraySize
+	addedCabin.my_num = numberOfItems
 	addedCabin.cabin_number = resourceNumber
 	addedCabin.new_module = true
 	list_cabin[itemIndex] = addedCabin
 
 	--return new data
 	obj_content_cabins.list_cabin = list_cabin
-	obj_content_cabins.number_of_items = #list_cabin
+	obj_content_cabins.number_of_items = itemIndex
 end
 
 ---Adds a component of type motor to engineering.
@@ -47,18 +48,19 @@ function Engineering.AddMotor(resourceNumber)
 
 	--Copy the array to the working set
 	local list_motor = obj_content_motors.list_motor
+	--The list can contain more items that is used by the game, so we need to use the stored item count.
+	local numberOfItems = obj_content_motors.number_of_items
 
-	local arraySize = #list_motor
-	local itemIndex = arraySize + 1
+	local itemIndex = numberOfItems + 1
 	local addedMotor = Private.AddMotorItemInstance()
-	addedMotor.my_num = arraySize
+	addedMotor.my_num = numberOfItems
 	addedMotor.motor_number = resourceNumber
 	addedMotor.new_module = true
 	list_motor[itemIndex] = addedMotor
 
 	--return new data
 	obj_content_motors.list_motor = list_motor
-	obj_content_motors.number_of_items = #list_motor
+	obj_content_motors.number_of_items = itemIndex
 end
 
 ---Adds a component of type mech to engineering.
@@ -69,11 +71,12 @@ function Engineering.AddMech(resourceNumber, name)
 
 	--Copy the array to the working set
 	local list_mech = obj_content_mechs.list_mech
+	--The list can contain more items that is used by the game, so we need to use the stored item count.
+	local numberOfItems = obj_content_mechs.number_of_items
 
-	local arraySize = #list_mech
-	local itemIndex = arraySize + 1
+	local itemIndex = numberOfItems + 1
 	local addedMech = Private.AddMechItemInstance()
-	addedMech.my_num = arraySize
+	addedMech.my_num = numberOfItems
 	addedMech.mech_number = resourceNumber
 	addedMech.new_module = true
 	if (name ~= nil) then
@@ -83,7 +86,7 @@ function Engineering.AddMech(resourceNumber, name)
 
 	--return new data
 	obj_content_mechs.list_mech = list_mech
-	obj_content_mechs.number_of_items = #list_mech
+	obj_content_mechs.number_of_items = itemIndex
 end
 
 ---Adds a component of type weapon to engineering.
@@ -94,11 +97,12 @@ function Engineering.AddWeapon(resourceNumber, huge)
 
 	--Copy the array to the working set
 	local list_weapon = obj_content_weapons.list_weapon
+	--The list can contain more items that is used by the game, so we need to use the stored item count.
+	local numberOfItems = obj_content_weapons.number_of_items
 
-	local arraySize = #list_weapon
-	local itemIndex = arraySize + 1
+	local itemIndex = numberOfItems + 1
 	local addedWeapon = Private.AddWeaponItemInstance()
-	addedWeapon.my_num = arraySize
+	addedWeapon.my_num = numberOfItems
 	addedWeapon.weapon_number = resourceNumber
 	addedWeapon.size_huge = huge
 	addedWeapon.new_module = true
@@ -106,7 +110,7 @@ function Engineering.AddWeapon(resourceNumber, huge)
 
 	--return new data
 	obj_content_weapons.list_weapon = list_weapon
-	obj_content_weapons.number_of_items = #list_weapon
+	obj_content_weapons.number_of_items = itemIndex
 end
 
 ---Adds a component of type reactor to engineering.
@@ -116,18 +120,19 @@ function Engineering.AddReactor(resourceNumber)
 
 	--Copy the array to the working set
 	local list_reactor = obj_content_reactor.list_reactor
+	--The list can contain more items that is used by the game, so we need to use the stored item count.
+	local numberOfItems = obj_content_reactor.number_of_items
 
-	local arraySize = #list_reactor
-	local itemIndex = arraySize + 1
+	local itemIndex = numberOfItems + 1
 	local addedReactor = Private.AddReactorItemInstance()
-	addedReactor.my_num = arraySize
+	addedReactor.my_num = numberOfItems
 	addedReactor.reactor_number = resourceNumber
 	addedReactor.new_module = true
 	list_reactor[itemIndex] = addedReactor
 
 	--return new data
 	obj_content_reactor.list_reactor = list_reactor
-	obj_content_reactor.number_of_items = #list_reactor
+	obj_content_reactor.number_of_items = itemIndex
 end
 
 ---Adds a component of type injector to engineering.
@@ -137,18 +142,19 @@ function Engineering.AddInjector(resourceNumber)
 
 	--Copy the array to the working set
 	local list_injector = obj_content_injector.list_injector
+	--The list can contain more items that is used by the game, so we need to use the stored item count.
+	local numberOfItems = obj_content_injector.number_of_items
 
-	local arraySize = #list_injector
-	local itemIndex = arraySize + 1
+	local itemIndex = numberOfItems + 1
 	local addedInjector = Private.AddInjectorItemInstance()
-	addedInjector.my_num = arraySize
+	addedInjector.my_num = numberOfItems
 	addedInjector.injector_number = resourceNumber
 	addedInjector.new_module = true
 	list_injector[itemIndex] = addedInjector
 
 	--return new data
 	obj_content_injector.list_injector = list_injector
-	obj_content_injector.number_of_items = #list_injector
+	obj_content_injector.number_of_items = numberOfItems
 end
 
 ---Adds a component of type piston to engineering.
@@ -158,18 +164,19 @@ function Engineering.AddPiston(resourceNumber)
 
 	--Copy the array to the working set
 	local list_piston = obj_content_piston.list_piston
+	--The list can contain more items that is used by the game, so we need to use the stored item count.
+	local numberOfItems = obj_content_piston.number_of_items
 
-	local arraySize = #list_piston
-	local itemIndex = arraySize + 1
+	local itemIndex = numberOfItems + 1
 	local addedPiston = Private.AddPistonItemInstance()
-	addedPiston.my_num = arraySize
+	addedPiston.my_num = numberOfItems
 	addedPiston.piston_number = resourceNumber
 	addedPiston.new_module = true
 	list_piston[itemIndex] = addedPiston
 
 	--return new data
 	obj_content_piston.list_piston = list_piston
-	obj_content_piston.number_of_items = #list_piston
+	obj_content_piston.number_of_items = numberOfItems
 end
 
 ---Adds a component of type kernel to engineering.
@@ -179,18 +186,19 @@ function Engineering.AddKernel(resourceNumber)
 
 	--Copy the array to the working set
 	local list_kernel = obj_content_kernel.list_kernel
+	--The list can contain more items that is used by the game, so we need to use the stored item count.
+	local numberOfItems = obj_content_kernel.number_of_items
 
-	local arraySize = #list_kernel
-	local itemIndex = arraySize + 1
+	local itemIndex = numberOfItems + 1
 	local addedKernel = Private.AddKernelItemInstance()
-	addedKernel.my_num = arraySize
+	addedKernel.my_num = numberOfItems
 	addedKernel.kernel_number = resourceNumber
 	addedKernel.new_module = true
 	list_kernel[itemIndex] = addedKernel
 
 	--return new data
 	obj_content_kernel.list_kernel = list_kernel
-	obj_content_kernel.number_of_items = #list_kernel
+	obj_content_kernel.number_of_items = numberOfItems
 end
 
 ---Adds a component of type safety to engineering.
@@ -200,18 +208,19 @@ function Engineering.AddSafety(resourceNumber)
 
 	--Copy the array to the working set
 	local list_safety = obj_content_safety.list_safety
+	--The list can contain more items that is used by the game, so we need to use the stored item count.
+	local numberOfItems = obj_content_safety.number_of_items
 
-	local arraySize = #list_safety
-	local itemIndex = arraySize + 1
+	local itemIndex = numberOfItems + 1
 	local addedSafety = Private.AddSafetyItemInstance()
-	addedSafety.my_num = arraySize
+	addedSafety.my_num = numberOfItems
 	addedSafety.safety_number = resourceNumber
 	addedSafety.new_module = true
 	list_safety[itemIndex] = addedSafety
 
 	--return new data
 	obj_content_safety.list_safety = list_safety
-	obj_content_safety.number_of_items = #list_safety
+	obj_content_safety.number_of_items = numberOfItems
 end
 
 ---Adds a component of type magnet to engineering.
@@ -221,18 +230,19 @@ function Engineering.AddMagnet(resourceNumber)
 
 	--Copy the array to the working set
 	local list_magnet = obj_content_magnet.list_magnet
+	--The list can contain more items that is used by the game, so we need to use the stored item count.
+	local numberOfItems = obj_content_magnet.number_of_items
 
-	local arraySize = #list_magnet
-	local itemIndex = arraySize + 1
+	local itemIndex = numberOfItems + 1
 	local addedMagnet = Private.AddMagnetItemInstance()
-	addedMagnet.my_num = arraySize
+	addedMagnet.my_num = numberOfItems
 	addedMagnet.magnet_number = resourceNumber
 	addedMagnet.new_module = true
 	list_magnet[itemIndex] = addedMagnet
 
 	--return new data
 	obj_content_magnet.list_magnet = list_magnet
-	obj_content_magnet.number_of_items = #list_magnet
+	obj_content_magnet.number_of_items = numberOfItems
 end
 
 ---Adds a component of type solenoid to engineering.
@@ -242,18 +252,19 @@ function Engineering.AddSolenoid(resourceNumber)
 
 	--Copy the array to the working set
 	local list_solenoid = obj_content_solenoid.list_solenoid
+	--The list can contain more items that is used by the game, so we need to use the stored item count.
+	local numberOfItems = obj_content_solenoid.number_of_items
 
-	local arraySize = #list_solenoid
-	local itemIndex = arraySize + 1
+	local itemIndex = numberOfItems + 1
 	local addedSolenoid = Private.AddSolenoidItemInstance()
-	addedSolenoid.my_num = arraySize
+	addedSolenoid.my_num = numberOfItems
 	addedSolenoid.solenoid_number = resourceNumber
 	addedSolenoid.new_module = true
 	list_solenoid[itemIndex] = addedSolenoid
 
 	--return new data
 	obj_content_solenoid.list_solenoid = list_solenoid
-	obj_content_solenoid.number_of_items = #list_solenoid
+	obj_content_solenoid.number_of_items = numberOfItems
 end
 
 ---Removes all existing cabins from engineering.

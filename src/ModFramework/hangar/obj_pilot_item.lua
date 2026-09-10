@@ -34,7 +34,7 @@ end
 function during_battle(q)
 end
 
----draw call when the pilots hanger is open on the pilot tab
+---draw call when the pilots hangar is open on the pilot tab
 ---@param q game_obj_pilot_item
 function draw(q)
 end

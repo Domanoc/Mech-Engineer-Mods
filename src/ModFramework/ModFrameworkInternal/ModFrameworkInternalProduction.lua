@@ -102,19 +102,19 @@ function Production.SetModdedSprites()
 	--Copy the array to the working set
 	local hanger_mass = obj_component_shop.hanger_mass
 
-	--Hanger identifiers
-	local hangerIndexes = Types.HangerIndexes
+	--Hangar identifiers
+	local hangarIndexes = Types.HangarIndexes
 
-	--We step through the hanger/production items to find our modded items
+	--We step through the hangar/production items to find our modded items
 	for _, hangar in ipairs(hanger_mass) do
-		local componentType = hangar[hangerIndexes.component_type]
-		local itemIndex = hangar[hangerIndexes.item_index]
+		local componentType = hangar[hangarIndexes.component_type]
+		local itemIndex = hangar[hangarIndexes.item_index]
 
 		for _, modded_item in ipairs(Storage.ModdedComponentList) do
 			if (componentType == modded_item.ComponentType and itemIndex == modded_item.ResourceNumber) then
 				--When the reference matches the modded element we set the relevant mod sprite to the logo and logo index.
-				hangar[hangerIndexes.logo] = modded_item.SpriteIndex
-				hangar[hangerIndexes.logo_index] = modded_item.SpriteIndex
+				hangar[hangarIndexes.logo] = modded_item.SpriteIndex
+				hangar[hangarIndexes.logo_index] = modded_item.SpriteIndex
 			end
 		end
 	end
@@ -345,15 +345,15 @@ end
 ---Returns the staff that where used in the construction of the custom component
 ---
 ---Used in the done function of obj_component_shop.lua
----@param hangerSlot number The hanger slot that has the completed item
-function Production.ReturnStaffAfterCustomComponentCompletion(hangerSlot)
+---@param hangarSlot number The hangar slot that has the completed item
+function Production.ReturnStaffAfterCustomComponentCompletion(hangarSlot)
 	local obj_component_shop = Common.GetObjComponentShop()
 
 	--load needed types
-	local hangerIndexes = Types.HangerIndexes
+	local hangarIndexes = Types.HangarIndexes
 
-	local hanger = obj_component_shop.hanger_mass[hangerSlot]
-	local componentType = hanger[hangerIndexes.component_type]
+	local hangar = obj_component_shop.hanger_mass[hangarSlot]
+	local componentType = hangar[hangarIndexes.component_type]
 	local component = Common.GetCustomComponentByType(componentType)
 	if (component ~= nil) then
 		local staff = variable_global_get("res_staff")

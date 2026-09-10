@@ -20,10 +20,10 @@ local Engineering = {}
 ---Access to the functions for the Engineering tab.
 ModFramework.Engineering = Engineering
 
----@type ModFrameworkHanger
-local Hanger = {}
----Access to the functions for the Hanger tab.
-ModFramework.Hanger = Hanger
+---@type ModFrameworkHangar
+local Hangar = {}
+---Access to the functions for the Hangar tab.
+ModFramework.Hangar = Hangar
 
 ---@type ModFrameworkProduction
 local Production = {}

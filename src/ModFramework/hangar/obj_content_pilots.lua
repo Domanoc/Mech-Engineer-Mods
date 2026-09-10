@@ -10,7 +10,7 @@ end
 ---inside the pilots menu
 ---@param q game_obj_content_pilots
 function step_activated(q)
-	Internal.Hanger.PilotClickListener()
+	Internal.Hangar.PilotClickListener()
 end
 
 ---Triggers per frame per visible pilot that is drawn.

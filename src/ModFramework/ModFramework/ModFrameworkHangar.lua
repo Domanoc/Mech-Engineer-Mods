@@ -1,13 +1,13 @@
 ------------------------------------------------------------------------------
---- HANGER FUNCTIONS -----------------------------------------------------
+--- HANGAR FUNCTIONS -----------------------------------------------------
 ------------------------------------------------------------------------------
 
----Access to the functions for the Hanger tab.
----@type ModFrameworkHanger
-local Hanger = {}
+---Access to the functions for the Hangar tab.
+---@type ModFrameworkHangar
+local Hangar = {}
 
 ---Access to the private functions in this file.
----@class ModFrameworkHangerPrivate
+---@class ModFrameworkHangarPrivate
 local Private = {}
 
 ------------------------------------------------------------------------------
@@ -21,9 +21,9 @@ local Common = require("ModFrameworkCommon")
 ------------------------------------------------------------------------------
 ------------------------------------------------------------------------------
 
----Add a new pilot to the hanger.
+---Add a new pilot to the hangar.
 ---@param pilotData PilotCreationData The dataset for adding a new pilot.
-function Hanger.AddPilot(pilotData)
+function Hangar.AddPilot(pilotData)
     ---@type LocalizedPilotCreationData
     local localizedPilotData = {
         Template = pilotData.Template,
@@ -43,8 +43,19 @@ function Hanger.AddPilot(pilotData)
     table.insert(Storage.PilotDataQueue, localizedPilotData)
 end
 
+---Removes the default mechs that a new save starts with.
+function Hangar.RemoveStartingMechs()
+    --We need to check if the this start is a new game or from a loaded save
+	if (Common.IsLoadedGame()) then
+		--Since we don't want to change things on a loaded game we return
+		return
+	end
+
+    Storage.RemoveStarterMechs = true
+end
+
 ------------------------------------------------------------------------------
---- EXPORT HANGER ------------------------------------------------------------
+--- EXPORT HANGAR ------------------------------------------------------------
 ------------------------------------------------------------------------------
 
-return Hanger
+return Hangar

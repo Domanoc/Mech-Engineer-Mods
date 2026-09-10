@@ -26,7 +26,7 @@ function create(q,v_modid)
 	--By adding pilots here you can add them to the roster for a new game
 
 	--example of a fully modded pilot
-	Mod.Hanger.AddPilot({
+	Mod.Hangar.AddPilot({
 		Template = "FREEZ", 		--this wil determine the used sprite and the missing optional values.
 		Age = 22,					--the age of the pilot
 		IsCyborg = false,			--if true the pilot is a cyborg
@@ -50,7 +50,7 @@ function create(q,v_modid)
 
 	--Not all fields are required so you can make one with a more limited set of data
 	--Missing data will be provided by the template
-	Mod.Hanger.AddPilot({
+	Mod.Hangar.AddPilot({
 		Template = "ELLEN", 		--this wil determine the used sprite and the missing optional values.
 		Age = 40,					--the age of the pilot
 		IsCyborg = false,			--if true the pilot is a cyborg
@@ -67,7 +67,7 @@ function create(q,v_modid)
 	--Instead of a template name we can provide the index for new pilot template
 	local emoticon = Mod.Common.GetPilotTemplateIndex("EMOTICON")
 	if (emoticon ~= nil) then
-		Mod.Hanger.AddPilot({
+		Mod.Hangar.AddPilot({
 			Template = emoticon, 	--this wil determine the used sprite and the missing optional values.
 			Age = 666,				--the age of the pilot
 			IsCyborg = false,		--if true the pilot is a cyborg

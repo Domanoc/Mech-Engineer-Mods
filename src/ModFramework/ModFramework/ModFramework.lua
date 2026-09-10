@@ -19,9 +19,9 @@ local Engineering = require("ModFrameworkEngineering")
 ---Access to the functions for the Engineering tab.
 ModFramework.Engineering = Engineering
 
-local Hanger = require("ModFrameworkHanger")
----Access to the functions for the Hanger tab.
-ModFramework.Hanger = Hanger
+local Hangar = require("ModFrameworkHangar")
+---Access to the functions for the Hangar tab.
+ModFramework.Hangar = Hangar
 
 local Production = require("ModFrameworkProduction")
 ---Access to the functions for the Production tab.

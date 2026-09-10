@@ -16,7 +16,7 @@ end
 
 ---Triggers when a component production completes.
 ---@param q game_obj_component_shop
----@param i 1|2|3|4|5|6|7|8|9|10 The number of the hangar to check to check. Note you need to increase the value by 1 to get the correct Hanger slot.
+---@param i 1|2|3|4|5|6|7|8|9|10 The number of the hangar to check to check. Note you need to increase the value by 1 to get the correct Hangar slot.
 function done(q, i)
 	Internal.Production.ReturnStaffAfterCustomComponentCompletion(i+1)
 end

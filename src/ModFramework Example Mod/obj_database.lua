@@ -179,6 +179,9 @@ function create(q,v_modid)
 			{ Label = { LocalizedDefaultValue = "SOME STAT NAME" }, Value = 0.45 },
 		}
 	})
+
+	--We can remove the starting mechs. This will only apply for new games.
+	Mod.Hangar.RemoveStartingMechs()
 end
 
 ---saving system deletes the file and creates new one before saving new info

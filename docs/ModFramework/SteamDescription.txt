@@ -24,7 +24,7 @@ For a full list of features visit the [url=https://github.com/Domanoc/Mech-Engin
 
 [h2]Quality of life[/h2]
 [h3]Moving pilots with key combination:[/h3]
-Pilots can be moved into the first available mech by clicking on the pilot in the hanger with the use of the key combination "_shift + left mouse button_". This will ignore the pilot states where you can normally not interact with them. And in reverse the pilots can be moved back into the hangar with the same key combination.
+Pilots can be moved into the first available mech by clicking on the pilot in the hangar with the use of the key combination "_shift + left mouse button_". This will ignore the pilot states where you can normally not interact with them. And in reverse the pilots can be moved back into the hangar with the same key combination.
 
 Default setting: Enabled
 

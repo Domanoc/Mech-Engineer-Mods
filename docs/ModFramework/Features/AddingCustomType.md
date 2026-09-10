@@ -68,14 +68,14 @@ To add actual completion logic see the following example that was made in the ob
 ```lua
 ---Triggers when a component production completes.
 ---@param q game_obj_component_shop
----@param i 1|2|3|4|5|6|7|8|9|10 The number of the hangar to check to check. Note you need to increase the value by 1 to get the correct Hanger slot.
+---@param i 1|2|3|4|5|6|7|8|9|10 The number of the hangar to check to check. Note you need to increase the value by 1 to get the correct Hangar slot.
 function done(q, i)
     --load needed types
-	local hangerIndexes = Mod.Types.HangerIndexes
+	local hangarIndexes = Mod.Types.HangarIndexes
 
-    local hangerSlot = i + 1
-    local hanger = q.hanger_mass[hangerSlot]
-	local componentType = hanger[hangerIndexes.component_type]
+    local hangarSlot = i + 1
+    local hangar = q.hanger_mass[hangarSlot]
+	local componentType = hangar[hangarIndexes.component_type]
 	local component = Mod.Common.GetCustomComponentByType(componentType)
 
     --Check if we found a component and if the name matches the custom component we made
@@ -87,7 +87,7 @@ function done(q, i)
 
         local emoticon = Mod.Common.GetPilotTemplateIndex("EMOTICON")
         if (emoticon ~= nil) then
-            Mod.Hanger.AddPilot({
+            Mod.Hangar.AddPilot({
                 Template = emoticon, 	--this wil determine the used sprite and the missing optional values.
                 Age = 0,				--the age of the pilot
                 IsCyborg = true,		--if true the pilot is a cyborg

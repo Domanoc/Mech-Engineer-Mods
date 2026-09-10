@@ -45,7 +45,8 @@ function draw_top_menu(q)
 	Internal.ComponentShop.RearrangeShopComponents()
 	Internal.ComponentShop.FixRobotComponentBleed()
 	Internal.Research.FixModdedResearch()
-	Internal.Hanger.ProcessPilotDataQueue()
+	Internal.Hangar.ProcessPilotDataQueue()
+	Internal.Hangar.ProcessHangarQueue()
 	Internal.Settings.DrawMenu()
 end
 

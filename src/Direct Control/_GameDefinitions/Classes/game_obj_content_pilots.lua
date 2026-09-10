@@ -11,7 +11,7 @@
 ---@field hospital_cyborg_one number
 ---@field hospital_cyborg_two number
 ---@field item_height number
----@field list_pilot game_obj_pilot_item[] The pilots that are in the hanger, the list will be bigger than the number_of_items. Items past the number_of_items need to be ignored.
+---@field list_pilot game_obj_pilot_item[] The pilots that are in the hangar, the list will be bigger than the number_of_items. Items past the number_of_items need to be ignored.
 ---@field memorial_animation number
 ---@field memorial_move_y number
 ---@field memorial_wall_active boolean
