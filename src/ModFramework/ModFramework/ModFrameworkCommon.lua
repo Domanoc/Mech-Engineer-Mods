@@ -374,6 +374,12 @@ function Common.GetObjPilotItem()
 	return asset_get_index("obj_pilot_item")
 end
 
+---Gets the reference for "obj_mech_item"
+---@return game_obj_mech_item obj_mech_item The reference for "obj_mech_item"
+function Common.GetObjMechItem()
+	return asset_get_index("obj_mech_item")
+end
+
 ---Gets the reference for "obj_content_hangar"
 ---@return game_obj_content_hangar obj_content_hangar The reference for "obj_content_hangar"
 function Common.GetObjContentHangar()

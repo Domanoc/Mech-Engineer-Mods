@@ -154,6 +154,10 @@ function Common.GetObjContentPilots() end
 ---@return game_obj_pilot_item obj_pilot_item The reference for "obj_pilot_item"
 function Common.GetObjPilotItem() end
 
+---Gets the reference for "obj_mech_item"
+---@return game_obj_mech_item obj_mech_item The reference for "obj_mech_item"
+function Common.GetObjMechItem() end
+
 ---Gets the reference for "obj_content_hangar"
 ---@return game_obj_content_hangar obj_content_hangar The reference for "obj_content_hangar"
 function Common.GetObjContentHangar() end

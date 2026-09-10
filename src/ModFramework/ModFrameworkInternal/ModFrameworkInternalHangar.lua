@@ -41,9 +41,23 @@ function Hangar.ProcessPilotDataQueue()
     Storage.PilotDataQueue = {}
 end
 
+local mechDataQueue = {{}}
 ---Adds and or removed queued mechs in the hangar
 function Hangar.ProcessHangarQueue()
+	local obj_weapon_test = Common.GetObjWeaponTest()
+
+	--We check if the ini has been loaded
+	if (obj_weapon_test.load_ini == false) then
+		return
+	end
+
 	Private.RemoveStartingMechs()
+
+--    for _, mechData in ipairs(mechDataQueue) do
+--        Private.AddMechFromQueue()
+--    end
+--    --clear queue
+--    mechDataQueue = {}
 end
 
 ---Add a new pilot to the hangar
@@ -127,7 +141,7 @@ function Private.GetPilotTemplateData(template)
 end
 
 ---Create a new pilot instance
----@return game_obj_pilot_item objPilotItem the new obj_pilot_item instance
+---@return game_obj_pilot_item obj_pilot_item the new obj_pilot_item instance
 function Private.AddPilotItemInstance()
 	local obj_pilot_item = Common.GetObjPilotItem()
 	return instance_create_depth(0, 0, 0, obj_pilot_item)
@@ -141,21 +155,46 @@ function Private.RemoveStartingMechs()
 		return
 	end
 
-    local obj_weapon_test = Common.GetObjWeaponTest()
-    --We check if the ini has been loaded
-	if (obj_weapon_test.load_ini == false) then
-		return
-	end
+    local obj_content_hangar = Common.GetObjContentHangar()
 
-    local hangar = Common.GetObjContentHangar()
-    local mechs = hangar.list_mech
-    for key, _ in pairs(mechs) do
-        mechs[key] = -4
+	--Copy the array to the working set
+    local list_mech = obj_content_hangar.list_mech
+    for _, mech in pairs(list_mech) do
+        if (mech ~= -4) then
+			mech.item_pos = 0
+		end
     end
 
-    hangar.list_mech = mechs
-    hangar.number_of_items = 0
+    obj_content_hangar.list_mech = list_mech
+    obj_content_hangar.number_of_items = 0
 	areMechsRemoved = true
+end
+
+---Add a new mech to the hangar
+function Private.AddMechFromQueue()
+	local obj_content_hangar = Common.GetObjContentHangar()
+
+	--Copy the array to the working set
+    local list_mech = obj_content_hangar.list_mech
+	local numberOfItems = obj_content_hangar.number_of_items
+
+	local itemIndex = numberOfItems + 1
+	local addedMech = Private.AddMechItemInstance()
+	addedMech.item_pos = numberOfItems
+	addedMech.mech_name = "Added"
+	addedMech.mech_number = 1
+	list_mech[itemIndex] = addedMech
+
+	--return new data
+	obj_content_hangar.list_mech = list_mech
+	obj_content_hangar.number_of_items = itemIndex
+end
+
+---Create a new mech instance
+---@return game_obj_mech_item obj_mech_item the new obj_mech_item instance
+function Private.AddMechItemInstance()
+	local obj_mech_item = Common.GetObjMechItem()
+	return instance_create_depth(0, 0, 0, obj_mech_item)
 end
 
 ------------------------------------------------------------------------------
