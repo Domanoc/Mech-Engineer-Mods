@@ -39,7 +39,7 @@
 ---@field battle_choose_mech boolean
 ---@field battle_place_x number
 ---@field battle_place_y number
----@field battle_slot table
+---@field battle_slot table<number, -4|game_obj_mech_item>
 ---@field battle_slot_target table
 ---@field beacon_checked number
 ---@field beacon_days number
