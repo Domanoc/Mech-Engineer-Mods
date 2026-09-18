@@ -3,11 +3,14 @@
 ---@param q game_obj_content_hangar
 ---@param v_modid string
 function create(q,v_modid)
+    --Only needed in the framework setup, is not needed for mods
+	Internal = require("ModFrameworkInternal")
 end
 
 ---every game tick if we are in the hangar menu and battle is not active
 ---@param q game_obj_content_hangar
 function step_activated(q)
+    Internal.Hangar.MechListener()
 end
 
 ---when all conditions are met to spawn a giant (red sword)

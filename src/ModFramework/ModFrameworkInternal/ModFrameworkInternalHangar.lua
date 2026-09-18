@@ -357,6 +357,64 @@ function Private.FindAvailableMech()
 end
 
 ------------------------------------------------------------------------------
+--- MECH MOVER --------------------------------------------------------------
+------------------------------------------------------------------------------
+
+---Listens for mech movements to the battle slots
+---When a mech is moved to a closed slot it will return the mech to the hangar
+function Hangar.MechListener()
+	local obj_content_hangar = Common.GetObjContentHangar()
+	local squad_size = variable_global_get("squad_size")
+
+	--We only check the first 20 slots to keep the update loop fast
+    for i = 1, 20, 1 do
+        local index = i + 1
+        local slot = obj_content_hangar.battle_slot[index]
+        if (slot ~= -4 and i > squad_size) then
+            Private.RemoveMechFromSlot(index)
+        end
+    end
+end
+
+---Removes a mech from the given slot an moves it back to the Hangar
+---@param index number The slot index number
+function Private.RemoveMechFromSlot(index)
+    local obj_content_hangar = Common.GetObjContentHangar()
+    local battle_slot = obj_content_hangar.battle_slot
+    if (battle_slot[index] == -4) then
+        return
+    end
+    local mech = battle_slot[index]
+    battle_slot[index] = -4
+
+	--return the updated array
+    obj_content_hangar.battle_slot = battle_slot
+
+	--count the mechs in battle slots
+    local filledSlots = 0
+    for _, value in pairs(battle_slot) do
+        if (value ~= -4) then
+            filledSlots = filledSlots + 1
+        end
+    end
+
+    local list_mech = obj_content_hangar.list_mech
+    local number_of_items = obj_content_hangar.number_of_items + 1
+    list_mech[number_of_items] = mech
+
+	--Update the mech
+	--item_pos should be the same as the total mechs in the hangar and battle slots
+    mech.item_pos = number_of_items + filledSlots
+    mech.my_num = number_of_items - 1
+    mech.battle_slot = 0
+    mech.deleted = false
+
+	--return the updated array
+    obj_content_hangar.number_of_items = number_of_items
+    obj_content_hangar.list_mech = list_mech
+end
+
+------------------------------------------------------------------------------
 --- OPTIONAL SETTERS ---------------------------------------------------------
 ------------------------------------------------------------------------------
 
