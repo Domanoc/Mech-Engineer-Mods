@@ -1,5 +1,9 @@
 # Changelog
 
+## [v1.6] - 2026-09-10
+### Fixed
+- Bug where mechs could be assigned to mission slots that where disabled
+
 ## [v1.5] - 2026-09-10
 ### Added
 - Remove functions for items
