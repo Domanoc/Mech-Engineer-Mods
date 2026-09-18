@@ -197,27 +197,29 @@ local localizedHoldPosition = ""
 function ProcessMechControls(obj_battle_map)
 	local i = 0
 	for _, ally in pairs(obj_battle_map.Allies) do
-		if (i == 0) then
-			--Main mech
-			DirectControlMech(ally)
-			leader = ally
-		elseif (i == 1 and
-				leader ~= nil) then
-			--Squad mate 1
-			ControlSquadMember(leader, ally, -105)
-		elseif (i == 2 and
-				leader ~= nil) then
-			--Squad mate 1
-			ControlSquadMember(leader, ally, 105)
-		elseif (i == 3 and
-				leader ~= nil) then
-			--Squad mate 1
-			ControlSquadMember(leader, ally, 180)
-		end
+		if(instance_exists(ally)) then
+			if (i == 0) then
+				--Main mech
+				DirectControlMech(ally)
+				leader = ally
+			elseif (i == 1 and
+					leader ~= nil) then
+				--Squad mate 1
+				ControlSquadMember(leader, ally, -105)
+			elseif (i == 2 and
+					leader ~= nil) then
+				--Squad mate 1
+				ControlSquadMember(leader, ally, 105)
+			elseif (i == 3 and
+					leader ~= nil) then
+				--Squad mate 1
+				ControlSquadMember(leader, ally, 180)
+			end
 
-		--We skip dead mechs
-		if (ally.dead == false) then
-			i = i + 1
+			--We skip dead mechs
+			if (ally.dead == false) then
+				i = i + 1
+			end
 		end
 	end
 
