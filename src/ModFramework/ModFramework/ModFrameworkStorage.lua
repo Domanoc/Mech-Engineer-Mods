@@ -172,6 +172,14 @@ Storage.IsSettingsMenuOpen = false
 ---@type number
 Storage.CurrentSettingsMenuIndex = 1
 
+---The mod setting page index for the settings menu.
+---@type number
+Storage.CurrentSettingsMenuPage = 0
+
+---The mod setting max pages for the settings menu.
+---@type number
+Storage.CurrentSettingsMenuMaxPages = 1
+
 ------------------------------------------------------------------------------
 --- BATTLE STORAGE -----------------------------------------------------------
 ------------------------------------------------------------------------------

@@ -1,6 +1,10 @@
 # Changelog
 
-## [v1.6] - 2026-09-10
+## [v1.6] - 2026-09-19
+### Added
+- Proper pagination for when mod settings overflow the page
+
+## [v1.6] - 2026-09-18
 ### Fixed
 - Bug where mechs could be assigned to mission slots that where disabled
 

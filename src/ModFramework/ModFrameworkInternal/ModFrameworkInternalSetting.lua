@@ -285,15 +285,26 @@ function Private.DrawSettingsMenu()
 	Private.DrawLabel(650, titleY, SelectedModSettings.ModName, 47)
 	Private.SaveDefaultsButton(1332, titleY, Private.SaveAsDefaults)
 
-	local i = 0
-	for _, setting in ipairs(SelectedModSettings.SettingsData) do
-		local y = startSettingsY + (i * settingsHeight)
-		if (type(setting.SettingsValue) == "boolean") then
-			Private.AddBooleanSetting(y, setting, SelectedModSettings.ModName)
-		elseif (type(setting.SettingsValue) == "number") then
-			Private.AddKeyBindSetting(y, setting, SelectedModSettings.ModName)
+	local page = Storage.CurrentSettingsMenuPage
+	local maxPages = math.ceil(#SelectedModSettings.SettingsData / 12) - 1
+	Storage.CurrentSettingsMenuMaxPages = maxPages
+
+	if (maxPages > 0) then
+		Private.DrawPageButton(Storage.SpriteShopButtonLeft, 588 + 332, 830, Private.PreviousPage)
+		Private.DrawPageButton(Storage.SpriteShopButtonRight, 618 + 332, 830, Private.nextPage)
+	end
+
+	for i = 0, 11, 1 do
+		local pageOffset = page * 12
+		local setting = SelectedModSettings.SettingsData[i + pageOffset + 1]
+		if setting ~= nil then
+			local y = startSettingsY + (i * settingsHeight)
+			if (type(setting.SettingsValue) == "boolean") then
+				Private.AddBooleanSetting(y, setting, SelectedModSettings.ModName)
+			elseif (type(setting.SettingsValue) == "number") then
+				Private.AddKeyBindSetting(y, setting, SelectedModSettings.ModName)
+			end
 		end
-		i = i + 1
 	end
 end
 
@@ -488,6 +499,7 @@ function Private.PreviousMod()
 		Storage.CurrentSettingsMenuIndex = #Storage.ModSettingData
 	end
 	WaitingForKey = nil
+	Storage.CurrentSettingsMenuPage = 0
 end
 
 ---Select the next mod settings.
@@ -497,6 +509,23 @@ function Private.NextMod()
 		Storage.CurrentSettingsMenuIndex = 1
 	end
 	WaitingForKey = nil
+	Storage.CurrentSettingsMenuPage = 0
+end
+
+---Select the previous page
+function Private.PreviousPage()
+	Storage.CurrentSettingsMenuPage = Storage.CurrentSettingsMenuPage - 1
+	if (Storage.CurrentSettingsMenuPage < 0) then
+		Storage.CurrentSettingsMenuPage = Storage.CurrentSettingsMenuMaxPages
+	end
+end
+
+---Select the next page
+function Private.nextPage()
+	Storage.CurrentSettingsMenuPage = Storage.CurrentSettingsMenuPage + 1
+	if (Storage.CurrentSettingsMenuPage > Storage.CurrentSettingsMenuMaxPages) then
+		Storage.CurrentSettingsMenuPage = 0
+	end
 end
 
 ---Save the settings as the default settings.
