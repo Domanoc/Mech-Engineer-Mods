@@ -156,7 +156,7 @@
 ---@field my_path number
 ---@field my_pilot_id number
 ---@field my_pilot_is_cyborg boolean
----@field my_slot number
+---@field my_slot game_obj_mech_item
 ---@field new_command string
 ---@field new_pos_x number
 ---@field new_pos_y number
