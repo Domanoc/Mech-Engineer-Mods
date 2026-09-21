@@ -13,7 +13,7 @@ function MirrorFolder {
     }
 }
 
-"" | Set-Content "MirrorDefinitions.log"
+"" | Set-Content "ExportMods.log"
 
 
 # ModFramework Source
