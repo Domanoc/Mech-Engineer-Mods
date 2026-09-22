@@ -8,7 +8,7 @@
 ---@field array_lua table
 ---@field check_list boolean
 ---@field item_height number
----@field list_piston table
+---@field list_piston table<game_obj_piston_item>|nil
 ---@field move_y number
 ---@field my_window number
 ---@field number_of_deleted number

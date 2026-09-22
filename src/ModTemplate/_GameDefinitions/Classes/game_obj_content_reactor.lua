@@ -12,7 +12,7 @@
 ---@field check_list boolean
 ---@field activated boolean
 ---@field surf_reactor_normal number
----@field list_reactor table
+---@field list_reactor table<game_obj_reactor_item>|nil
 ---@field position_x number
 ---@field size_y number
 ---@field sort_items number

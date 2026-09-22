@@ -7,7 +7,7 @@
 ---@field activated boolean
 ---@field array_lua table
 ---@field item_height number
----@field list_mech table
+---@field list_mech table<game_obj_mech_item>|nil
 ---@field move_y number
 ---@field my_window number
 ---@field number_of_deleted number

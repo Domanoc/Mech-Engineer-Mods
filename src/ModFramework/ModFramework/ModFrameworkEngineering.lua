@@ -29,6 +29,11 @@ function Engineering.AddCabin(resourceNumber)
 	--The list can contain more items that is used by the game, so we need to use the stored item count.
 	local numberOfItems = obj_content_cabins.number_of_items
 
+	--When a game is reloaded without this item the list is not created
+	if list_cabin == nil then
+		list_cabin = {}
+	end
+
 	local itemIndex = numberOfItems + 1
 	local addedCabin = Private.AddCabinItemInstance()
 	addedCabin.my_num = numberOfItems
@@ -50,6 +55,11 @@ function Engineering.AddMotor(resourceNumber)
 	local list_motor = obj_content_motors.list_motor
 	--The list can contain more items that is used by the game, so we need to use the stored item count.
 	local numberOfItems = obj_content_motors.number_of_items
+
+	--When a game is reloaded without this item the list is not created
+	if list_motor == nil then
+		list_motor = {}
+	end
 
 	local itemIndex = numberOfItems + 1
 	local addedMotor = Private.AddMotorItemInstance()
@@ -73,6 +83,11 @@ function Engineering.AddMech(resourceNumber, name)
 	local list_mech = obj_content_mechs.list_mech
 	--The list can contain more items that is used by the game, so we need to use the stored item count.
 	local numberOfItems = obj_content_mechs.number_of_items
+
+	--When a game is reloaded without this item the list is not created
+	if list_mech == nil then
+		list_mech = {}
+	end
 
 	local itemIndex = numberOfItems + 1
 	local addedMech = Private.AddMechItemInstance()
@@ -100,6 +115,11 @@ function Engineering.AddWeapon(resourceNumber, huge)
 	--The list can contain more items that is used by the game, so we need to use the stored item count.
 	local numberOfItems = obj_content_weapons.number_of_items
 
+	--When a game is reloaded without this item the list is not created
+	if list_weapon == nil then
+		list_weapon = {}
+	end
+
 	local itemIndex = numberOfItems + 1
 	local addedWeapon = Private.AddWeaponItemInstance()
 	addedWeapon.my_num = numberOfItems
@@ -123,6 +143,11 @@ function Engineering.AddReactor(resourceNumber)
 	--The list can contain more items that is used by the game, so we need to use the stored item count.
 	local numberOfItems = obj_content_reactor.number_of_items
 
+	--When a game is reloaded without this item the list is not created
+	if list_reactor == nil then
+		list_reactor = {}
+	end
+
 	local itemIndex = numberOfItems + 1
 	local addedReactor = Private.AddReactorItemInstance()
 	addedReactor.my_num = numberOfItems
@@ -144,6 +169,11 @@ function Engineering.AddInjector(resourceNumber)
 	local list_injector = obj_content_injector.list_injector
 	--The list can contain more items that is used by the game, so we need to use the stored item count.
 	local numberOfItems = obj_content_injector.number_of_items
+
+	--When a game is reloaded without this item the list is not created
+	if list_injector == nil then
+		list_injector = {}
+	end
 
 	local itemIndex = numberOfItems + 1
 	local addedInjector = Private.AddInjectorItemInstance()
@@ -167,6 +197,11 @@ function Engineering.AddPiston(resourceNumber)
 	--The list can contain more items that is used by the game, so we need to use the stored item count.
 	local numberOfItems = obj_content_piston.number_of_items
 
+	--When a game is reloaded without this item the list is not created
+	if list_piston == nil then
+		list_piston = {}
+	end
+
 	local itemIndex = numberOfItems + 1
 	local addedPiston = Private.AddPistonItemInstance()
 	addedPiston.my_num = numberOfItems
@@ -188,6 +223,11 @@ function Engineering.AddKernel(resourceNumber)
 	local list_kernel = obj_content_kernel.list_kernel
 	--The list can contain more items that is used by the game, so we need to use the stored item count.
 	local numberOfItems = obj_content_kernel.number_of_items
+
+	--When a game is reloaded without this item the list is not created
+	if list_kernel == nil then
+		list_kernel = {}
+	end
 
 	local itemIndex = numberOfItems + 1
 	local addedKernel = Private.AddKernelItemInstance()
@@ -211,6 +251,11 @@ function Engineering.AddSafety(resourceNumber)
 	--The list can contain more items that is used by the game, so we need to use the stored item count.
 	local numberOfItems = obj_content_safety.number_of_items
 
+	--When a game is reloaded without this item the list is not created
+	if list_safety == nil then
+		list_safety = {}
+	end
+
 	local itemIndex = numberOfItems + 1
 	local addedSafety = Private.AddSafetyItemInstance()
 	addedSafety.my_num = numberOfItems
@@ -233,6 +278,11 @@ function Engineering.AddMagnet(resourceNumber)
 	--The list can contain more items that is used by the game, so we need to use the stored item count.
 	local numberOfItems = obj_content_magnet.number_of_items
 
+	--When a game is reloaded without this item the list is not created
+	if list_magnet == nil then
+		list_magnet = {}
+	end
+
 	local itemIndex = numberOfItems + 1
 	local addedMagnet = Private.AddMagnetItemInstance()
 	addedMagnet.my_num = numberOfItems
@@ -254,6 +304,11 @@ function Engineering.AddSolenoid(resourceNumber)
 	local list_solenoid = obj_content_solenoid.list_solenoid
 	--The list can contain more items that is used by the game, so we need to use the stored item count.
 	local numberOfItems = obj_content_solenoid.number_of_items
+
+	--When a game is reloaded without this item the list is not created
+	if list_solenoid == nil then
+		list_solenoid = {}
+	end
 
 	local itemIndex = numberOfItems + 1
 	local addedSolenoid = Private.AddSolenoidItemInstance()

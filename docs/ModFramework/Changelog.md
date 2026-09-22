@@ -1,6 +1,10 @@
 # Changelog
 
-## [v1.6] - 2026-09-19
+## [v1.8] - 2026-09-22
+### Fixed
+- Bug where empty lists on a save load would not be set could cause error while adding new items
+
+## [v1.7] - 2026-09-19
 ### Added
 - Proper pagination for when mod settings overflow the page
 
