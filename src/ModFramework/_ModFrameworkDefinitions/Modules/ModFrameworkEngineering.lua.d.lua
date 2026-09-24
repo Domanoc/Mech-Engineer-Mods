@@ -4,6 +4,12 @@
 ---@class ModFrameworkEngineering
 local Engineering = {}
 
+---Add a component to engineering for every registered modded mech.
+function Engineering.AddAllModdedMechs() end
+
+---Add a component to engineering for every registered modded weapon.
+function Engineering.AddAllModdedWeapons() end
+
 ---Adds a component of type cabin to engineering.
 ---@param resourceNumber number The resource number of the cabin.
 function Engineering.AddCabin(resourceNumber) end

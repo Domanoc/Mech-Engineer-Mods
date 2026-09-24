@@ -14,10 +14,36 @@ local Private = {}
 
 ---Access to the Common functions.
 local Common = require("ModFrameworkCommon")
+---Access to the Storage of mod framework variables.
+local Storage = require("ModFrameworkStorage")
+---Access to Types used by the framework.
+local Types = require("ModFrameworkTypes")
 
 ------------------------------------------------------------------------------
 ------------------------------------------------------------------------------
 ------------------------------------------------------------------------------
+
+---Add a component to engineering for every registered modded mech.
+function Engineering.AddAllModdedMechs()
+	local componentTypes = Types.ComponentTypes
+
+	for _, moddedComponent in ipairs(Storage.ModdedComponentList) do
+		if (moddedComponent.ComponentType == componentTypes.Mech) then
+			Engineering.AddMech(moddedComponent.ResourceNumber, moddedComponent.ReferenceName)
+		end
+	end
+end
+
+---Add a component to engineering for every registered modded weapon.
+function Engineering.AddAllModdedWeapons()
+	local componentTypes = Types.ComponentTypes
+
+	for _, moddedComponent in ipairs(Storage.ModdedComponentList) do
+		if (moddedComponent.ComponentType == componentTypes.Weapon) then
+			Engineering.AddWeapon(moddedComponent.ResourceNumber, false)
+		end
+	end
+end
 
 ---Adds a component of type cabin to engineering.
 ---@param resourceNumber number The resource number of the cabin.
