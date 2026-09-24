@@ -52,6 +52,12 @@ MirrorFolder -SourceFolder $DirectControlSource -DestinationFolder $DirectContro
 MirrorFolder -SourceFolder $DirectControlSource -DestinationFolder $DirectControlDestination2
 
 
+# DebuggerCheat Source
+$DirectControlSource = "D:\Mod Projects\Mech Engineer Mods\src\DebuggerCheat"
+$DirectControlDestination = "C:\Users\mail\AppData\Local\Mech_Engineer\mods\DebuggerCheat"
+
+MirrorFolder -SourceFolder $DirectControlSource -DestinationFolder $DirectControlDestination
+
 (New-Object Media.SoundPlayer "C:\Windows\Media\Windows Notify Messaging.wav").PlaySync()
 
 exit 0
